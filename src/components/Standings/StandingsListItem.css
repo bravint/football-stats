@@ -1,0 +1,59 @@
+.standings {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto;
+    align-items: center;
+    gap: 1rem;
+    height: 5rem;
+}
+
+.standings * {
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+}
+
+.standings > .postion-stats {
+    grid-template-columns: 2rem;
+}
+
+.standings > .team-stats {
+    grid-template-columns: 4rem 1fr;
+}
+
+.standings > .games-stats {
+    grid-template-columns: repeat(4, 2rem);
+}
+
+.standings > .goals-stats {
+    grid-template-columns: repeat(3, 2rem);
+}
+
+.standings > .points-stats {
+    grid-template-columns: 2rem;
+}
+
+.club-logo {
+    width: 2rem;
+}
+
+.standings,
+.extra-stats {
+    margin: 1rem 0;
+    padding: 0 2rem;
+    border-radius: 10px;
+}
+
+.extra-stats {
+    padding-bottom: 2rem;
+}
+
+.team-list,
+.team-list * {
+    color: white;
+    background-color: #272E3C;
+    border-radius: 5px;
+}
+
+.list-title {
+    color: grey;
+}

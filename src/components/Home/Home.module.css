@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 2rem);
+    gap: 2rem;
+}
+
+.league {
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    border-style: none;
+    color: white;
+    background-color: #272e3c;
+    border-radius: 5px;
+}
+
+.sidebarForm {
+    height: 3rem;
+    margin-top: 1rem;
+    background-color: #272e3c;
+    border-radius: 15px;
+    display: flex;
+}

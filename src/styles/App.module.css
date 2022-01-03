@@ -1,0 +1,17 @@
+.main {
+    grid-area: main;
+    padding: 1rem;
+    display: grid;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 21rem 1fr;
+    grid-template-areas: 
+        "sidebar    main";
+    gap: 1rem;      
+}

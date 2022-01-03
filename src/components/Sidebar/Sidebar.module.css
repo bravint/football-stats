@@ -1,0 +1,80 @@
+.competitionOverview {
+    color: rgba(255, 255, 255);
+    font-size: 1.5rem;
+}
+
+.navLogo {
+    height: 10rem;
+    margin: 1rem 0 1rem;
+}
+
+.league {
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    border-style: none;
+    color: white;
+    background-color: #272e3c;
+    border-radius: 5px;
+}
+
+.sidebarForm {
+    height: 3rem;
+    background-color: #272e3c;
+    border-radius: 15px;
+    display: flex;
+    margin-left: 0.6rem;
+}
+
+.header,
+.footer {
+    padding: 1rem 0 1rem;
+    height: 5rem;
+    align-content: center;
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.aside {
+    position: fixed;
+    width: 21rem;
+    margin: 1rem 0 1rem;
+    padding: 1rem 1rem 0;
+    grid-area: sidebar;
+    min-height: calc(100vh - 2rem);
+    border-right: 1px solid rgba(255, 255, 255, 0.527);
+}
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    position: fixed;
+    bottom: 0;
+    grid-template-rows: repeat(4, 1fr);
+    font-size: 1rem;
+    gap: 1rem;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.header,
+.footer,
+.competitionOverview,
+.navLogo {
+    padding-left: 0.6rem;
+}

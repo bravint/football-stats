@@ -1,0 +1,13 @@
+.link,
+.activeLink {
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.link {
+    border-left: 5px solid #18162b;
+}
+
+.activeLink {
+    border-left: 5px solid turquoise;
+}
