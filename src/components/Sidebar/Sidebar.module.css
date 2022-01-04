@@ -44,7 +44,7 @@
     position: fixed;
     width: 21rem;
     margin: 1rem 0 1rem;
-    padding: 1rem 1rem 0;
+    padding-right: 1rem;
     grid-area: sidebar;
     min-height: calc(100vh - 2rem);
     border-right: 1px solid rgba(255, 255, 255, 0.527);

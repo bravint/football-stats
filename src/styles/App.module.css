@@ -1,6 +1,5 @@
 .main {
     grid-area: main;
-    padding: 1rem;
     display: grid;
     gap: 2rem;
     overflow: hidden;

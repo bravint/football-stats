@@ -45,3 +45,7 @@ h6 {
 #root {
     isolation: isolate;
 }
+
+html:focus-within {
+    scroll-behavior: smooth;
+}

@@ -1,7 +1,30 @@
-**REACT port of previous nativeJS project**
+<h1 align="center">Football Stats</h1>
 
-**Objectives**
+<div align="center">
+  <strong>A simple website that renders eurpoean football league information from an API</strong>
+</div>
+<div align="center">
+  Using React, React-Router and Material UI
+</div>
 
+<br />
+
+## Table of Contents
+- [Objectives](#Objectives)
+- [API](#api)
+- [Installation](#installation)
+- [ToDos](#ToDos)
+
+## Objectives
+- __make API requests:__ requests from a local JSON server with updates from an external source
+- __component based:__ react SPA with multiple components sharing state via props
+- __local CSS scoping:__ keeps CSS code manageable/ readable 
+- __SPA with navigation:__ handled by react-router v6
+
+## API
+Data sourced from https://www.football-data.org/
+
+```js
 Fetch data from local JSON server
     If data is current, setState using data fetched
 
@@ -14,15 +37,16 @@ Render fetched data
     - League Table
     - Upcoming Fixtures
     - Previous Results
+```
+## Installation
+npm install
+npm start
 
-**To-do**
-
-implement Material UI design and colour scheme
-use recharts for chart data
-    - animate (slide down) collapsible elements
-implement react-router for home/standings/fixtures/matches
-Make site responsive
-improve readme file - https://boolean.notion.site/How-to-write-an-effective-Readme-cebd7c00f8a94dc98d50ae2839b7a24f
-
-use secure method of storing/calling API key (backend)
-Enable github-pages
+## ToDos
+- __Local/external API integration__
+- __Integrate MUI animations__
+- __use recharts for chart data__
+- __Finish writing this file...__
+- __Enable github-pages__
+- __Make site responsive__
+- __Use secure method of storing/calling API key__
