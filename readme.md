@@ -13,7 +13,7 @@
 - [Objectives](#Objectives)
 - [API](#api)
 - [Installation](#installation)
-- [ToDos](#ToDos)
+- [To-Do](#To-Do)
 
 ## Objectives
 - __make API requests:__ requests from a local JSON server with updates from an external source
@@ -39,10 +39,10 @@ Render fetched data
     - Previous Results
 ```
 ## Installation
-npm install
+npm install\
 npm start
 
-## ToDos
+## To-Do
 - __Local/external API integration__
 - __Integrate MUI animations__
 - __use recharts for chart data__
