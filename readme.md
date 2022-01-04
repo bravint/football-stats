@@ -45,7 +45,7 @@ npm start
 ## To-Do
 - __Local/external API integration__
 - __Integrate MUI animations__
-- __use recharts for chart data__
+- __Use recharts for chart data__
 - __Finish writing this file...__
 - __Enable github-pages__
 - __Make site responsive__
