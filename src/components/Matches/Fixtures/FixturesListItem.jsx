@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 
+import { generateSortedArray, getDate, getTime } from "../utils.js"
+
 function FixturesListItem(props) {
-    const { fixtures } = props;
+    const { fixtures, teams } = props;
 
     const [postponedMatches, setPostponedMatches] = useState([]);
     const [scheduledMatches, setScheduledMatches] = useState([]);
     const [renderArray, setRenderArray] = useState([]);
+
+    console.log(`states`, {
+        fixtures,
+        teams
+    })
 
     useEffect(() => {
         setPostponedMatches(
@@ -18,28 +25,14 @@ function FixturesListItem(props) {
     }, [fixtures]);
 
     useEffect(() => {
-        const sortScheduledMatches = () => {
-            if (scheduledMatches.length < 1) return;
-            let unsortedArray = [...scheduledMatches];
+        function sortScheduledMatches (inputArray) {
+            if (inputArray.length < 1) return;
+            let unsortedArray = [...inputArray];
             let sortedArray = [];
             generateSortedArray(unsortedArray, sortedArray);
             setRenderArray(sortedArray);
         };
-
-        const generateSortedArray = (unsortedArray, sortedArray) => {
-            if (unsortedArray.length < 1) return;
-            let date = getDate(unsortedArray[0].utcDate);
-            let nestedArray = unsortedArray.filter(
-                (element) => getDate(element.utcDate) === date
-            );
-            sortedArray.push(nestedArray);
-            unsortedArray = unsortedArray.filter(
-                (element) => getDate(element.utcDate) !== date
-            );
-            generateSortedArray(unsortedArray, sortedArray);
-        };
-
-        sortScheduledMatches();
+        sortScheduledMatches(scheduledMatches);
     }, [scheduledMatches]);
 
     console.log(`states`, {
@@ -48,9 +41,10 @@ function FixturesListItem(props) {
         renderArray,
     });
 
-    const getDate = (date) => date.slice(0, -10);
-
-    const getTime = (date) => date.slice(11, -4);
+    const getVenue = (id) => {
+        const selectedTeam = teams.teams.filter(element => element.id === id)
+        return selectedTeam[0].venue
+    }
 
     return (
         <>
@@ -69,6 +63,7 @@ function FixturesListItem(props) {
                                     {element.homeTeam.name} vs{" "}
                                     {element.awayTeam.name}
                                 </p>
+                                <p>{getVenue(element.homeTeam.id)}</p>
                             </section>
                         );
                     })}
@@ -89,6 +84,7 @@ function FixturesListItem(props) {
                                             {element.awayTeam.name}
                                         </p>
                                         <p>{getTime(element.utcDate)}</p>
+                                        <p>{getVenue(element.homeTeam.id)}</p>
                                     </section>
                                 </>
                             );

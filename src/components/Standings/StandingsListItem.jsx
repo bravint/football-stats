@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import TeamStats from "./StandingsDetailedStats";
 
-import "./StandingsListItem.css";
+import "../../styles/StandingsListItem.css";
 
 function StandingsListItem(props) {
     const { league } = props;

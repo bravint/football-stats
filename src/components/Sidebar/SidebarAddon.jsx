@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./Sidebar.module.css";
+import styles from "../../styles/Sidebar.module.css";
 
 function SidebarAddon(props) {
     const { league, id } = props;

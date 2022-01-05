@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 
 import SidebarNavigation from "./SidebarNavigation";
 import SidebarAddon from "./SidebarAddon";
-import SidebarSearch from "./SidebarSearch";
+import Form from "../SearchForm/SearchForm";
 
 import Header from "./Header";
 import Footer from "./Footer";
 
-import styles from "./Sidebar.module.css";
+import styles from "../../styles/Sidebar.module.css";
 
 function Sidebar(props) {
     const { id, setId, league } = props;
@@ -29,7 +29,7 @@ function Sidebar(props) {
             {id && league.standings && url !== "/" && (
                 <section className={styles.section}>
                     <SidebarNavigation />
-                    <SidebarSearch setId={setId} />
+                    <Form setId={setId} />
                     <SidebarAddon id={id} league={league} />
                 </section>
             )}

@@ -40,7 +40,7 @@
 .extra-stats {
     margin: 1rem 0;
     padding: 0 2rem;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .extra-stats {
@@ -51,7 +51,7 @@
 .team-list * {
     color: white;
     background-color: #272E3C;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 .list-title {
