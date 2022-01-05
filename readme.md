@@ -4,7 +4,7 @@
   <strong>A simple website that renders eurpoean football league information from an API</strong>
 </div>
 <div align="center">
-  Using React, React-Router and Material UI
+  Uses React
 </div>
 
 <br />
@@ -13,7 +13,7 @@
 - [Objectives](#Objectives)
 - [API](#api)
 - [Installation](#installation)
-- [ToDos](#ToDos)
+- [To-Do](#To-Do)
 
 ## Objectives
 - __make API requests:__ requests from a local JSON server with updates from an external source
@@ -39,14 +39,8 @@ Render fetched data
     - Previous Results
 ```
 ## Installation
-npm install
+npm install\
 npm start
 
-## ToDos
+## To-Do
 - __Local/external API integration__
-- __Integrate MUI animations__
-- __use recharts for chart data__
-- __Finish writing this file...__
-- __Enable github-pages__
-- __Make site responsive__
-- __Use secure method of storing/calling API key__
