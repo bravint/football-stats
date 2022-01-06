@@ -1,16 +1,16 @@
 import FixturesListItem from "./FixturesListItem"
 
+import styles from "../../../styles/FixturesListItem.module.css";
+
 function Fixtures(props) {
-    const { fixtures, teams } = props
+    const { fixtures, teams, id } = props
     
     return (
-        <>
+        <section className={styles.results}>
             {fixtures.matches && (
-            <section className="table">
-                <FixturesListItem fixtures={fixtures} teams={teams}/>
-            </section>
+                <FixturesListItem fixtures={fixtures} teams={teams} id={id}/>
             )}
-        </>
+        </section>
     );
 }
 

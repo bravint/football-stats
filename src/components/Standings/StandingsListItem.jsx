@@ -2,14 +2,17 @@ import { useState } from "react";
 
 import TeamStats from "./StandingsDetailedStats";
 
+import { fixTeamName } from "../../utils.js";
+
 import "../../styles/StandingsListItem.css";
 
 function StandingsListItem(props) {
-    const { league } = props;
+    const { league, id } = props;
 
     const [teamId, setTeamId] = useState(null);
 
-    const onClickHandler = (id) => teamId !== id ? setTeamId(id) : setTeamId(null);
+    const onClickHandler = (id) =>
+        teamId !== id ? setTeamId(id) : setTeamId(null);
 
     if (league)
         return (
@@ -55,7 +58,7 @@ function StandingsListItem(props) {
                                         alt="club logo"
                                         className="club-logo"
                                     ></img>
-                                    <p>{element.team.name}</p>
+                                    <p>{fixTeamName(id, element.team.name)}</p>
                                 </section>
                                 <section className="games-stats">
                                     <p>{element.playedGames}</p>

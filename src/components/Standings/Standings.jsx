@@ -8,7 +8,7 @@ function Standings(props) {
         <>
             {id && league.standings && (
                 <section className="table">
-                    <StandingsListItem league={league} />
+                    <StandingsListItem league={league} id={id}/>
                 </section>
             )}
         </>

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { generateSortedArray, getDate, getTime } from "../utils.js"
+import { generateSortedArray, getDate, fixTeamName } from "../../../utils.js";
+
+import styles from "../../../styles/FixturesListItem.module.css";
 
 function Results(props) {
-    const { fixtures, teams } = props;
+    const { fixtures, teams, id } = props;
 
     const [results, setResults] = useState([]);
     const [renderArray, setRenderArray] = useState([]);
@@ -28,6 +30,7 @@ function Results(props) {
 
     const getVenue = (id) => {
         const selectedTeam = teams.teams.filter((element) => element.id === id);
+        if (id === 397) return "The AMEX Stadium";
         return selectedTeam[0].venue;
     };
 
@@ -40,23 +43,30 @@ function Results(props) {
         <div>
             {renderArray.map((nested) => {
                 return (
-                    <>
-                        <p>{getDate(nested[0].utcDate)}</p>
+                    <section className={styles.results}>
+                        <h3>{getDate(nested[0].utcDate)}</h3>
                         {nested.map((element) => {
                             return (
-                                <>
-                                    <section className="extra-stats expandable">
+                                <li className={styles.matchList}>
+                                    <section className={styles.matchDetails}>
                                         <p>
-                                            {element.homeTeam.name} vs{" "}
-                                            {element.awayTeam.name}
+                                            {fixTeamName(id ,element.homeTeam.name)}
                                         </p>
-                                        <p>{getTime(element.utcDate)}</p>
-                                        <p>{getVenue(element.homeTeam.id)}</p>
+                                        <p>
+                                            {element.score.fullTime.homeTeam} -{" "}
+                                            {element.score.fullTime.awayTeam}
+                                        </p>
+                                        <p className={styles.awayTeam}>
+                                            {fixTeamName(id ,element.awayTeam.name)}
+                                        </p>
+                                        <p className={styles.venue}>
+                                            {getVenue(element.homeTeam.id)}
+                                        </p>
                                     </section>
-                                </>
+                                </li>
                             );
                         })}
-                    </>
+                    </section>
                 );
             })}
         </div>

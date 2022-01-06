@@ -90,8 +90,8 @@ function App() {
                 <main className={styles.main}>
                     <Routes>
                         <Route path="/standings" element={<Standings id={id} league={league} fixtures={fixtures} teams={teams}/>}/>
-                        <Route path="/fixtures" element={<Fixtures id={id} fixtures={fixtures} teams={teams}/>}/>
-                        <Route path="/results" element={<Results id={id} fixtures={fixtures} teams={teams}/>} />
+                        <Route path="/fixtures" element={<Fixtures id={id} league={league} fixtures={fixtures} teams={teams}/>}/>
+                        <Route path="/results" element={<Results id={id} league={league} fixtures={fixtures} teams={teams}/>}/>
                         <Route path="/" element={<Home setId={setId} />} />
                     </Routes>
                 </main>

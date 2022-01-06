@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { generateSortedArray, getDate, getTime } from "../utils.js"
+import {
+    generateSortedArray,
+    getDate,
+    getTime,
+    fixTeamName,
+} from "../../../utils.js";
+
+import styles from "../../../styles/FixturesListItem.module.css";
 
 function FixturesListItem(props) {
-    const { fixtures, teams } = props;
+    const { fixtures, teams, id } = props;
 
     const [postponedMatches, setPostponedMatches] = useState([]);
     const [scheduledMatches, setScheduledMatches] = useState([]);
@@ -11,8 +18,8 @@ function FixturesListItem(props) {
 
     console.log(`states`, {
         fixtures,
-        teams
-    })
+        teams,
+    });
 
     useEffect(() => {
         setPostponedMatches(
@@ -25,13 +32,13 @@ function FixturesListItem(props) {
     }, [fixtures]);
 
     useEffect(() => {
-        function sortScheduledMatches (inputArray) {
+        function sortScheduledMatches(inputArray) {
             if (inputArray.length < 1) return;
             let unsortedArray = [...inputArray];
             let sortedArray = [];
             generateSortedArray(unsortedArray, sortedArray);
             setRenderArray(sortedArray);
-        };
+        }
         sortScheduledMatches(scheduledMatches);
     }, [scheduledMatches]);
 
@@ -42,9 +49,10 @@ function FixturesListItem(props) {
     });
 
     const getVenue = (id) => {
-        const selectedTeam = teams.teams.filter(element => element.id === id)
-        return selectedTeam[0].venue
-    }
+        const selectedTeam = teams.teams.filter((element) => element.id === id);
+        if (id === 397) return "The AMEX Stadium";
+        return selectedTeam[0].venue;
+    };
 
     return (
         <>
@@ -53,18 +61,20 @@ function FixturesListItem(props) {
                     <h1>POSTPONED</h1>
                     {postponedMatches.map((element) => {
                         return (
-                            <section className="extra-stats expandable">
-                                <p>
-                                    Originally scheduled for:{" "}
-                                    {getDate(element.utcDate)} ,{" "}
-                                    {getTime(element.utcDate)}
-                                </p>
-                                <p>
-                                    {element.homeTeam.name} vs{" "}
-                                    {element.awayTeam.name}
-                                </p>
-                                <p>{getVenue(element.homeTeam.id)}</p>
-                            </section>
+                            <li className={styles.matchList}>
+                                <section className={styles.matchDetails}>
+                                    <p>
+                                        {fixTeamName(id, element.homeTeam.name)}
+                                    </p>
+                                    <p>vs</p>
+                                    <p className={styles.awayTeam}>
+                                        {fixTeamName(id, element.awayTeam.name)}
+                                    </p>
+                                    <p className={styles.venue}>
+                                        {getVenue(element.homeTeam.id)}
+                                    </p>
+                                </section>
+                            </li>
                         );
                     })}
                 </>
@@ -74,19 +84,31 @@ function FixturesListItem(props) {
             {renderArray.map((nested) => {
                 return (
                     <>
-                        <p>{getDate(nested[0].utcDate)}</p>
+                        <h3 className={styles.title}>
+                            {getDate(nested[0].utcDate)}
+                        </h3>
                         {nested.map((element) => {
                             return (
-                                <>
-                                    <section className="extra-stats expandable">
+                                <li className={styles.matchList}>
+                                    <section className={styles.matchDetails}>
                                         <p>
-                                            {element.homeTeam.name} vs{" "}
-                                            {element.awayTeam.name}
+                                            {fixTeamName(
+                                                id,
+                                                element.homeTeam.name
+                                            )}
                                         </p>
                                         <p>{getTime(element.utcDate)}</p>
-                                        <p>{getVenue(element.homeTeam.id)}</p>
+                                        <p className={styles.awayTeam}>
+                                            {fixTeamName(
+                                                id,
+                                                element.awayTeam.name
+                                            )}
+                                        </p>
+                                        <p className={styles.venue}>
+                                            {getVenue(element.homeTeam.id)}
+                                        </p>
                                     </section>
-                                </>
+                                </li>
                             );
                         })}
                     </>
