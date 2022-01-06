@@ -1,18 +1,17 @@
 import { Route, Routes } from "react-router";
 import { useState, useEffect } from "react";
 
-import Sidebar from './components/Sidebar/Sidebar'
+import { Sidebar } from "./components/Sidebar/Sidebar";
+import { Standings } from "./components/Standings/Standings";
+import { Fixtures } from "./components/Matches/Fixtures/Fixtures";
+import { Results } from "./components/Matches/Results/Results";
+import { Home } from "./components/Home/Home";
 
-import Standings from "./components/Standings/Standings";
-import Fixtures from "./components/Matches/Fixtures/Fixtures";
-import Results from "./components/Matches/Results/Results";
-import Home from "./components/Home/Home";
-
-import styles from "./styles/App.module.css";
-import "./styles/reset.css";
 import { api, apiEndpoints } from "./config";
 
-function App() {
+import styles from "./styles/App.module.css";
+
+export const App = () => {
     const [id, setId] = useState(null);
     const [league, setLeague] = useState({});
     const [fixtures, setFixtures] = useState({});
@@ -21,16 +20,17 @@ function App() {
     console.log(`states`, {
         league,
         fixtures,
-        teams
-    })
+        teams,
+    });
 
     useEffect(() => {
-        if (!id) return
+        if (!id) return;
         const fetchLeague = async () => {
             try {
                 const response = await fetch(
-                    `${api.extUrl}/${id}/${apiEndpoints.standings}`,fetchConfig()
-                    );
+                    `${api.extUrl}/${id}/${apiEndpoints.standings}`,
+                    fetchConfig()
+                );
                 const data = await response.json();
                 setLeague(data);
             } catch (error) {
@@ -41,19 +41,21 @@ function App() {
         const fetchFixtures = async () => {
             try {
                 const response = await fetch(
-                    `${api.extUrl}/${id}/${apiEndpoints.matches}`,fetchConfig()
-                    );
+                    `${api.extUrl}/${id}/${apiEndpoints.matches}`,
+                    fetchConfig()
+                );
                 const data = await response.json();
                 setFixtures(data);
             } catch (error) {
                 console.log(`error: `, error);
             }
         };
-        
+
         const fetchTeams = async () => {
             try {
                 const response = await fetch(
-                    `${api.extUrl}/${id}/${apiEndpoints.teams}`,fetchConfig()
+                    `${api.extUrl}/${id}/${apiEndpoints.teams}`,
+                    fetchConfig()
                 );
                 const data = await response.json();
                 setTeams(data);
@@ -68,8 +70,8 @@ function App() {
                 headers: {
                     "X-Auth-Token": `${api.token}`,
                 },
-            }
-        }
+            };
+        };
 
         fetchLeague();
         fetchFixtures();
@@ -78,7 +80,7 @@ function App() {
 
     return (
         <div className={styles.container}>
-                <Sidebar id={id} setId={setId} league={league}/>
+            <Sidebar id={id} setId={setId} league={league} />
             {!id && (
                 <main className={styles.main}>
                     <Routes>
@@ -89,15 +91,43 @@ function App() {
             {id && (
                 <main className={styles.main}>
                     <Routes>
-                        <Route path="/standings" element={<Standings id={id} league={league} fixtures={fixtures} teams={teams}/>}/>
-                        <Route path="/fixtures" element={<Fixtures id={id} league={league} fixtures={fixtures} teams={teams}/>}/>
-                        <Route path="/results" element={<Results id={id} league={league} fixtures={fixtures} teams={teams}/>}/>
+                        <Route
+                            path="/standings"
+                            element={
+                                <Standings
+                                    id={id}
+                                    league={league}
+                                    fixtures={fixtures}
+                                    teams={teams}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/fixtures"
+                            element={
+                                <Fixtures
+                                    id={id}
+                                    league={league}
+                                    fixtures={fixtures}
+                                    teams={teams}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/results"
+                            element={
+                                <Results
+                                    id={id}
+                                    league={league}
+                                    fixtures={fixtures}
+                                    teams={teams}
+                                />
+                            }
+                        />
                         <Route path="/" element={<Home setId={setId} />} />
                     </Routes>
                 </main>
             )}
         </div>
     );
-}
-
-export default App;
+};

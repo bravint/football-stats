@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import TeamStats from "./StandingsDetailedStats";
+import { TeamStats } from "./StandingsDetailedStats";
 
 import { fixTeamName } from "../../utils.js";
 
 import "../../styles/StandingsListItem.css";
 
-function StandingsListItem(props) {
+export const StandingsListItem = (props) => {
     const { league, id } = props;
 
     const [teamId, setTeamId] = useState(null);
@@ -83,6 +83,4 @@ function StandingsListItem(props) {
                 })}
             </ul>
         );
-}
-
-export default StandingsListItem;
+};

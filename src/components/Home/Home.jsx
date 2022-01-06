@@ -1,7 +1,7 @@
 import styles from "../../styles/Home.module.css";
-import Form from "../SearchForm/SearchForm";
+import { Form } from "../SearchForm/SearchForm";
 
-function Home(props) {
+export const Home = (props) => {
     const { setId } = props;
 
     return (
@@ -13,6 +13,4 @@ function Home(props) {
             <Form setId={setId} />
         </div>
     );
-}
-
-export default Home;
+};

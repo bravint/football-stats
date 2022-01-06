@@ -1,4 +1,4 @@
-function Header() {
+export const Header = () => {
 
     return (
         <div className="header-content">
@@ -6,5 +6,3 @@ function Header() {
         </div>
     );
 }
-
-export default Header;

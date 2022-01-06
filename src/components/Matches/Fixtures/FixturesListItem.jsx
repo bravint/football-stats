@@ -9,7 +9,7 @@ import {
 
 import styles from "../../../styles/FixturesListItem.module.css";
 
-function FixturesListItem(props) {
+export const FixturesListItem = (props) => {
     const { fixtures, teams, id } = props;
 
     const [postponedMatches, setPostponedMatches] = useState([]);
@@ -32,7 +32,7 @@ function FixturesListItem(props) {
     }, [fixtures]);
 
     useEffect(() => {
-        function sortScheduledMatches(inputArray) {
+        const sortScheduledMatches = (inputArray) => {
             if (inputArray.length < 1) return;
             let unsortedArray = [...inputArray];
             let sortedArray = [];
@@ -116,6 +116,4 @@ function FixturesListItem(props) {
             })}
         </>
     );
-}
-
-export default FixturesListItem;
+};

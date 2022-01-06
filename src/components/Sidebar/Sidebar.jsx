@@ -1,16 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import SidebarNavigation from "./SidebarNavigation";
-import SidebarAddon from "./SidebarAddon";
-import Form from "../SearchForm/SearchForm";
+import { SidebarNavigation } from "./SidebarNavigation";
+import { SidebarAddon } from "./SidebarAddon";
+import { Form } from "../SearchForm/SearchForm";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 import styles from "../../styles/Sidebar.module.css";
 
-function Sidebar(props) {
+export const Sidebar = (props) => {
     const { id, setId, league } = props;
 
     const [url, setUrl] = useState("");
@@ -38,6 +38,4 @@ function Sidebar(props) {
             </footer>
         </aside>
     );
-}
-
-export default Sidebar;
+};

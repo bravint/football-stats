@@ -4,7 +4,7 @@ import { generateSortedArray, getDate, fixTeamName } from "../../../utils.js";
 
 import styles from "../../../styles/FixturesListItem.module.css";
 
-function Results(props) {
+export const Results = (props) => {
     const { fixtures, teams, id } = props;
 
     const [results, setResults] = useState([]);
@@ -17,7 +17,7 @@ function Results(props) {
     }, [fixtures]);
 
     useEffect(() => {
-        function sortScheduledMatches(inputArray) {
+        const sortScheduledMatches = (inputArray) => {
             if (inputArray.length < 1) return;
             let unsortedArray = [...inputArray];
             let sortedArray = [];
@@ -50,14 +50,20 @@ function Results(props) {
                                 <li className={styles.matchList}>
                                     <section className={styles.matchDetails}>
                                         <p>
-                                            {fixTeamName(id ,element.homeTeam.name)}
+                                            {fixTeamName(
+                                                id,
+                                                element.homeTeam.name
+                                            )}
                                         </p>
                                         <p>
                                             {element.score.fullTime.homeTeam} -{" "}
                                             {element.score.fullTime.awayTeam}
                                         </p>
                                         <p className={styles.awayTeam}>
-                                            {fixTeamName(id ,element.awayTeam.name)}
+                                            {fixTeamName(
+                                                id,
+                                                element.awayTeam.name
+                                            )}
                                         </p>
                                         <p className={styles.venue}>
                                             {getVenue(element.homeTeam.id)}
@@ -71,6 +77,6 @@ function Results(props) {
             })}
         </div>
     );
-}
+};
 
 export default Results;

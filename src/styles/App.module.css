@@ -6,11 +6,10 @@
 }
 
 .container {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: 21rem 1fr;
-    grid-template-areas: 
-        "sidebar    main";
-    gap: 1rem;      
+    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-areas: "sidebar    main";
+    gap: 1rem;
 }

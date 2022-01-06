@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import styles from "../../styles/SidebarNavigation.module.css";
 
-function Sidebar() {
+export const SidebarNavigation = () => {
     return (
         <nav className={styles.navSection}>
             <ul className={styles.navListContainer}>
@@ -44,6 +44,4 @@ function Sidebar() {
             </ul>
         </nav>
     );
-}
-
-export default Sidebar;
+};

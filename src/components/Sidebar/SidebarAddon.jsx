@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "../../styles/Sidebar.module.css";
 
-function SidebarAddon(props) {
+export const SidebarAddon = (props) => {
     const { league, id } = props;
     return (
         <ul>
