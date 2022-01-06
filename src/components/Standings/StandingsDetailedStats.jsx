@@ -1,3 +1,5 @@
+import "../../styles/StandingsListItem.css";
+
 export const TeamStats = (props) => {
     const { element } = props;
     return (

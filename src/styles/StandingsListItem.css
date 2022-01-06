@@ -50,10 +50,15 @@
 .team-list,
 .team-list * {
     color: white;
-    background-color: #272E3C;
+    background-color: #272e3c;
     border-radius: 4px;
 }
 
 .list-title {
     color: grey;
+}
+
+.extra-stats {
+    transition: top 1000ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    overflow: hidden;
 }

@@ -46,6 +46,6 @@ h6 {
     isolation: isolate;
 }
 
-html:focus-within {
+html {
     scroll-behavior: smooth;
 }

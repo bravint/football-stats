@@ -6,6 +6,7 @@ import { Standings } from "./components/Standings/Standings";
 import { Fixtures } from "./components/Matches/Fixtures/Fixtures";
 import { Results } from "./components/Matches/Results/Results";
 import { Home } from "./components/Home/Home";
+import { SidebarAddon } from "./components/Sidebar/SidebarAddon";
 
 import { api, apiEndpoints } from "./config";
 
@@ -127,6 +128,11 @@ export const App = () => {
                         <Route path="/" element={<Home setId={setId} />} />
                     </Routes>
                 </main>
+            )}
+            {id && league.standings && (
+            <div className={styles.extra}>
+            <SidebarAddon id={id} league={league} />
+            </div>
             )}
         </div>
     );

@@ -10,6 +10,13 @@
     margin: auto;
     display: grid;
     grid-template-columns: 15rem 1fr 15rem;
-    grid-template-areas: "sidebar    main";
+    grid-template-areas: "sidebar    main   extra";
     gap: 1rem;
+}
+
+.extra {
+    grid-area: extra;
+    display: grid;
+    gap: 2rem;
+    width: 15rem;
 }
