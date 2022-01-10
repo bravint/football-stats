@@ -9,17 +9,17 @@
 }
 
 .title {
-    margin: 1rem 0;
+    margin: 2rem 0 1rem;
 }
 
 .matchDetails {
     display: grid;
-    grid-template-columns: 6fr 1fr 6fr 6fr;
+    grid-template-columns: 6fr 1fr 1fr 1fr 6fr;
     align-items: center;
     gap: 1rem;
     height: 5rem;
     padding: 0 2rem;
-    margin: 1rem 0;
+    margin: 1rem 0 0;
     border-radius: 4px;
 }
 
@@ -28,11 +28,47 @@
 }
 
 .awayTeam {
+    text-align: left;
+}
+
+.homeTeam {
     text-align: right;
 }
 
-.results,
-.fixtures,
-.postponed {
-    margin-top: 3rem;
+.score {
+    text-align: center;
+}
+
+.extraStats {
+    font-size: 1.5rem;
+    color: white;
+    text-align: right;
+    border-style: none;
+}
+
+.extraStats:hover {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.extraStats:active {
+    font-size: 3rem;
+}
+
+.matchDetails:hover,
+.matchDetails:hover > * {
+    background-color: rgba(64, 224, 208);
+    color: black;
+    cursor: pointer;
+}   
+
+.matchDetails:active,
+.matchDetails:active > * {
+    background-color: rgba(64, 224, 208);
+    color: black;
+    cursor: pointer;
+}
+
+.results {
+    margin-bottom: 9rem;
 }

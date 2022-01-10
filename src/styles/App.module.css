@@ -1,22 +1,42 @@
 .main {
     grid-area: main;
     display: grid;
-    gap: 2rem;
-    overflow: hidden;
+    margin-right: 1rem;
 }
 
 .container {
     max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: 15rem 1fr 15rem;
-    grid-template-areas: "sidebar    main   extra";
+    grid-template-columns: 20rem 1fr;
+    grid-template-areas: "sidebar    main";
     gap: 1rem;
 }
 
-.extra {
-    grid-area: extra;
-    display: grid;
-    gap: 2rem;
-    width: 15rem;
+.returnButton {
+
+    position: sticky;
+    top: 100vh;
+    left: 100%;
+    transform: translateX(-1rem) translateY(-5rem); 
+    z-index: 1;
+
+    background-color: turquoise;
+    color: black;
+    width: max-content;
+    height: min-content;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    margin-top: 1rem;
+}
+
+.returnButton * {
+    background-color: turquoise;
+    color: black;
+}
+
+.returnButton:hover {
+    font-weight: 700;
 }

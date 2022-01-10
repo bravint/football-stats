@@ -1,116 +1,42 @@
-import { useState, useEffect } from "react";
-
 import {
-    generateSortedArray,
     getDate,
     getTime,
     fixTeamName,
-} from "../../../utils.js";
+    getLogo,
+} from '../../../utils.js';
 
-import styles from "../../../styles/FixturesListItem.module.css";
+import styles from '../../../styles/FixturesListItem.module.css';
 
 export const FixturesListItem = (props) => {
-    const { fixtures, teams, id } = props;
-
-    const [postponedMatches, setPostponedMatches] = useState([]);
-    const [scheduledMatches, setScheduledMatches] = useState([]);
-    const [renderArray, setRenderArray] = useState([]);
-
-    console.log(`states`, {
-        fixtures,
-        teams,
-    });
-
-    useEffect(() => {
-        setPostponedMatches(
-            fixtures.matches.filter((element) => element.status === "POSTPONED")
-        );
-
-        setScheduledMatches(
-            fixtures.matches.filter((element) => element.status === "SCHEDULED")
-        );
-    }, [fixtures]);
-
-    useEffect(() => {
-        const sortScheduledMatches = (inputArray) => {
-            if (inputArray.length < 1) return;
-            let unsortedArray = [...inputArray];
-            let sortedArray = [];
-            generateSortedArray(unsortedArray, sortedArray);
-            setRenderArray(sortedArray);
-        }
-        sortScheduledMatches(scheduledMatches);
-    }, [scheduledMatches]);
-
-    console.log(`states`, {
-        postponedMatches,
-        scheduledMatches,
-        renderArray,
-    });
-
-    const getVenue = (id) => {
-        const selectedTeam = teams.teams.filter((element) => element.id === id);
-        if (id === 397) return "The AMEX Stadium";
-        return selectedTeam[0].venue;
-    };
+    const { nested, teams, id } = props;
 
     return (
         <>
-            {postponedMatches.length > 1 && (
-                <>
-                    <h1>POSTPONED</h1>
-                    {postponedMatches.map((element) => {
-                        return (
-                            <li className={styles.matchList}>
-                                <section className={styles.matchDetails}>
-                                    <p>
-                                        {fixTeamName(id, element.homeTeam.name)}
-                                    </p>
-                                    <p>vs</p>
-                                    <p className={styles.awayTeam}>
-                                        {fixTeamName(id, element.awayTeam.name)}
-                                    </p>
-                                    <p className={styles.venue}>
-                                        {getVenue(element.homeTeam.id)}
-                                    </p>
-                                </section>
-                            </li>
-                        );
-                    })}
-                </>
-            )}
-
-            <h1>SCHEDULED</h1>
-            {renderArray.map((nested) => {
+            <h3 className={styles.title}>{getDate(nested[0].utcDate)}</h3>
+            {nested.map((element, index) => {
                 return (
                     <>
-                        <h3 className={styles.title}>
-                            {getDate(nested[0].utcDate)}
-                        </h3>
-                        {nested.map((element) => {
-                            return (
-                                <li className={styles.matchList}>
-                                    <section className={styles.matchDetails}>
-                                        <p>
-                                            {fixTeamName(
-                                                id,
-                                                element.homeTeam.name
-                                            )}
-                                        </p>
-                                        <p>{getTime(element.utcDate)}</p>
-                                        <p className={styles.awayTeam}>
-                                            {fixTeamName(
-                                                id,
-                                                element.awayTeam.name
-                                            )}
-                                        </p>
-                                        <p className={styles.venue}>
-                                            {getVenue(element.homeTeam.id)}
-                                        </p>
-                                    </section>
-                                </li>
-                            );
-                        })}
+                    <li className={styles.matchList} key={element.id}>
+                        <section className={styles.matchDetails} tabIndex={index}>
+                            <p className={styles.homeTeam}>
+                                {fixTeamName(id, element.homeTeam.name)}
+                            </p>
+                            <img
+                                src={getLogo(element.homeTeam.id, teams)}
+                                alt="club logo"
+                                className="club-logo"
+                            ></img>
+                            <p>{getTime(element.utcDate)}</p>
+                            <img
+                                src={getLogo(element.awayTeam.id, teams)}
+                                alt="club logo"
+                                className="club-logo"
+                            ></img>
+                            <p className={styles.awayTeam}>
+                                {fixTeamName(id, element.awayTeam.name)}
+                            </p>
+                        </section>
+                    </li>
                     </>
                 );
             })}

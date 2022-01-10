@@ -1,0 +1,94 @@
+.filterSection {
+    margin-top: 0rem;
+    position: sticky;
+    top: 0;
+}
+
+.filterSummary {
+    
+    background-color: turquoise;
+    padding: 0.7rem;
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1rem;
+    border-radius: 4px;
+
+}
+
+.blankSpace {
+    background-color: #18162b;
+    height: 1rem;
+}
+
+.filterSummary * {
+    background-color: turquoise;
+    align-items: center;
+    color: #18162b
+}
+
+.showFormButton {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: #18162b;
+    width: 7rem;
+    border-radius: .25rem;
+    color: turquoise
+}
+
+.showFormButton * {
+    background-color: #18162b;
+    color: turquoise
+}
+
+.showFormButton:hover,
+.showFormButton:active {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.showFormButton:hover > .TuneRoundedIcon,
+.showFormButton:active > .TuneRoundedIcon {
+    cursor: pointer;
+    transform: rotate(0.5turn);
+}
+
+.showActiveFilters {
+    border-left: 3px solid #18162b;
+    padding: 1rem;
+}
+
+.form * {
+    color: white;
+    border: none;
+    background-color: #272e3c;
+}
+
+.form {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: #272e3c;
+}
+
+.formSelectContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 15rem);
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+}
+
+.selectteam {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 15rem);
+    justify-content: space-between;
+}
+
+.teamSelect * {
+    margin-right: 1rem;
+}

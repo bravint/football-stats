@@ -5,7 +5,6 @@
 
 .navLogo {
     height: 10rem;
-    margin: 1rem 0 1rem;
 }
 
 .league {
@@ -42,7 +41,7 @@
 
 .aside {
     position: fixed;
-    width: 15rem;
+    width: 20rem;
     margin: 1rem 0 1rem;
     padding-right: 1rem;
     grid-area: sidebar;

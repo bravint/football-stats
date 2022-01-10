@@ -58,7 +58,9 @@
     color: grey;
 }
 
-.extra-stats {
-    transition: top 1000ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-    overflow: hidden;
+.team-list:hover,
+.team-list:hover * {
+    background-color: rgba(64, 224, 208);
+    color: black;
+    cursor: pointer;
 }

@@ -21,7 +21,7 @@ export const Form = (props) => {
                 onChange={(event) => handleChange(event)}
             >
                 <option value="default">Choose a league</option>
-                <option value="BL1">Bundersliga, Germany</option>
+                <option value="BL1">Bundesliga, Germany</option>
                 <option value="PD">La Liga, Spain</option>
                 <option value="FL1">Ligue 1, France</option>
                 <option value="PL">Premier League, England</option>

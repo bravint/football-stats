@@ -1,28 +1,40 @@
-import { Route, Routes } from "react-router";
-import { useState, useEffect } from "react";
+import { Route, Routes } from 'react-router';
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-import { Sidebar } from "./components/Sidebar/Sidebar";
-import { Standings } from "./components/Standings/Standings";
-import { Fixtures } from "./components/Matches/Fixtures/Fixtures";
-import { Results } from "./components/Matches/Results/Results";
-import { Home } from "./components/Home/Home";
-import { SidebarAddon } from "./components/Sidebar/SidebarAddon";
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { Standings } from './components/Standings/Standings';
+import { Fixtures } from './components/Matches/Fixtures/Fixtures';
+import { Results } from './components/Matches/Results/Results';
+import { Home } from './components/Home/Home';
+import { ReturnToTopButton } from './components/ReturnToTopButton/ReturnToTopButton';
 
-import { api, apiEndpoints } from "./config";
+import { api, apiEndpoints } from './config';
 
-import styles from "./styles/App.module.css";
+import styles from './styles/App.module.css';
+import { FilterMatches } from './components/Matches/FilterMatches/FilterMatches';
 
 export const App = () => {
     const [id, setId] = useState(null);
     const [league, setLeague] = useState({});
     const [fixtures, setFixtures] = useState({});
     const [teams, setTeams] = useState({});
+    const [url, setUrl] = useState('');
+    const [filteredMatches, setFilteredMatches] = useState([]);
 
     console.log(`states`, {
         league,
         fixtures,
         teams,
+        id,
+        url
     });
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setUrl(location.pathname);
+    }, [location]);
 
     useEffect(() => {
         if (!id) return;
@@ -67,9 +79,9 @@ export const App = () => {
 
         const fetchConfig = () => {
             return {
-                method: "GET",
+                method: 'GET',
                 headers: {
-                    "X-Auth-Token": `${api.token}`,
+                    'X-Auth-Token': `${api.token}`,
                 },
             };
         };
@@ -81,19 +93,28 @@ export const App = () => {
 
     return (
         <div className={styles.container}>
-            <Sidebar id={id} setId={setId} league={league} />
+            <Sidebar id={id} setId={setId} league={league} url={url} />
             {!id && (
                 <main className={styles.main}>
                     <Routes>
-                        <Route path="/" element={<Home setId={setId} />} />
+                        <Route path='/' element={<Home setId={setId} />} />
                     </Routes>
                 </main>
             )}
             {id && (
                 <main className={styles.main}>
+                    <ReturnToTopButton />
+                    {(url === '/fixtures' || url === '/results') && (
+                        <FilterMatches
+                            fixtures={fixtures}
+                            teams={teams}
+                            id={id}
+                            filteredMatches={filteredMatches}
+                        />
+                    )}
                     <Routes>
                         <Route
-                            path="/standings"
+                            path='/standings'
                             element={
                                 <Standings
                                     id={id}
@@ -104,35 +125,32 @@ export const App = () => {
                             }
                         />
                         <Route
-                            path="/fixtures"
+                            path='/fixtures'
                             element={
                                 <Fixtures
                                     id={id}
                                     league={league}
                                     fixtures={fixtures}
                                     teams={teams}
+                                    filteredMatches={filteredMatches}
                                 />
                             }
                         />
                         <Route
-                            path="/results"
+                            path='/results'
                             element={
                                 <Results
                                     id={id}
                                     league={league}
                                     fixtures={fixtures}
                                     teams={teams}
+                                    filteredMatches={filteredMatches}
                                 />
                             }
                         />
-                        <Route path="/" element={<Home setId={setId} />} />
+                        <Route path='/' element={<Home setId={setId} />} />
                     </Routes>
                 </main>
-            )}
-            {id && league.standings && (
-            <div className={styles.extra}>
-            <SidebarAddon id={id} league={league} />
-            </div>
             )}
         </div>
     );

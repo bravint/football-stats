@@ -3,26 +3,27 @@
     padding: 0;
     box-sizing: border-box;
     background-color: #18162b;
-    color: white;
     font-family: roboto;
 }
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
+html {
+    scroll-behavior: smooth;
 }
 
 html,
 body {
     height: 100%;
+    color: white;
 }
 
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    isolation: isolate;
 }
 
 input,
@@ -42,10 +43,11 @@ h6 {
     overflow-wrap: break-word;
 }
 
-#root {
-    isolation: isolate;
+li {
+    list-style: none;
 }
 
-html {
-    scroll-behavior: smooth;
+a {
+    text-decoration: none;
+    color: white;
 }

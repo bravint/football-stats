@@ -1,24 +1,13 @@
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-
+import { SidebarLeagueOverview } from "./SidebarLeagueOverview";
 import { SidebarNavigation } from "./SidebarNavigation";
 import { Form } from "../SearchForm/SearchForm";
-
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
 import styles from "../../styles/Sidebar.module.css";
 
 export const Sidebar = (props) => {
-    const { id, setId, league } = props;
-
-    const [url, setUrl] = useState("");
-
-    const location = useLocation();
-
-    useEffect(() => {
-        setUrl(location.pathname);
-    }, [location]);
+    const { id, setId, league, url } = props;
 
     return (
         <aside className={styles.aside}>
@@ -27,8 +16,9 @@ export const Sidebar = (props) => {
             </header>
             {id && league.standings && url !== "/" && (
                 <section className={styles.section}>
-                    <SidebarNavigation />
+                    <SidebarNavigation setId={setId} url={url}/>
                     <Form setId={setId} />
+                    <SidebarLeagueOverview id={id} league={league}/>
                 </section>
             )}
             <footer className={styles.footer}>

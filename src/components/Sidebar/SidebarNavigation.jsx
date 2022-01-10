@@ -2,12 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 
 import styles from "../../styles/SidebarNavigation.module.css";
 
-export const SidebarNavigation = () => {
+export const SidebarNavigation = (props) => {
+    const { setId } = props;
     return (
         <nav className={styles.navSection}>
             <ul className={styles.navListContainer}>
                 <li className={styles.navListItem}>
-                    <Link className={styles.link} to="/">
+                    <Link
+                        className={styles.link}
+                        to="/"
+                        onClick={() => setId("")}
+                    >
                         Home
                     </Link>
                 </li>

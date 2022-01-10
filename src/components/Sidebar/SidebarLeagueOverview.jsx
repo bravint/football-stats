@@ -1,17 +1,7 @@
-import { useEffect, useState } from "react";
-
 import styles from "../../styles/Sidebar.module.css";
 
-export const SidebarAddon = (props) => {
+export const SidebarLeagueOverview = (props) => {
     const { league, id } = props;
-
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const toggleVisibility = () => window.pageYOffset > 50 ? setIsVisible(true) : setIsVisible(false)
-        window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
 
     return (
         <>
@@ -25,7 +15,6 @@ export const SidebarAddon = (props) => {
                         className={styles.navLogo}
                     />
                 </li>
-                <br></br>
                 <li>
                     <p className={styles.competitionOverview}>
                         {league.competition.name}
@@ -35,7 +24,8 @@ export const SidebarAddon = (props) => {
                     <p className={styles.competitionOverview}>
                         {league.competition.area.name}
                     </p>
-                </li>
+                </li>    
+                <br></br>    
                 <li>
                     <p className={styles.competitionOverview}>
                         Current Round:<br></br>
@@ -44,13 +34,6 @@ export const SidebarAddon = (props) => {
                     </p>
                 </li>
             </ul>
-            <section className={styles.footer}>
-                {isVisible && (
-                        <a href="#top">Return to Top</a>
-                )}
-            </section>
         </>
     );
 };
-
-export default SidebarAddon;
