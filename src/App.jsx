@@ -27,7 +27,7 @@ export const App = () => {
     const [matchStatus, setMatchStatus] = useState('all');
     const [sortType, setSortType] = useState('date');
 
-    /*
+    
     console.log(`states`, {
         league,
         fixtures,
@@ -38,7 +38,7 @@ export const App = () => {
         postponedMatches,
         cancelledMatches
     });
-    */
+    
 
     const location = useLocation();
 
@@ -100,6 +100,31 @@ export const App = () => {
         fetchFixtures();
         fetchTeams();
     }, [id]);
+
+    const populateJSONServer = async () => {
+        const newObject = JSON.parse(JSON.stringify(teams))
+        const objToPush = {...newObject, 'id': 'teams'}
+        try {
+            const response = await fetch(`http://localhost:4000/${id}/`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(objToPush),
+            });
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.log("address post error", error);
+        }
+    }
+
+    useEffect(() => {
+        if (teams.teams) {
+            console.log('POSTING')
+            //populateJSONServer()
+        };
+    }, [fixtures])
 
     return (
         <div className={styles.container}>

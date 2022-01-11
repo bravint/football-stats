@@ -25,7 +25,7 @@
 Data sourced from https://www.football-data.org/
 
 ```js
-Fetch data from local JSON server
+Fetch data from local JSON server at 'json-server --watch src/db/db.json -p 4000'
     If data is current, setState using data fetched
 
     If data is old, fetch data from external API
