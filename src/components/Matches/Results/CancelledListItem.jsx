@@ -1,14 +1,17 @@
-import { fixTeamName, getLogo } from "../../../utils.js";
+import { fixTeamName, getLogo } from '../../../utils.js';
 
-import styles from "../../../styles/FixturesListItem.module.css";
+import styles from '../../../styles/FixturesListItem.module.css';
 
-export const PostponedListItem = (props) => {
-    const { element, teams, id } = props;
+export const CancelledListItem = (props) => {
+    const { cancelledMatches, teams, id } = props;
 
     return (
-        <li className={styles.matchList} key={element.id}>
-            <section className={styles.matchDetails}>
-            <p className={styles.homeTeam}>
+        <>
+            {cancelledMatches.map((element) => {
+                return (
+                    <li className={styles.matchList} key={element.id}>
+                        <section className={styles.matchDetails}>
+                            <p className={styles.homeTeam}>
                                 {fixTeamName(id, element.homeTeam.name)}
                             </p>
                             <img
@@ -16,7 +19,7 @@ export const PostponedListItem = (props) => {
                                 alt="club logo"
                                 className="club-logo"
                             ></img>
-                            <p>P - P</p>
+                            <p>C - C</p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}
                                 alt="club logo"
@@ -25,7 +28,10 @@ export const PostponedListItem = (props) => {
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}
                             </p>
-            </section>
-        </li>
+                        </section>
+                    </li>
+                );
+            })}
+        </>
     );
-}
+};

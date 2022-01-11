@@ -1,48 +1,48 @@
-import { useEffect, useState } from "react";
-
-import { ResultsListItem } from "./ResultsListItem";
-import { generateSortedArray } from "../../../utils.js";
+import { CancelledListItem } from './CancelledListItem';
+import { ResultsListItem } from './ResultsListItem';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
 export const Results = (props) => {
-    const { fixtures, teams, id } = props;
-
-    const [results, setResults] = useState([]);
-    const [renderArray, setRenderArray] = useState([]);
-
-    useEffect(() => {
-        setResults(
-            fixtures.matches.filter((element) => element.status === "FINISHED")
-        );
-    }, [fixtures]);
-
-    useEffect(() => {
-        const sortScheduledMatches = (inputArray) => {
-            if (inputArray.length < 1) return;
-            let unsortedArray = [...inputArray];
-            let sortedArray = [];
-            generateSortedArray(unsortedArray, sortedArray);
-            sortedArray.reverse();
-            setRenderArray(sortedArray);
-        };
-        sortScheduledMatches(results);
-    }, [results]);
-
-    console.log(`states`, {
-        results,
-        renderArray,
-    });
+    const {
+        filteredMatches,
+        teams,
+        id,
+        cancelledMatches,
+        matchStatus,
+        sortType,
+    } = props;
 
     return (
         <section className={styles.results}>
-            {renderArray.map((nested) => {
-                return (
-                    <ResultsListItem nested={nested} teams={teams} id={id} />
-                );
-            })}
+            {cancelledMatches.length > 1 && (
+                <>
+                    <h1 className={styles.title}>CANCELLED</h1>
+                    <CancelledListItem
+                        cancelledMatches={cancelledMatches}
+                        teams={teams}
+                        id={id}
+                    />
+                </>
+            )}
+            {filteredMatches &&
+                (cancelledMatches.length < 1 || matchStatus === 'all') && (
+                    <>
+                        <h1 className={styles.title}>RESULTS</h1>
+                        {filteredMatches.map((nested) => {
+                            return (
+                                <>
+                                    <ResultsListItem
+                                        nested={nested}
+                                        sortType={sortType}
+                                        teams={teams}
+                                        id={id}
+                                    />
+                                </>
+                            );
+                        })}
+                    </>
+                )}
         </section>
     );
 };
-
-export default Results;

@@ -1,10 +1,20 @@
-export const generateSortedArray = (unsortedArray, sortedArray) => {
-    if (unsortedArray.length < 1) return;
-    let date = getDate(unsortedArray[0].utcDate);
-    let nestedArray = unsortedArray.filter((element) => getDate(element.utcDate) === date);
-    sortedArray.push(nestedArray);
-    unsortedArray = unsortedArray.filter((element) => getDate(element.utcDate) !== date);
-    generateSortedArray(unsortedArray, sortedArray);
+export const generateSortedArray = (unsortedArray, sortedArray, sortType) => {
+    if (unsortedArray.length < 1 && sortType === 'date') return;
+    if (unsortedArray.length < 1 && sortType === 'matchday') return sortbyMatchday(sortedArray)
+    if (sortType === 'date' ) {    
+        let date = getDate(unsortedArray[0].utcDate);
+        let nestedArray = unsortedArray.filter((element) => getDate(element.utcDate) === date);
+        sortedArray.push(nestedArray);
+        unsortedArray = unsortedArray.filter((element) => getDate(element.utcDate) !== date);
+        generateSortedArray(unsortedArray, sortedArray, sortType);
+    }
+    if (sortType === 'matchday' ) {    
+        let matchday = getMatchDay(unsortedArray[0]);
+        let nestedArray = unsortedArray.filter((element) => getMatchDay(element) === matchday);
+        sortedArray.push(nestedArray);
+        unsortedArray = unsortedArray.filter((element) => getMatchDay(element) !== matchday);
+        generateSortedArray(unsortedArray, sortedArray, sortType);
+    }
 }
 
 export const getDate = (date) => {
@@ -20,11 +30,17 @@ export const fixTeamName = (id ,team) => id === 'PL' ? team.slice(0, -3) : team
 
 export const getVenue = (id, teams) => {
     const selectedTeam = teams.teams.filter((element) => element.id === id);
-    if (id === 397) return 'The AMEX Stadium';
-    return selectedTeam[0].venue;
+    return (id === 397) ? 'The AMEX Stadium' : selectedTeam[0].venue;
 };
 
 export const getLogo = (id, teams) => {
     const selectedTeam = teams.teams.filter((element) => element.id === id);
-    return selectedTeam[0].crestUrl;
+    return (selectedTeam[0]) ? selectedTeam[0].crestUrl : null;
 };
+
+export const getMatchDay = (element) => element.matchday;
+
+const sortbyMatchday = (sortedArray) => {
+    sortedArray.sort(function (a, b) {
+        return a[0].matchday - b[0].matchday;
+})};

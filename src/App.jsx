@@ -20,15 +20,25 @@ export const App = () => {
     const [fixtures, setFixtures] = useState({});
     const [teams, setTeams] = useState({});
     const [url, setUrl] = useState('');
-    const [filteredMatches, setFilteredMatches] = useState([]);
 
+    const [filteredMatches, setFilteredMatches] = useState([]);
+    const [postponedMatches, setPostponedMatches] = useState([]);
+    const [cancelledMatches, setCancelledMatches] = useState([]);
+    const [matchStatus, setMatchStatus] = useState('all');
+    const [sortType, setSortType] = useState('date');
+
+    /*
     console.log(`states`, {
         league,
         fixtures,
         teams,
         id,
-        url
+        url,
+        filteredMatches,
+        postponedMatches,
+        cancelledMatches
     });
+    */
 
     const location = useLocation();
 
@@ -109,7 +119,17 @@ export const App = () => {
                             fixtures={fixtures}
                             teams={teams}
                             id={id}
+                            url={url}
                             filteredMatches={filteredMatches}
+                            setFilteredMatches={setFilteredMatches}
+                            postponedMatches={postponedMatches}
+                            setPostponedMatches={setPostponedMatches}
+                            cancelledMatches={cancelledMatches}
+                            setCancelledMatches={setCancelledMatches}
+                            matchStatus={matchStatus}
+                            setMatchStatus={setMatchStatus}
+                            sortType={sortType}
+                            setSortType={setSortType}
                         />
                     )}
                     <Routes>
@@ -132,7 +152,11 @@ export const App = () => {
                                     league={league}
                                     fixtures={fixtures}
                                     teams={teams}
+                                    postponedMatches={postponedMatches}
                                     filteredMatches={filteredMatches}
+                                    matchStatus={matchStatus}
+                                    sortType={sortType}
+
                                 />
                             }
                         />
@@ -144,7 +168,11 @@ export const App = () => {
                                     league={league}
                                     fixtures={fixtures}
                                     teams={teams}
+                                    cancelledMatches={cancelledMatches}
                                     filteredMatches={filteredMatches}
+                                    setFilteredMatches={setFilteredMatches}
+                                    matchStatus={matchStatus}
+                                    sortType={sortType}
                                 />
                             }
                         />

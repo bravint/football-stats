@@ -1,13 +1,18 @@
-import { getDate, getLogo, fixTeamName } from '../../../utils.js';
+import { getDate, getLogo, fixTeamName, getMatchDay } from '../../../utils.js';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
 export const ResultsListItem = (props) => {
-    const { nested, id, teams } = props;
+    const { nested, id, teams, sortType } = props;
+
+    const renderTitle = (sortType) => {
+        if (sortType === 'date') return getDate(nested[0].utcDate);
+        if (sortType === 'matchday') return 'Matchday ' + getMatchDay(nested[0]);
+    };
 
     return (
         <>
-            <h3 className={styles.title}>{getDate(nested[0].utcDate)}</h3>
+            <h3 className={styles.title}>{renderTitle(sortType)}</h3>
             {nested.map((element, index) => {
                 return (
                     <li className={styles.matchList} key={element.id}>

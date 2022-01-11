@@ -92,3 +92,13 @@
 .teamSelect * {
     margin-right: 1rem;
 }
+
+.close {
+    text-align: right;
+}
+
+.closeIcon:hover {
+    cursor: pointer;
+    fill: turquoise;
+    font-weight: 700;
+}

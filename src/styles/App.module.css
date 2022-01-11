@@ -18,7 +18,7 @@
     position: sticky;
     top: 100vh;
     left: 100%;
-    transform: translateX(-1rem) translateY(-5rem); 
+    transform: translateY(-4.5rem); 
     z-index: 1;
 
     background-color: turquoise;
