@@ -11,9 +11,18 @@ import { ReturnToTopButton } from './components/ReturnToTopButton/ReturnToTopBut
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Standings } from './components/Standings/Standings';
 
-import { API_EXT_URL, API_EXT_TOKEN, API_INT_URL, API_ENDPOINT, MATCH_TYPES, URL } from './config';
+import {
+    API_EXT_URL,
+    API_EXT_TOKEN,
+    API_INT_URL,
+    API_ENDPOINT,
+    MATCH_TYPES,
+    URL,
+} from './config';
 
 import styles from './styles/App.module.css';
+
+import { StoreContext, rootReducer, initialState } from './store';
 
 export const App = () => {
     const [id, setId] = useState(null);
@@ -21,14 +30,9 @@ export const App = () => {
     const [matches, setMatches] = useState({});
     const [teams, setTeams] = useState({});
     const [url, setUrl] = useState('');
+    const [updateData, setUpdateData] = useState(false);
 
-    const [updateData, setUpdateData] = useState(false)
-
-    const [filteredMatches, setFilteredMatches] = useState([]);
-    const [postponedMatches, setPostponedMatches] = useState([]);
-    const [cancelledMatches, setCancelledMatches] = useState([]);
-    const [matchStatus, setMatchStatus] = useState('all');
-    const [sortType, setSortType] = useState('date');
+    const [state, dispatch] = useReducer(rootReducer, initialState);
 
     console.log(`states`, {
         standings,
@@ -36,12 +40,9 @@ export const App = () => {
         teams,
         id,
         url,
-        filteredMatches,
-        postponedMatches,
-        cancelledMatches,
-        updateData
+        updateData,
     });
-    
+
     const location = useLocation();
 
     useEffect(() => {
@@ -53,7 +54,10 @@ export const App = () => {
 
         const fetchLocalData = async (APIurl, endpoint, setState) => {
             try {
-                const response = await fetch(`${APIurl}/${id}/${endpoint}`,fetchConfig());
+                const response = await fetch(
+                    `${APIurl}/${id}/${endpoint}`,
+                    fetchConfig()
+                );
                 const data = await response.json();
                 setState(data);
             } catch (error) {
@@ -68,44 +72,52 @@ export const App = () => {
 
     useEffect(() => {
         if (!matches.match) return;
-        if ((matches.date - getTodaysDate()) < 1 || isNaN(matches.date - getTodaysDate()) === true || (!matches.date)) setUpdateData(true);
-    }, [matches])
+        if (
+            matches.date - getTodaysDate() < 1 ||
+            isNaN(matches.date - getTodaysDate()) === true ||
+            !matches.date
+        )
+            setUpdateData(true);
+    }, [matches]);
 
     useEffect(() => {
         if (!updateData) return;
 
         const fetchExternalData = async (APIurl, endpoint) => {
             try {
-                const response = await fetch(`${APIurl}/${id}/${endpoint}`,fetchConfig());
+                const response = await fetch(
+                    `${APIurl}/${id}/${endpoint}`,
+                    fetchConfig()
+                );
                 let data = await response.json();
-                data = {...data, 'id': `${endpoint}`}
-                data = {...data, 'date': getNextGameDate()}
-                updateLocalstore(data, endpoint)
+                data = { ...data, id: `${endpoint}` };
+                data = { ...data, date: getNextGameDate() };
+                updateLocalstore(data, endpoint);
             } catch (error) {
                 console.log(`error: `, error);
             }
         };
-    
+
         const updateLocalstore = async (object, str) => {
             try {
                 await fetch(`http://localhost:4000/${id}/${str}`, {
                     method: 'PUT',
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(object),
                 });
             } catch (error) {
                 console.log(`${str} post error`, error);
             }
-        }
+        };
 
         fetchExternalData(API_EXT_URL, API_ENDPOINT.STANDINGS);
         fetchExternalData(API_EXT_URL, API_ENDPOINT.MATCHES);
         fetchExternalData(API_EXT_URL, API_ENDPOINT.TEAMS);
-        
+
         setUpdateData(false);
-    }, [updateData])
+    }, [updateData]);
 
     const fetchConfig = () => {
         return {
@@ -120,98 +132,76 @@ export const App = () => {
         let date = new Date();
         const dd = String(date.getDate()).padStart(2, '0');
         const mm = String(date.getMonth() + 1).padStart(2, '0');
-        const yyyy = date.getFullYear();   
-        date = parseInt(yyyy+mm+dd);
-        return date;  
+        const yyyy = date.getFullYear();
+        date = parseInt(yyyy + mm + dd);
+        return date;
     }
 
     const getNextGameDate = () => {
-        if (!matches.matches) return
-        let arr = matches.matches.filter(element => element.status === MATCH_TYPES.SCHEDULED)
-        let date = (arr[0].utcDate.slice (0, -10).replace(/-/g,''))
-        date = parseInt(date)
-        return (date)
-    }
+        if (!matches.matches) return;
+        let arr = matches.matches.filter(
+            (element) => element.status === MATCH_TYPES.SCHEDULED
+        );
+        let date = arr[0].utcDate.slice(0, -10).replace(/-/g, '');
+        date = parseInt(date);
+        return date;
+    };
 
     return (
-        <div className={styles.container}>
-            <Sidebar id={id} setId={setId} standings={standings} url={url} />
-            {!id && (
-                <main className={styles.main}>
-                    <Routes>
-                        <Route path='/' element={<Home setId={setId} />} />
-                    </Routes>
-                </main>
-            )}
-            {id && (
-                <main className={styles.main}>
-                    <ReturnToTopButton />
-                    {(url === URL.FIXTURES || url === URL.RESULTS) && (
-                        <FilterMatches
-                            matches={matches}
-                            teams={teams}
-                            id={id}
-                            url={url}
-                            filteredMatches={filteredMatches}
-                            setFilteredMatches={setFilteredMatches}
-                            postponedMatches={postponedMatches}
-                            setPostponedMatches={setPostponedMatches}
-                            cancelledMatches={cancelledMatches}
-                            setCancelledMatches={setCancelledMatches}
-                            matchStatus={matchStatus}
-                            setMatchStatus={setMatchStatus}
-                            sortType={sortType}
-                            setSortType={setSortType}
-                        />
-                    )}
-                    <Routes>
-                        <Route
-                            path={URL.STANDINGS}
-                            element={
-                                <Standings
-                                    id={id}
-                                    standings={standings}
-                                    matches={matches}
-                                    teams={teams}
-                                />
-                            }
-                        />
-                        <Route
-                            path={URL.FIXTURES}
-                            element={
-                                <Fixtures
-                                    id={id}
-                                    standings={standings}
-                                    matches={matches}
-                                    teams={teams}
-                                    postponedMatches={postponedMatches}
-                                    filteredMatches={filteredMatches}
-                                    matchStatus={matchStatus}
-                                    sortType={sortType}
-
-                                />
-                            }
-                        />
-                        <Route
-                            path={URL.RESULTS}
-                            element={
-                                <Results
-                                    id={id}
-                                    standings={standings}
-                                    matches={matches}
-                                    teams={teams}
-                                    cancelledMatches={cancelledMatches}
-                                    filteredMatches={filteredMatches}
-                                    setFilteredMatches={setFilteredMatches}
-                                    matchStatus={matchStatus}
-                                    sortType={sortType}
-                                />
-                            }
-                        />
-                        <Route path={URL.HOME} element={<Home setId={setId} />} />
-                    </Routes>
-                </main>
-            )}
-        </div>
+        <StoreContext.Provider value={{ state: state, dispatch: dispatch }}>
+            <div className={styles.container}>
+                <Sidebar
+                    id={id}
+                    setId={setId}
+                    standings={standings}
+                    url={url}
+                />
+                {!id && (
+                    <main className={styles.main}>
+                        <Routes>
+                            <Route path="/" element={<Home setId={setId} />} />
+                        </Routes>
+                    </main>
+                )}
+                {id && (
+                    <main className={styles.main}>
+                        <ReturnToTopButton />
+                        {(url === URL.FIXTURES || url === URL.RESULTS) && (
+                            <FilterMatches
+                                matches={matches}
+                                teams={teams}
+                                id={id}
+                                url={url}
+                            />
+                        )}
+                        <Routes>
+                            <Route
+                                path={URL.STANDINGS}
+                                element={
+                                    <Standings
+                                        id={id}
+                                        standings={standings}
+                                        matches={matches}
+                                        teams={teams}
+                                    />
+                                }
+                            />
+                            <Route
+                                path={URL.FIXTURES}
+                                element={<Fixtures id={id} teams={teams} />}
+                            />
+                            <Route
+                                path={URL.RESULTS}
+                                element={<Results id={id} teams={teams} />}
+                            />
+                            <Route
+                                path={URL.HOME}
+                                element={<Home setId={setId} />}
+                            />
+                        </Routes>
+                    </main>
+                )}
+            </div>
+        </StoreContext.Provider>
     );
 };

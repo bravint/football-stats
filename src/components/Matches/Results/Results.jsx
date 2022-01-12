@@ -1,17 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext } from 'react';
+
 import { CancelledListItem } from './CancelledListItem';
 import { ResultsListItem } from './ResultsListItem';
+
+import { StoreContext } from "../../../store";
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
 export const Results = (props) => {
     const {
-        filteredMatches,
         teams,
         id,
-        cancelledMatches,
-        matchStatus,
-        sortType,
     } = props;
+
+    const store = useContext(StoreContext);
+    
+    const matchStatus = store.state.matchStatus;
+    const sortType = store.state.sortType;
+    const filteredMatches = store.state.filteredMatches;
+    const cancelledMatches = store.state.cancelledMatches;
 
     return (
         <section className={styles.results}>

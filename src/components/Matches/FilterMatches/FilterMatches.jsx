@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext  } from 'react';
 
 import { fixTeamName, generateSortedArray } from '../../../utils.js';
+import { StoreContext } from "../../../store";
 
 import styles from '../../../styles/FilterMatches.module.css';
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
@@ -12,22 +13,29 @@ export const FilterMatches = (props) => {
         matches,
         teams,
         id,
-        setFilteredMatches,
-        setPostponedMatches,
-        setCancelledMatches,
         url,
-        matchStatus,
-        setMatchStatus,
-        sortType,
-        setSortType,
     } = props;
 
     const [matchStatusList, setMatchStatusList] = useState([]);
     const [teamsList, setTeamsList] = useState([]);
-
     const [displayFiltersForm, setDisplayFiltersForm] = useState(false);
-
     const [selectedTeams, setSelectedTeams] = useState([]);
+
+    const store = useContext(StoreContext);
+    
+    const matchStatus = store.state.matchStatus;
+    const sortType = store.state.sortType;
+    const filteredMatches = store.state.filteredMatches;
+    const cancelledMatches = store.state.cancelledMatches;
+    const postponedMatches = store.state.postponedMatches;
+
+    console.log (`globlaStates`, {
+        matchStatus,
+        sortType,
+        filteredMatches,
+        cancelledMatches,
+        postponedMatches
+    })
 
     useEffect(() => {
         clearFilters()
@@ -41,9 +49,16 @@ export const FilterMatches = (props) => {
 
     const clearFilters = () => {
         setSelectedTeams([]);
-        setMatchStatus('all');
-        setSortType('date');
+        doDispatch("update/matchStatus", 'all')
+        doDispatch("update/sortType", 'date')
     };
+
+    const doDispatch  = (action, payload) => {
+        store.dispatch({
+            type: action,
+            payload: payload
+          })
+    }
 
     const checkFixturesStatus = (element) => {
         if (element.status !== 'FINISHED' && element.status !== 'CANCELLED') return element;
@@ -72,13 +87,13 @@ export const FilterMatches = (props) => {
     const filteredMatchesArray = () => {
         let filteredArray = matches.matches.filter((element) => filterMatches(element));
         if (url === '/fixtures') {
-            setPostponedMatches(filteredArray.filter((element) => element.status === 'POSTPONED'));
+            doDispatch('update/postponedMatches', (filteredArray.filter((element) => element.status === 'POSTPONED')))
             sortFilteredArray(filteredArray.filter((element) => element.status === 'SCHEDULED'));
         }
-        if (url === '/results') {setCancelledMatches(filteredArray.filter((element) => element.status === 'CANCELLED'));
+        if (url === '/results')  doDispatch('update/cancelledMatches', (filteredArray.filter((element) => element.status === 'CANCELLED')));
             let finishedMatchesArray = filteredArray.filter((element) => element.status === 'FINISHED');
             sortFilteredArray(finishedMatchesArray.reverse());
-        }
+        
     };
 
     const filterByFixtureType = (element) => {
@@ -99,19 +114,19 @@ export const FilterMatches = (props) => {
         let unsortedArray = [...inputArray];
         let sortedArray = [];
         generateSortedArray(unsortedArray, sortedArray, sortType);
-        setFilteredMatches(sortedArray);
+        doDispatch("update/filteredMatches", sortedArray);
     };
 
     const checkChecked = (element) => selectedTeams.includes(element) ? true : false;
 
     const capitalisedTitle = (element) => element.replace(/\b\w/g, (l) => l.toUpperCase());
 
-    const handleFixtureTypeChange = (event) => setMatchStatus(event.target.value);
+    const handleFixtureTypeChange = (event) => doDispatch('update/matchStatus', event.target.value)
 
     const handleTeamSelectionChange = (event) => selectedTeams.includes(event.target.id) ? 
     setSelectedTeams(selectedTeams.filter((element) => element !== event.target.id)) : setSelectedTeams([...selectedTeams, event.target.id]);
 
-    const handleSortChange = (event) => setSortType(event.target.value.toLowerCase());
+    const handleSortChange = (event) => doDispatch('update/sortType', event.target.value.toLowerCase());
 
     const HandleShowFIlterClick = () => setDisplayFiltersForm(!displayFiltersForm);
 

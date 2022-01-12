@@ -1,17 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext } from 'react';
+
 import { Postponed } from './Postponed';
 import { FixturesListItem } from './FixturesListItem';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
+import { StoreContext } from "../../../store";
+
 export const Fixtures = (props) => {
     const {
-        filteredMatches,
         teams,
         id,
-        postponedMatches,
-        matchStatus,
-        sortType,
     } = props;
+
+    const store = useContext(StoreContext);
+    
+    const matchStatus = store.state.matchStatus;
+    const sortType = store.state.sortType;
+    const filteredMatches = store.state.filteredMatches;
+    const postponedMatches = store.state.postponedMatches;
 
     return (
         <>
