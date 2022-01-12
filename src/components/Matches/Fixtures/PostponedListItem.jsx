@@ -1,14 +1,24 @@
-import { fixTeamName, getLogo } from "../../../utils.js";
+import { useContext } from 'react';
 
-import styles from "../../../styles/FixturesListItem.module.css";
+import { StoreContext } from '../../../store';
+import { fixTeamName, getLogo } from '../../../utils.js';
 
-export const PostponedListItem = (props) => {
-    const { element, teams, id } = props;
+import styles from '../../../styles/FixturesListItem.module.css';
+
+export const PostponedListItem = () => {
+    const store = useContext(StoreContext);
+
+    const postponedMatches = store.state.postponedMatches;
+    const id = store.state.id;
+    const teams = store.state.teams;
 
     return (
-        <li className={styles.matchList} key={element.id}>
-            <section className={styles.matchDetails}>
-            <p className={styles.homeTeam}>
+        <>
+            {postponedMatches.map((element) => {
+                return (
+                    <li className={styles.matchList} key={element.id}>
+                        <section className={styles.matchDetails}>
+                            <p className={styles.homeTeam}>
                                 {fixTeamName(id, element.homeTeam.name)}
                             </p>
                             <img
@@ -25,7 +35,10 @@ export const PostponedListItem = (props) => {
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}
                             </p>
-            </section>
-        </li>
+                        </section>
+                    </li>
+                );
+            })}
+        </>
     );
-}
+};

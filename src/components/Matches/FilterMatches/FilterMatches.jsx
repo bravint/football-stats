@@ -1,21 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useContext  } from 'react';
 
-import { fixTeamName, generateSortedArray } from '../../../utils.js';
 import { StoreContext } from "../../../store";
+import { fixTeamName, generateSortedArray } from '../../../utils.js';
 
 import styles from '../../../styles/FilterMatches.module.css';
+
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import CloseIcon from '@mui/icons-material/Close';
 
-export const FilterMatches = (props) => {
-    const {
-        matches,
-        teams,
-        id,
-        url,
-    } = props;
-
+export const FilterMatches = () => {
     const [matchStatusList, setMatchStatusList] = useState([]);
     const [teamsList, setTeamsList] = useState([]);
     const [displayFiltersForm, setDisplayFiltersForm] = useState(false);
@@ -25,16 +19,16 @@ export const FilterMatches = (props) => {
     
     const matchStatus = store.state.matchStatus;
     const sortType = store.state.sortType;
-    const filteredMatches = store.state.filteredMatches;
-    const cancelledMatches = store.state.cancelledMatches;
-    const postponedMatches = store.state.postponedMatches;
+    const teams = store.state.teams;
+    const matches = store.state.matches;
+    const url = store.state.url;
+    const id = store.state.id;
 
-    console.log (`globlaStates`, {
-        matchStatus,
-        sortType,
-        filteredMatches,
-        cancelledMatches,
-        postponedMatches
+    console.log (`filterMtaches local states`,{
+        matchStatusList,
+        teamsList,
+        displayFiltersForm,
+        selectedTeams
     })
 
     useEffect(() => {
@@ -90,10 +84,11 @@ export const FilterMatches = (props) => {
             doDispatch('update/postponedMatches', (filteredArray.filter((element) => element.status === 'POSTPONED')))
             sortFilteredArray(filteredArray.filter((element) => element.status === 'SCHEDULED'));
         }
-        if (url === '/results')  doDispatch('update/cancelledMatches', (filteredArray.filter((element) => element.status === 'CANCELLED')));
+        if (url === '/results') {  
+            doDispatch('update/cancelledMatches', (filteredArray.filter((element) => element.status === 'CANCELLED')));
             let finishedMatchesArray = filteredArray.filter((element) => element.status === 'FINISHED');
             sortFilteredArray(finishedMatchesArray.reverse());
-        
+        }
     };
 
     const filterByFixtureType = (element) => {

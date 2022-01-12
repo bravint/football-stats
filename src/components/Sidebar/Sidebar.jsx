@@ -1,24 +1,32 @@
-import { SidebarLeagueOverview } from "./SidebarLeagueOverview";
-import { SidebarNavigation } from "./SidebarNavigation";
-import { Form } from "../SearchForm/SearchForm";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { useContext } from 'react';
 
-import styles from "../../styles/Sidebar.module.css";
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { SearchForm } from '../SearchForm/SearchForm';
+import { SidebarLeagueOverview } from './SidebarLeagueOverview';
+import { SidebarNavigation } from './SidebarNavigation';
 
-export const Sidebar = (props) => {
-    const { id, setId, standings, url } = props;
+import { StoreContext } from '../../store';
+
+import styles from '../../styles/Sidebar.module.css';
+
+export const Sidebar = () => {
+    const store = useContext(StoreContext);
+
+    const id = store.state.id;
+    const standings = store.state.standings;
+    const url = store.state.url;
 
     return (
         <aside className={styles.aside}>
             <header className={styles.header}>
                 <Header />
             </header>
-            {id && standings.standings && url !== "/" && (
+            {id && standings.standings && url !== '/' && (
                 <section className={styles.section}>
-                    <SidebarNavigation setId={setId} url={url}/>
-                    <Form setId={setId} />
-                    <SidebarLeagueOverview id={id} standings={standings}/>
+                    <SidebarNavigation />
+                    <SearchForm />
+                    <SidebarLeagueOverview />
                 </section>
             )}
             <footer className={styles.footer}>

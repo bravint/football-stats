@@ -1,14 +1,24 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router";
 
 import styles from "../../styles/Home.module.css";
 
-export const Form = (props) => {
-    const { setId } = props;
+import { StoreContext } from "../../store";
 
+export const SearchForm = () => {
     const navigate = useNavigate();
 
+    const store = useContext(StoreContext);
+
+    const doDispatch  = (action, payload) => {
+        store.dispatch({
+            type: action,
+            payload: payload
+          })
+    }
+
     const handleChange = (event) => {
-        setId(event.target.value);
+        doDispatch('update/id', event.target.value);
         navigate("./standings", { replace: true });
     };
 

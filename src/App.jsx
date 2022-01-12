@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { Route, Routes } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
@@ -25,63 +25,58 @@ import styles from './styles/App.module.css';
 import { StoreContext, rootReducer, initialState } from './store';
 
 export const App = () => {
-    const [id, setId] = useState(null);
-    const [standings, setStandings] = useState({});
-    const [matches, setMatches] = useState({});
-    const [teams, setTeams] = useState({});
-    const [url, setUrl] = useState('');
-    const [updateData, setUpdateData] = useState(false);
-
     const [state, dispatch] = useReducer(rootReducer, initialState);
 
-    console.log(`states`, {
-        standings,
-        matches,
-        teams,
-        id,
-        url,
-        updateData,
-    });
+    const id = state.id;
+    const matches = state.matches;
+    const url = state.url;
+    const updateData = state.updateData;
+
+    console.log(`states`, state);
+
+    const doDispatch = (action, payload) => {
+        dispatch({
+            type: action,
+            payload: payload,
+        });
+    };
 
     const location = useLocation();
 
     useEffect(() => {
-        setUrl(location.pathname);
+        doDispatch('update/url', location.pathname);
     }, [location]);
 
     useEffect(() => {
         if (!id) return;
 
-        const fetchLocalData = async (APIurl, endpoint, setState) => {
+        const fetchLocalData = async (APIurl, endpoint, action) => {
             try {
                 const response = await fetch(
                     `${APIurl}/${id}/${endpoint}`,
                     fetchConfig()
                 );
                 const data = await response.json();
-                setState(data);
+                doDispatch(action, data);
             } catch (error) {
                 console.log(`error: `, error);
             }
         };
 
-        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, setStandings);
-        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, setMatches);
-        fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, setTeams);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, 'update/standings');
+        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, 'update/matches');
+        fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, 'update/teams');
     }, [id]);
 
     useEffect(() => {
-        if (!matches.match) return;
-        if (
-            matches.date - getTodaysDate() < 1 ||
-            isNaN(matches.date - getTodaysDate()) === true ||
-            !matches.date
-        )
-            setUpdateData(true);
+        if (!matches.matches) return;
+        if (getTodaysDate() >= matches.date || !matches.date)
+            doDispatch('update/setUpdate', true);
     }, [matches]);
 
     useEffect(() => {
         if (!updateData) return;
+        doDispatch('update/setUpdate', false);
 
         const fetchExternalData = async (APIurl, endpoint) => {
             try {
@@ -116,7 +111,7 @@ export const App = () => {
         fetchExternalData(API_EXT_URL, API_ENDPOINT.MATCHES);
         fetchExternalData(API_EXT_URL, API_ENDPOINT.TEAMS);
 
-        setUpdateData(false);
+        doDispatch('update/setUpdate', false);
     }, [updateData]);
 
     const fetchConfig = () => {
@@ -150,16 +145,11 @@ export const App = () => {
     return (
         <StoreContext.Provider value={{ state: state, dispatch: dispatch }}>
             <div className={styles.container}>
-                <Sidebar
-                    id={id}
-                    setId={setId}
-                    standings={standings}
-                    url={url}
-                />
+                <Sidebar />
                 {!id && (
                     <main className={styles.main}>
                         <Routes>
-                            <Route path="/" element={<Home setId={setId} />} />
+                            <Route path="/" element={<Home />} />
                         </Routes>
                     </main>
                 )}
@@ -167,37 +157,16 @@ export const App = () => {
                     <main className={styles.main}>
                         <ReturnToTopButton />
                         {(url === URL.FIXTURES || url === URL.RESULTS) && (
-                            <FilterMatches
-                                matches={matches}
-                                teams={teams}
-                                id={id}
-                                url={url}
-                            />
+                            <FilterMatches />
                         )}
                         <Routes>
                             <Route
                                 path={URL.STANDINGS}
-                                element={
-                                    <Standings
-                                        id={id}
-                                        standings={standings}
-                                        matches={matches}
-                                        teams={teams}
-                                    />
-                                }
+                                element={<Standings />}
                             />
-                            <Route
-                                path={URL.FIXTURES}
-                                element={<Fixtures id={id} teams={teams} />}
-                            />
-                            <Route
-                                path={URL.RESULTS}
-                                element={<Results id={id} teams={teams} />}
-                            />
-                            <Route
-                                path={URL.HOME}
-                                element={<Home setId={setId} />}
-                            />
+                            <Route path={URL.FIXTURES} element={<Fixtures />} />
+                            <Route path={URL.RESULTS} element={<Results />} />
+                            <Route path={URL.HOME} element={<Home />} />
                         </Routes>
                     </main>
                 )}

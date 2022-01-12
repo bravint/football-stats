@@ -1,6 +1,6 @@
 export const generateSortedArray = (unsortedArray, sortedArray, sortType) => {
     if (unsortedArray.length < 1 && sortType === 'date') return;
-    if (unsortedArray.length < 1 && sortType === 'matchday') return sortbyMatchday(sortedArray)
+    if (unsortedArray.length < 1 && sortType === 'matchday') return sortByMatchday(sortedArray)
     if (sortType === 'date' ) {    
         let date = getDate(unsortedArray[0].utcDate);
         let nestedArray = unsortedArray.filter((element) => getDate(element.utcDate) === date);
@@ -9,10 +9,10 @@ export const generateSortedArray = (unsortedArray, sortedArray, sortType) => {
         generateSortedArray(unsortedArray, sortedArray, sortType);
     }
     if (sortType === 'matchday' ) {    
-        let matchday = getMatchDay(unsortedArray[0]);
-        let nestedArray = unsortedArray.filter((element) => getMatchDay(element) === matchday);
+        let matchday = getMatchday(unsortedArray[0]);
+        let nestedArray = unsortedArray.filter((element) => getMatchday(element) === matchday);
         sortedArray.push(nestedArray);
-        unsortedArray = unsortedArray.filter((element) => getMatchDay(element) !== matchday);
+        unsortedArray = unsortedArray.filter((element) => getMatchday(element) !== matchday);
         generateSortedArray(unsortedArray, sortedArray, sortType);
     }
 }
@@ -38,9 +38,21 @@ export const getLogo = (id, teams) => {
     return (selectedTeam[0]) ? selectedTeam[0].crestUrl : null;
 };
 
-export const getMatchDay = (element) => element.matchday;
+export const getMatchday = (element) => element.matchday;
 
-const sortbyMatchday = (sortedArray) => {
+const sortByMatchday = (sortedArray) => {
     sortedArray.sort(function (a, b) {
         return a[0].matchday - b[0].matchday;
 })};
+
+export const doDispatch  = (store, action, payload) => {
+    store.dispatch({
+        type: action,
+        payload: payload
+      })
+}
+
+export const renderTitle = (sortType, nested) => {
+    if (sortType === 'date') return getDate(nested[0].utcDate);
+    if (sortType === 'matchday') return 'Matchday ' + getMatchday(nested[0]);
+};

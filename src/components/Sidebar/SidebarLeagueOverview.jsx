@@ -1,7 +1,14 @@
-import styles from "../../styles/Sidebar.module.css";
+import { useContext } from 'react';
 
-export const SidebarLeagueOverview = (props) => {
-    const { standings, id } = props;
+import { StoreContext } from '../../store';
+
+import styles from '../../styles/Sidebar.module.css';
+
+export const SidebarLeagueOverview = () => {
+    const store = useContext(StoreContext);
+
+    const id = store.state.id;
+    const standings = store.state.standings;
 
     return (
         <>
@@ -24,12 +31,12 @@ export const SidebarLeagueOverview = (props) => {
                     <p className={styles.competitionOverview}>
                         {standings.competition.area.name}
                     </p>
-                </li>    
-                <br></br>    
+                </li>
+                <br></br>
                 <li>
                     <p className={styles.competitionOverview}>
                         Current Round:<br></br>
-                        {standings.season.currentMatchday} of{" "}
+                        {standings.season.currentMatchday} of{' '}
                         {standings.standings[0].table.length * 2 - 2}
                     </p>
                 </li>

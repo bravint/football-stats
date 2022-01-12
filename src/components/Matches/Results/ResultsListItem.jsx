@@ -1,18 +1,23 @@
-import { getDate, getLogo, fixTeamName, getMatchDay } from '../../../utils.js';
+import { useContext } from 'react';
+
+import { StoreContext } from '../../../store';
+
+import { getLogo, fixTeamName, renderTitle } from '../../../utils.js';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
 export const ResultsListItem = (props) => {
-    const { nested, id, teams, sortType } = props;
+    const { nested } = props;
 
-    const renderTitle = (sortType) => {
-        if (sortType === 'date') return getDate(nested[0].utcDate);
-        if (sortType === 'matchday') return 'Matchday ' + getMatchDay(nested[0]);
-    };
+    const store = useContext(StoreContext);
+
+    const id = store.state.id;
+    const sortType = store.state.sortType;
+    const teams = store.state.teams;
 
     return (
-        <>
-            <h3 className={styles.title}>{renderTitle(sortType)}</h3>
+        <ul>
+            <h3 className={styles.title}>{renderTitle(sortType, nested)}</h3>
             {nested.map((element, index) => {
                 return (
                     <li className={styles.matchList} key={element.id}>
@@ -25,16 +30,16 @@ export const ResultsListItem = (props) => {
                             </p>
                             <img
                                 src={getLogo(element.homeTeam.id, teams)}
-                                alt="club logo"
+                                alt="Club Logo"
                                 className="club-logo"
                             ></img>
-                            <p className={styles.score}>
+                            <p>
                                 {element.score.fullTime.homeTeam} -{' '}
                                 {element.score.fullTime.awayTeam}
                             </p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}
-                                alt="club logo"
+                                alt="Club Logo"
                                 className="club-logo"
                             ></img>
                             <p className={styles.awayTeam}>
@@ -44,6 +49,6 @@ export const ResultsListItem = (props) => {
                     </li>
                 );
             })}
-        </>
+        </ul>
     );
 };

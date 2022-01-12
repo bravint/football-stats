@@ -1,9 +1,16 @@
+import { useContext } from 'react';
+
+import { StoreContext } from '../../../store';
 import { fixTeamName, getLogo } from '../../../utils.js';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
-export const CancelledListItem = (props) => {
-    const { cancelledMatches, teams, id } = props;
+export const CancelledListItem = () => {
+    const store = useContext(StoreContext);
+
+    const cancelledMatches = store.state.cancelledMatches;
+    const id = store.state.id;
+    const teams = store.state.teams;
 
     return (
         <>

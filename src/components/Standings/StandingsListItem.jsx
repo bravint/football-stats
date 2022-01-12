@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+
+import { StoreContext } from "../../store";
 
 import { TeamStats } from './StandingsDetailedStats';
 
@@ -6,8 +8,11 @@ import { fixTeamName } from '../../utils.js';
 
 import '../../styles/StandingsListItem.css';
 
-export const StandingsListItem = (props) => {
-    const { standings, id } = props;
+export const StandingsListItem = () => {
+    const store = useContext(StoreContext);
+
+    const id = store.state.id;
+    const standings = store.state.standings;
 
     const [teamId, setTeamId] = useState(null);
 
