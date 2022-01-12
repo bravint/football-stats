@@ -24,4 +24,4 @@ yarn-error.log*
 
 # API - config
 
-config.js
+.env

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { Route, Routes } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ import { ReturnToTopButton } from './components/ReturnToTopButton/ReturnToTopBut
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Standings } from './components/Standings/Standings';
 
-import { API, API_ENDPOINT, MATCH_TYPES, URL } from './config';
+import { API_EXT_URL, API_EXT_TOKEN, API_INT_URL, API_ENDPOINT, MATCH_TYPES, URL } from './config';
 
 import styles from './styles/App.module.css';
 
@@ -61,9 +61,9 @@ export const App = () => {
             }
         };
 
-        fetchLocalData(API.INT_URL, API_ENDPOINT.STANDINGS, setStandings);
-        fetchLocalData(API.INT_URL, API_ENDPOINT.MATCHES, setMatches);
-        fetchLocalData(API.INT_URL, API_ENDPOINT.TEAMS, setTeams);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, setStandings);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, setMatches);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, setTeams);
     }, [id]);
 
     useEffect(() => {
@@ -101,9 +101,9 @@ export const App = () => {
             }
         }
 
-        fetchExternalData(API.EXT_URL, API_ENDPOINT.STANDINGS);
-        fetchExternalData(API.EXT_URL, API_ENDPOINT.MATCHES);
-        fetchExternalData(API.EXT_URL, API_ENDPOINT.TEAMS);
+        fetchExternalData(API_EXT_URL, API_ENDPOINT.STANDINGS);
+        fetchExternalData(API_EXT_URL, API_ENDPOINT.MATCHES);
+        fetchExternalData(API_EXT_URL, API_ENDPOINT.TEAMS);
         
         setUpdateData(false);
     }, [updateData])
@@ -112,7 +112,7 @@ export const App = () => {
         return {
             method: 'GET',
             headers: {
-                'X-Auth-Token': `${API.EXT_URL_TOKEN}`,
+                'X-Auth-Token': `${API_EXT_TOKEN}`,
             },
         };
     };
@@ -133,8 +133,6 @@ export const App = () => {
         date = parseInt(date)
         return (date)
     }
-
-    console.log(getNextGameDate(), getTodaysDate())
 
     return (
         <div className={styles.container}>
