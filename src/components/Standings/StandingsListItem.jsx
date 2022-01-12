@@ -7,7 +7,7 @@ import { fixTeamName } from '../../utils.js';
 import '../../styles/StandingsListItem.css';
 
 export const StandingsListItem = (props) => {
-    const { league, id } = props;
+    const { standings, id } = props;
 
     const [teamId, setTeamId] = useState(null);
 
@@ -39,7 +39,7 @@ export const StandingsListItem = (props) => {
                     <p>Pts</p>
                 </section>
             </li>
-            {league.standings[0].table.map((element, index) => {
+            {standings.standings[0].table.map((element, index) => {
                 return (
                     <li
                         className="team-list"

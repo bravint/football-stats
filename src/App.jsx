@@ -1,25 +1,28 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
-import { Sidebar } from './components/Sidebar/Sidebar';
-import { Standings } from './components/Standings/Standings';
+import { Home } from './components/Home/Home';
+import { FilterMatches } from './components/Matches/FilterMatches/FilterMatches';
 import { Fixtures } from './components/Matches/Fixtures/Fixtures';
 import { Results } from './components/Matches/Results/Results';
-import { Home } from './components/Home/Home';
 import { ReturnToTopButton } from './components/ReturnToTopButton/ReturnToTopButton';
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { Standings } from './components/Standings/Standings';
 
-import { api, apiEndpoints } from './config';
+import { API, API_ENDPOINT, MATCH_TYPES, URL } from './config';
 
 import styles from './styles/App.module.css';
-import { FilterMatches } from './components/Matches/FilterMatches/FilterMatches';
 
 export const App = () => {
     const [id, setId] = useState(null);
-    const [league, setLeague] = useState({});
-    const [fixtures, setFixtures] = useState({});
+    const [standings, setStandings] = useState({});
+    const [matches, setMatches] = useState({});
     const [teams, setTeams] = useState({});
     const [url, setUrl] = useState('');
+
+    const [updateData, setUpdateData] = useState(false)
 
     const [filteredMatches, setFilteredMatches] = useState([]);
     const [postponedMatches, setPostponedMatches] = useState([]);
@@ -27,19 +30,18 @@ export const App = () => {
     const [matchStatus, setMatchStatus] = useState('all');
     const [sortType, setSortType] = useState('date');
 
-    
     console.log(`states`, {
-        league,
-        fixtures,
+        standings,
+        matches,
         teams,
         id,
         url,
         filteredMatches,
         postponedMatches,
-        cancelledMatches
+        cancelledMatches,
+        updateData
     });
     
-
     const location = useLocation();
 
     useEffect(() => {
@@ -48,87 +50,95 @@ export const App = () => {
 
     useEffect(() => {
         if (!id) return;
-        const fetchLeague = async () => {
+
+        const fetchLocalData = async (APIurl, endpoint, setState) => {
             try {
-                const response = await fetch(
-                    `${api.extUrl}/${id}/${apiEndpoints.standings}`,
-                    fetchConfig()
-                );
+                const response = await fetch(`${APIurl}/${id}/${endpoint}`,fetchConfig());
                 const data = await response.json();
-                setLeague(data);
+                setState(data);
             } catch (error) {
                 console.log(`error: `, error);
             }
         };
 
-        const fetchFixtures = async () => {
-            try {
-                const response = await fetch(
-                    `${api.extUrl}/${id}/${apiEndpoints.matches}`,
-                    fetchConfig()
-                );
-                const data = await response.json();
-                setFixtures(data);
-            } catch (error) {
-                console.log(`error: `, error);
-            }
-        };
-
-        const fetchTeams = async () => {
-            try {
-                const response = await fetch(
-                    `${api.extUrl}/${id}/${apiEndpoints.teams}`,
-                    fetchConfig()
-                );
-                const data = await response.json();
-                setTeams(data);
-            } catch (error) {
-                console.log(`error: `, error);
-            }
-        };
-
-        const fetchConfig = () => {
-            return {
-                method: 'GET',
-                headers: {
-                    'X-Auth-Token': `${api.token}`,
-                },
-            };
-        };
-
-        fetchLeague();
-        fetchFixtures();
-        fetchTeams();
+        fetchLocalData(API.INT_URL, API_ENDPOINT.STANDINGS, setStandings);
+        fetchLocalData(API.INT_URL, API_ENDPOINT.MATCHES, setMatches);
+        fetchLocalData(API.INT_URL, API_ENDPOINT.TEAMS, setTeams);
     }, [id]);
 
-    const populateJSONServer = async () => {
-        const newObject = JSON.parse(JSON.stringify(teams))
-        const objToPush = {...newObject, 'id': 'teams'}
-        try {
-            const response = await fetch(`http://localhost:4000/${id}/`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(objToPush),
-            });
-            const data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.log("address post error", error);
-        }
-    }
+    useEffect(() => {
+        if (!standings.standings) return;
+
+        if ((standings.date - getTodaysDate()) < 1 || (!standings.date)) setUpdateData(true);
+    }, [standings])
 
     useEffect(() => {
-        if (teams.teams) {
-            console.log('POSTING')
-            //populateJSONServer()
+        if (!updateData) return;
+
+        const fetchExternalData = async (APIurl, endpoint) => {
+            try {
+                const response = await fetch(`${APIurl}/${id}/${endpoint}`,fetchConfig());
+                let data = await response.json();
+                data = {...data, 'id': `${endpoint}`}
+                data = {...data, 'date': getNextGameDate()}
+                updateLocalstore(data, endpoint)
+            } catch (error) {
+                console.log(`error: `, error);
+            }
         };
-    }, [fixtures])
+    
+        const updateLocalstore = async (object, str) => {
+            try {
+                await fetch(`http://localhost:4000/${id}/${str}`, {
+                    method: 'PUT',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(object),
+                });
+            } catch (error) {
+                console.log(`${str} post error`, error);
+            }
+        }
+
+        fetchExternalData(API.EXT_URL, API_ENDPOINT.STANDINGS);
+        fetchExternalData(API.EXT_URL, API_ENDPOINT.MATCHES);
+        fetchExternalData(API.EXT_URL, API_ENDPOINT.TEAMS);
+        
+        setUpdateData(false);
+    }, [updateData])
+
+    const fetchConfig = () => {
+        return {
+            method: 'GET',
+            headers: {
+                'X-Auth-Token': `${API.EXT_URL_TOKEN}`,
+            },
+        };
+    };
+
+    function getTodaysDate() {
+        let date = new Date();
+        const dd = String(date.getDate()).padStart(2, '0');
+        const mm = String(date.getMonth() + 1).padStart(2, '0');
+        const yyyy = date.getFullYear();   
+        date = parseInt(yyyy+mm+dd);
+        return date;  
+    }
+
+    const getNextGameDate = () => {
+        if (!matches.matches) return
+        let arr = matches.matches.filter(element => element.status === MATCH_TYPES.SCHEDULED)
+        let date = (arr[0].utcDate.slice (0, -10).replace(/-/g,''))
+        date = parseInt(date)
+        return (date)
+    }
+
+    console.log(getNextGameDate(), getTodaysDate())
 
     return (
         <div className={styles.container}>
-            <Sidebar id={id} setId={setId} league={league} url={url} />
+            <Sidebar id={id} setId={setId} standings={standings} url={url} />
             {!id && (
                 <main className={styles.main}>
                     <Routes>
@@ -139,9 +149,9 @@ export const App = () => {
             {id && (
                 <main className={styles.main}>
                     <ReturnToTopButton />
-                    {(url === '/fixtures' || url === '/results') && (
+                    {(url === URL.FIXTURES || url === URL.RESULTS) && (
                         <FilterMatches
-                            fixtures={fixtures}
+                            matches={matches}
                             teams={teams}
                             id={id}
                             url={url}
@@ -159,23 +169,23 @@ export const App = () => {
                     )}
                     <Routes>
                         <Route
-                            path='/standings'
+                            path={URL.STANDINGS}
                             element={
                                 <Standings
                                     id={id}
-                                    league={league}
-                                    fixtures={fixtures}
+                                    standings={standings}
+                                    matches={matches}
                                     teams={teams}
                                 />
                             }
                         />
                         <Route
-                            path='/fixtures'
+                            path={URL.FIXTURES}
                             element={
                                 <Fixtures
                                     id={id}
-                                    league={league}
-                                    fixtures={fixtures}
+                                    standings={standings}
+                                    matches={matches}
                                     teams={teams}
                                     postponedMatches={postponedMatches}
                                     filteredMatches={filteredMatches}
@@ -186,12 +196,12 @@ export const App = () => {
                             }
                         />
                         <Route
-                            path='/results'
+                            path={URL.RESULTS}
                             element={
                                 <Results
                                     id={id}
-                                    league={league}
-                                    fixtures={fixtures}
+                                    standings={standings}
+                                    matches={matches}
                                     teams={teams}
                                     cancelledMatches={cancelledMatches}
                                     filteredMatches={filteredMatches}
@@ -201,7 +211,7 @@ export const App = () => {
                                 />
                             }
                         />
-                        <Route path='/' element={<Home setId={setId} />} />
+                        <Route path={URL.HOME} element={<Home setId={setId} />} />
                     </Routes>
                 </main>
             )}

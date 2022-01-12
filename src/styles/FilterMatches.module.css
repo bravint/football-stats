@@ -77,7 +77,7 @@
 
 .formSelectContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 15rem);
+    grid-template-columns: repeat(auto-fit, 16rem);
     gap: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid white;
@@ -85,7 +85,7 @@
 
 .selectteam {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 15rem);
+    grid-template-columns: repeat(auto-fit, 16rem);
     justify-content: space-between;
 }
 

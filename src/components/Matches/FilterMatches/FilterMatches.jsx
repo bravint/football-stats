@@ -9,7 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export const FilterMatches = (props) => {
     const {
-        fixtures,
+        matches,
         teams,
         id,
         setFilteredMatches,
@@ -33,7 +33,7 @@ export const FilterMatches = (props) => {
         clearFilters()
         genMatchStatusArray();
         genTeamsArray();
-    }, [fixtures, teams, url, id]);
+    }, [matches, teams, url, id]);
 
     useEffect(() => {
         filteredMatchesArray();
@@ -55,8 +55,8 @@ export const FilterMatches = (props) => {
 
     const genMatchStatusArray = () => {
         let array = [];
-        if (url === '/results') array = fixtures.matches.filter((element) => checkResultsStatus(element));
-        if (url === '/fixtures') array = fixtures.matches.filter((element) => checkFixturesStatus(element));
+        if (url === '/results') array = matches.matches.filter((element) => checkResultsStatus(element));
+        if (url === '/fixtures') array = matches.matches.filter((element) => checkFixturesStatus(element));
         const newarray = array.map((element) => element.status);
         let status = Array.from(new Set(newarray));
         status.sort()
@@ -70,7 +70,7 @@ export const FilterMatches = (props) => {
     };
 
     const filteredMatchesArray = () => {
-        let filteredArray = fixtures.matches.filter((element) => filterMatches(element));
+        let filteredArray = matches.matches.filter((element) => filterMatches(element));
         if (url === '/fixtures') {
             setPostponedMatches(filteredArray.filter((element) => element.status === 'POSTPONED'));
             sortFilteredArray(filteredArray.filter((element) => element.status === 'SCHEDULED'));

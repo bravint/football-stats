@@ -7,18 +7,18 @@ import { Footer } from "./Footer";
 import styles from "../../styles/Sidebar.module.css";
 
 export const Sidebar = (props) => {
-    const { id, setId, league, url } = props;
+    const { id, setId, standings, url } = props;
 
     return (
         <aside className={styles.aside}>
             <header className={styles.header}>
                 <Header />
             </header>
-            {id && league.standings && url !== "/" && (
+            {id && standings.standings && url !== "/" && (
                 <section className={styles.section}>
                     <SidebarNavigation setId={setId} url={url}/>
                     <Form setId={setId} />
-                    <SidebarLeagueOverview id={id} league={league}/>
+                    <SidebarLeagueOverview id={id} standings={standings}/>
                 </section>
             )}
             <footer className={styles.footer}>

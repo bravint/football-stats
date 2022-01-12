@@ -2,13 +2,13 @@
 import { StandingsListItem } from "./StandingsListItem";
 
 export const Standings = (props) => {
-    const { id, league } = props;
+    const { id, standings } = props;
 
     return (
         <>
-            {id && league.standings && (
+            {id && standings.standings && (
                 <section className="table">
-                    <StandingsListItem league={league} id={id} />
+                    <StandingsListItem standings={standings} id={id} />
                 </section>
             )}
         </>
