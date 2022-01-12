@@ -6,8 +6,6 @@ import './styles/reset.css';
 
 import { App } from './App';
 
-//require('dotenv').config()
-
 ReactDOM.render(
     <BrowserRouter>
         <React.StrictMode>

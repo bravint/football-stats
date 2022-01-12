@@ -67,9 +67,9 @@ export const App = () => {
     }, [id]);
 
     useEffect(() => {
-        if (!standings.standings) return;
-        if ((standings.date - getTodaysDate()) < 1 || isNaN(standings.date - getTodaysDate()) === true || (!standings.date)) setUpdateData(true);
-    }, [standings])
+        if (!matches.match) return;
+        if ((matches.date - getTodaysDate()) < 1 || isNaN(matches.date - getTodaysDate()) === true || (!matches.date)) setUpdateData(true);
+    }, [matches])
 
     useEffect(() => {
         if (!updateData) return;
