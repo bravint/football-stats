@@ -68,8 +68,7 @@ export const App = () => {
 
     useEffect(() => {
         if (!standings.standings) return;
-
-        if ((standings.date - getTodaysDate()) < 1 || (!standings.date)) setUpdateData(true);
+        if ((standings.date - getTodaysDate()) < 1 || isNaN(standings.date - getTodaysDate()) === true || (!standings.date)) setUpdateData(true);
     }, [standings])
 
     useEffect(() => {
@@ -112,7 +111,7 @@ export const App = () => {
         return {
             method: 'GET',
             headers: {
-                'X-Auth-Token': `${API_EXT_TOKEN}`,
+                'X-Auth-Token': API_EXT_TOKEN,
             },
         };
     };
