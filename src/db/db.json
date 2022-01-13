@@ -370,7 +370,7 @@
         }
       ],
       "id": "standings",
-      "date": 20220112
+      "date": 20220114
     },
     {
       "count": 380,
@@ -26606,7 +26606,7 @@
         }
       ],
       "id": "matches",
-      "date": 20220112
+      "date": 20220114
     },
     {
       "count": 20,
@@ -27012,7 +27012,7 @@
         }
       ],
       "id": "teams",
-      "date": 20220112
+      "date": 20220114
     }
   ],
   "FL1": [
@@ -79696,7 +79696,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -79780,7 +79780,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -79864,7 +79864,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -79948,7 +79948,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80032,7 +80032,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80116,7 +80116,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80200,7 +80200,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80284,7 +80284,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80368,7 +80368,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80452,7 +80452,7 @@
           "matchday": 1,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80536,7 +80536,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80620,7 +80620,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80704,7 +80704,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80794,7 +80794,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80878,7 +80878,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -80962,7 +80962,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81046,7 +81046,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81130,7 +81130,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81214,7 +81214,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81298,7 +81298,7 @@
           "matchday": 2,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81382,7 +81382,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81466,7 +81466,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81550,7 +81550,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81634,7 +81634,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81718,7 +81718,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81802,7 +81802,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81886,7 +81886,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -81970,7 +81970,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82054,7 +82054,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82138,7 +82138,7 @@
           "matchday": 3,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82222,7 +82222,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82306,7 +82306,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82390,7 +82390,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82474,7 +82474,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82558,7 +82558,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82642,7 +82642,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82726,7 +82726,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82810,7 +82810,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82894,7 +82894,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -82978,7 +82978,7 @@
           "matchday": 4,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83062,7 +83062,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83146,7 +83146,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83230,7 +83230,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83314,7 +83314,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83398,7 +83398,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83482,7 +83482,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83566,7 +83566,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83650,7 +83650,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83734,7 +83734,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83818,7 +83818,7 @@
           "matchday": 5,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83902,7 +83902,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -83986,7 +83986,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84070,7 +84070,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84154,7 +84154,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84238,7 +84238,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84322,7 +84322,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84406,7 +84406,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84490,7 +84490,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84574,7 +84574,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84658,7 +84658,7 @@
           "matchday": 6,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84742,7 +84742,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84826,7 +84826,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84910,7 +84910,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -84994,7 +84994,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85078,7 +85078,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85162,7 +85162,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85246,7 +85246,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85330,7 +85330,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85414,7 +85414,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85498,7 +85498,7 @@
           "matchday": 7,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85582,7 +85582,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85666,7 +85666,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85750,7 +85750,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85834,7 +85834,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -85918,7 +85918,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86002,7 +86002,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86086,7 +86086,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86170,7 +86170,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86254,7 +86254,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86338,7 +86338,7 @@
           "matchday": 8,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86446,7 +86446,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86530,7 +86530,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86614,7 +86614,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86698,7 +86698,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86782,7 +86782,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86866,7 +86866,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -86950,7 +86950,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87034,7 +87034,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87118,7 +87118,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87202,7 +87202,7 @@
           "matchday": 9,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87286,7 +87286,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87370,7 +87370,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87454,7 +87454,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87538,7 +87538,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87622,7 +87622,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87706,7 +87706,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87790,7 +87790,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87874,7 +87874,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -87958,7 +87958,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88042,7 +88042,7 @@
           "matchday": 10,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88126,7 +88126,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88210,7 +88210,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88294,7 +88294,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88378,7 +88378,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88462,7 +88462,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88546,7 +88546,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88630,7 +88630,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88714,7 +88714,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88798,7 +88798,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88888,7 +88888,7 @@
           "matchday": 11,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -88978,7 +88978,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89062,7 +89062,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89146,7 +89146,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89230,7 +89230,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89314,7 +89314,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89398,7 +89398,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89482,7 +89482,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89566,7 +89566,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89650,7 +89650,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89734,7 +89734,7 @@
           "matchday": 12,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89818,7 +89818,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89902,7 +89902,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -89986,7 +89986,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90070,7 +90070,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90154,7 +90154,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90238,7 +90238,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90322,7 +90322,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90406,7 +90406,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90490,7 +90490,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90574,7 +90574,7 @@
           "matchday": 13,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90658,7 +90658,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90742,7 +90742,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90826,7 +90826,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90910,7 +90910,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -90994,7 +90994,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91084,7 +91084,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91168,7 +91168,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91252,7 +91252,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91336,7 +91336,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91420,7 +91420,7 @@
           "matchday": 14,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91510,7 +91510,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91594,7 +91594,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91678,7 +91678,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91762,7 +91762,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91846,7 +91846,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -91930,7 +91930,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92014,7 +92014,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92098,7 +92098,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92182,7 +92182,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92266,7 +92266,7 @@
           "matchday": 15,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92350,7 +92350,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92434,7 +92434,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92518,7 +92518,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92602,7 +92602,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92686,7 +92686,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92770,7 +92770,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92854,7 +92854,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -92938,7 +92938,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93022,7 +93022,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93106,7 +93106,7 @@
           "matchday": 16,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93190,7 +93190,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93274,7 +93274,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93358,7 +93358,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93442,7 +93442,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93526,7 +93526,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93610,7 +93610,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93694,7 +93694,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93778,7 +93778,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93862,7 +93862,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -93946,7 +93946,7 @@
           "matchday": 17,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94030,7 +94030,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94114,7 +94114,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94198,7 +94198,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94282,7 +94282,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94366,7 +94366,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94450,7 +94450,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94534,7 +94534,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94624,7 +94624,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94708,7 +94708,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94792,7 +94792,7 @@
           "matchday": 18,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -94960,7 +94960,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95044,7 +95044,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95128,7 +95128,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95212,7 +95212,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95296,7 +95296,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95380,7 +95380,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95464,7 +95464,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95548,7 +95548,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95638,7 +95638,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95722,7 +95722,7 @@
           "matchday": 20,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95890,7 +95890,7 @@
           "matchday": 20,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -95974,7 +95974,7 @@
           "matchday": 20,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96058,7 +96058,7 @@
           "matchday": 20,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96310,7 +96310,7 @@
           "matchday": 20,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96394,7 +96394,7 @@
           "matchday": 20,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96562,7 +96562,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96646,7 +96646,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96730,7 +96730,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96814,7 +96814,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96898,7 +96898,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -96982,7 +96982,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -97066,7 +97066,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -97150,7 +97150,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -97234,7 +97234,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -97318,7 +97318,7 @@
           "matchday": 21,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-12T00:20:21Z",
+          "lastUpdated": "2022-01-13T00:20:18Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
@@ -97434,7 +97434,38 @@
             "id": 586,
             "name": "Torino FC"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 57233,
+              "name": "Pasquale Capaldo",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57837,
+              "name": "Federico Dionisi",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57836,
+              "name": "Luca Massimi",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11043,
+              "name": "Maurizio Mariani",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10986,
+              "name": "Salvatore Longo",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333567,
@@ -97481,7 +97512,44 @@
             "id": 110,
             "name": "SS Lazio"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 167761,
+              "name": "Fabio Schirru",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": null
+            },
+            {
+              "id": 57237,
+              "name": "Luigi Lanotte",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57873,
+              "name": "Gianpiero Miele",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11006,
+              "name": "Rosario Abisso",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11083,
+              "name": "Luigi Nasca",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11048,
+              "name": "Alberto Tegoni",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333570,
@@ -97528,7 +97596,44 @@
             "id": 115,
             "name": "Udinese Calcio"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 55939,
+              "name": "Edoardo Raspollini",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 76768,
+              "name": "Vittorio Di Gioia",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 161397,
+              "name": "Francesco Forneau",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": null
+            },
+            {
+              "id": 11280,
+              "name": "Antonio Giua",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11053,
+              "name": "Daniele Chiffi",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11118,
+              "name": "Dario Cecconi",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333565,
@@ -97575,7 +97680,44 @@
             "id": 450,
             "name": "Hellas Verona FC"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 11182,
+              "name": "Marco Bresmes",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 168761,
+              "name": "Daisuke Yoshikawa",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": null
+            },
+            {
+              "id": 57762,
+              "name": "Matteo Marchetti",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57794,
+              "name": "Alessandro Prontera",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11084,
+              "name": "Davide Ghersini",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11007,
+              "name": "Alessandro Costanzo",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333564,
@@ -97622,7 +97764,44 @@
             "id": 445,
             "name": "Empoli FC"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 127997,
+              "name": "Domenico Palermo",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 128730,
+              "name": "Giuseppe Perrotti",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 172280,
+              "name": "Daniele Minelli",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10990,
+              "name": "Piero Giacomelli",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11065,
+              "name": "Daniele Doveri",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10991,
+              "name": "Giorgio Peretti",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333568,
@@ -97669,7 +97848,44 @@
             "id": 104,
             "name": "Cagliari Calcio"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 11067,
+              "name": "Pasquale De Meo",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57234,
+              "name": "Oreste Muto",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57830,
+              "name": "Manuel Volpi",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57829,
+              "name": "Lorenzo Maggioni",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11002,
+              "name": "Luca Pairetto",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11049,
+              "name": "Ciro Carbone",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333573,
@@ -97716,7 +97932,44 @@
             "id": 108,
             "name": "FC Internazionale Milano"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 11066,
+              "name": "Alessandro Lo Cicero",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10987,
+              "name": "Filippo Valeriani",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11112,
+              "name": "Juan Sacchi",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11029,
+              "name": "Davide Massa",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11063,
+              "name": "Aleandro Di Paolo",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11076,
+              "name": "Alessandro Giallatini",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333569,
@@ -97763,7 +98016,44 @@
             "id": 488,
             "name": "Spezia Calcio"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 57242,
+              "name": "Alessandro Cipressa",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57793,
+              "name": "Michele Grossi",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 57826,
+              "name": "Simone Sozza",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11071,
+              "name": "Marco Serra",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11065,
+              "name": "Daniele Doveri",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11001,
+              "name": "Mauro Vivenzi",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333572,
@@ -97810,7 +98100,44 @@
             "id": 113,
             "name": "SSC Napoli"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 57236,
+              "name": "Niccolò Pagliardini",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 76136,
+              "name": "Antonio Vono",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11112,
+              "name": "Juan Sacchi",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11119,
+              "name": "Livio Marinelli",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10985,
+              "name": "Michael Fabbri",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10992,
+              "name": "Stefano Alassio",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333571,
@@ -97857,7 +98184,44 @@
             "id": 107,
             "name": "Genoa CFC"
           },
-          "referees": []
+          "referees": [
+            {
+              "id": 77452,
+              "name": "Gamal Mokhtar",
+              "role": "ASSISTANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 167771,
+              "name": "Davide Miele",
+              "role": "ASSISTANT_REFEREE_N2",
+              "nationality": null
+            },
+            {
+              "id": 11082,
+              "name": "Antonio Di Martino",
+              "role": "FOURTH_OFFICIAL",
+              "nationality": "Italy"
+            },
+            {
+              "id": 10977,
+              "name": "Fabio Maresca",
+              "role": "REFEREE",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11053,
+              "name": "Daniele Chiffi",
+              "role": "VIDEO_ASSISANT_REFEREE_N1",
+              "nationality": "Italy"
+            },
+            {
+              "id": 11055,
+              "name": "Filippo Meli",
+              "role": "VIDEO_ASSISANT_REFEREE_N2",
+              "nationality": "Italy"
+            }
+          ]
         },
         {
           "id": 333560,

@@ -65,8 +65,16 @@ export const App = () => {
             }
         };
 
-        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
-        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
+        fetchLocalData(
+            API_INT_URL,
+            API_ENDPOINT.STANDINGS,
+            STORE_ACTIONS.STANDINGS
+        );
+        fetchLocalData(
+            API_INT_URL,
+            API_ENDPOINT.MATCHES,
+            STORE_ACTIONS.MATCHES
+        );
         fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
     }, [id]);
 
