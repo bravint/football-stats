@@ -13,10 +13,10 @@ import { SkipToContentButton } from './components/SkipToContentButton/SkipToCont
 import { Standings } from './components/Standings/Standings';
 
 import {
-    API_EXT_URL,
-    API_EXT_TOKEN,
-    API_INT_URL,
     API_ENDPOINT,
+    API_EXT_TOKEN,
+    API_EXT_URL,
+    API_INT_URL,
     MATCH_TYPES,
     STORE_ACTIONS,
     URL,
@@ -29,10 +29,7 @@ import { StoreContext, rootReducer, initialState } from './store';
 export const App = () => {
     const [state, dispatch] = useReducer(rootReducer, initialState);
 
-    const id = state.id;
-    const matches = state.matches;
-    const url = state.url;
-    const updateData = state.updateData;
+    const { id, matches, url, updateData } = state;
 
     console.log(`states`, state);
 
@@ -54,10 +51,7 @@ export const App = () => {
 
         const fetchLocalData = async (APIurl, endpoint, action) => {
             try {
-                const response = await fetch(
-                    `${APIurl}/${id}/${endpoint}`,
-                    fetchConfig()
-                );
+                const response = await fetch(`${APIurl}/${id}/${endpoint}`,fetchConfig());
                 const data = await response.json();
                 doDispatch(action, data);
             } catch (error) {
@@ -65,16 +59,8 @@ export const App = () => {
             }
         };
 
-        fetchLocalData(
-            API_INT_URL,
-            API_ENDPOINT.STANDINGS,
-            STORE_ACTIONS.STANDINGS
-        );
-        fetchLocalData(
-            API_INT_URL,
-            API_ENDPOINT.MATCHES,
-            STORE_ACTIONS.MATCHES
-        );
+        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
         fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
     }, [id]);
 
@@ -90,10 +76,7 @@ export const App = () => {
 
         const fetchExternalData = async (APIurl, endpoint) => {
             try {
-                const response = await fetch(
-                    `${APIurl}/${id}/${endpoint}`,
-                    fetchConfig()
-                );
+                const response = await fetch(`${APIurl}/${id}/${endpoint}`,fetchConfig());
                 let data = await response.json();
                 data = { ...data, id: `${endpoint}` };
                 data = { ...data, date: getNextGameDate() };
@@ -144,9 +127,7 @@ export const App = () => {
 
     const getNextGameDate = () => {
         if (!matches.matches) return;
-        let arr = matches.matches.filter(
-            (element) => element.status === MATCH_TYPES.SCHEDULED
-        );
+        let arr = matches.matches.filter((element) => element.status === MATCH_TYPES.SCHEDULED);
         let date = arr[0].utcDate.slice(0, -10).replace(/-/g, '');
         date = parseInt(date);
         return date;
