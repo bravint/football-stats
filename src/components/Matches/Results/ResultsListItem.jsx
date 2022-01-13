@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { StoreContext } from '../../../store';
 
-import { getLogo, fixTeamName, renderTitle } from '../../../utils.js';
+import { fixTeamName, getLogo, renderTitle } from '../../../utils.js';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
@@ -11,9 +11,7 @@ export const ResultsListItem = (props) => {
 
     const store = useContext(StoreContext);
 
-    const id = store.state.id;
-    const sortType = store.state.sortType;
-    const teams = store.state.teams;
+    const { id, sortType, teams } = store.state;
 
     return (
         <ul>

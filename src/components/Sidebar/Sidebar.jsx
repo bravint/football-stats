@@ -13,9 +13,7 @@ import styles from '../../styles/Sidebar.module.css';
 export const Sidebar = () => {
     const store = useContext(StoreContext);
 
-    const id = store.state.id;
-    const standings = store.state.standings;
-    const url = store.state.url;
+    const { id, standings, url } = store.state;
 
     return (
         <aside className={styles.aside}>

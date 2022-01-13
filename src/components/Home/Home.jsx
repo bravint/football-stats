@@ -1,8 +1,7 @@
-import styles from "../../styles/Home.module.css";
-import { SearchForm } from "../SearchForm/SearchForm";
+import styles from '../../styles/Home.module.css';
+import { SearchForm } from '../SearchForm/SearchForm';
 
 export const Home = () => {
-
     return (
         <div className={styles.container}>
             <section className="title">

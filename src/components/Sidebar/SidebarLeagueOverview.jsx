@@ -7,8 +7,7 @@ import styles from '../../styles/Sidebar.module.css';
 export const SidebarLeagueOverview = () => {
     const store = useContext(StoreContext);
 
-    const id = store.state.id;
-    const standings = store.state.standings;
+    const { id, standings } = store.state;
 
     return (
         <>

@@ -30,7 +30,7 @@ export const SearchForm = () => {
                 className={styles.league}
                 onChange={(event) => handleChange(event)}
             >
-                <option value="default">Choose a league</option>
+                <option selected disabled>Choose a league</option>
                 <option value="BL1">Bundesliga, Germany</option>
                 <option value="PD">La Liga, Spain</option>
                 <option value="FL1">Ligue 1, France</option>

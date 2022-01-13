@@ -13,14 +13,8 @@
     gap: 1rem;
 }
 
-.returnButton {
-
-    position: sticky;
-    top: 100vh;
-    left: 100%;
-    transform: translateY(-4.5rem); 
-    z-index: 1;
-
+.returnButton,
+.skipButton {
     background-color: turquoise;
     color: black;
     width: max-content;
@@ -40,3 +34,18 @@
 .returnButton:hover {
     font-weight: 700;
 }
+
+.returnButton {
+    position: sticky;
+    top: 100vh;
+    left: 100%;
+    transform: translateY(-4.5rem); 
+    z-index: 1;
+}
+
+ .skipButton {
+    position: sticky;
+    top: 1.5rem;
+    left: 0;
+    z-index: 1;
+ }

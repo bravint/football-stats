@@ -8,9 +8,7 @@ import styles from '../../../styles/FixturesListItem.module.css';
 export const CancelledListItem = () => {
     const store = useContext(StoreContext);
 
-    const cancelledMatches = store.state.cancelledMatches;
-    const id = store.state.id;
-    const teams = store.state.teams;
+    const { cancelledMatches, id, teams } = store.state;
 
     return (
         <>

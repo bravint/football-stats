@@ -11,7 +11,7 @@ import styles from '../../../styles/FixturesListItem.module.css';
 export const Results = () => {
     const store = useContext(StoreContext);
 
-    const { matchStatus, filteredMatches, cancelledMatches } = store.state
+    const { matchStatus, filteredMatches, cancelledMatches } = store.state;
 
     return (
         <section className={styles.results}>

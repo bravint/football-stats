@@ -9,6 +9,7 @@ import { Fixtures } from './components/Matches/Fixtures/Fixtures';
 import { Results } from './components/Matches/Results/Results';
 import { ReturnToTopButton } from './components/ReturnToTopButton/ReturnToTopButton';
 import { Sidebar } from './components/Sidebar/Sidebar';
+import { SkipToContentButton } from './components/SkipToContentButton/SkipToContentButton';
 import { Standings } from './components/Standings/Standings';
 
 import {
@@ -145,6 +146,7 @@ export const App = () => {
     return (
         <StoreContext.Provider value={{ state: state, dispatch: dispatch }}>
             <div className={styles.container}>
+                <SkipToContentButton />
                 <Sidebar />
                 {!id && (
                     <main className={styles.main}>

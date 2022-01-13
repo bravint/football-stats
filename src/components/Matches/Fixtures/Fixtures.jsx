@@ -11,9 +11,7 @@ import styles from '../../../styles/FixturesListItem.module.css';
 export const Fixtures = () => {
     const store = useContext(StoreContext);
 
-    const filteredMatches = store.state.filteredMatches;
-    const matchStatus = store.state.matchStatus;
-    const postponedMatches = store.state.postponedMatches;
+    const { filteredMatches, matchStatus, postponedMatches } = store.state;
 
     return (
         <>
