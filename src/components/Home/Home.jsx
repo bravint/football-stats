@@ -1,5 +1,6 @@
-import styles from '../../styles/Home.module.css';
 import { SearchForm } from '../SearchForm/SearchForm';
+
+import styles from '../../styles/Home.module.css';
 
 export const Home = () => {
     return (

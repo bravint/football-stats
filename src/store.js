@@ -3,15 +3,17 @@ import { createContext } from 'react';
 export const StoreContext = createContext();
 
 export const initialState = {
-    standings: [],
-    matches: [],
-    teams: [],
-    url: '',
+    cancelledMatches: [],
+    id: '',
     filteredMatches: [],
     postponedMatches: [],
-    cancelledMatches: [],
+    matches: [],
     matchStatus: 'all',
     sortType: 'date',
+    standings: [],
+    teams: [],
+    updateData: false,
+    url: '',
 };
 
 export const filteredMatchesReducer = (state, action) => {
@@ -124,15 +126,15 @@ const combineReducers = (reducers) => {
 };
 
 export const rootReducer = combineReducers({
-    standings: standingsReducer,
-    matches: matchesReducer,
-    teams: teamsReducer,
-    url: urlReducer,
+    cancelledMatches: cancelledMatchesReducer,
     id: idReducer,
-    updateData: updateDataReducer,
     filteredMatches: filteredMatchesReducer,
     postponedMatches: postponedMatchesReducer,
-    cancelledMatches: cancelledMatchesReducer,
+    matches: matchesReducer,
     matchStatus: matchStatusReducer,
     sortType: sortTypeReducer,
+    standings: standingsReducer,
+    teams: teamsReducer,
+    url: urlReducer,
+    updateData: updateDataReducer,
 });

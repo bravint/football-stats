@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { CancelledListItem } from './CancelledListItem';
 import { ResultsListItem } from './ResultsListItem';
 
-import { StoreContext } from '../../../store';
+import { StoreContext, initialState } from '../../../store';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
@@ -22,7 +22,7 @@ export const Results = () => {
                 </>
             )}
             {filteredMatches &&
-                (cancelledMatches.length < 1 || matchStatus === 'all') && (
+                (cancelledMatches.length < 1 || matchStatus === initialState.matchStatus) && (
                     <>
                         <h1 className={styles.title}>RESULTS</h1>
                         {filteredMatches.map((nested) => {

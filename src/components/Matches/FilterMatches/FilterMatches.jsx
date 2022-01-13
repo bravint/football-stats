@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useContext } from 'react';
 
-import { StoreContext } from '../../../store';
-import { fixTeamName, generateSortedArray } from '../../../utils.js';
+import { MATCH_TYPES, STORE_ACTIONS, URL } from '../../../config';
+import { StoreContext, initialState } from '../../../store';
+import { fixTeamName, generateSortedArray } from '../../../utils';
 
 import styles from '../../../styles/FilterMatches.module.css';
 
@@ -19,13 +20,6 @@ export const FilterMatches = () => {
 
     const { id, matches, matchStatus, sortType, teams, url } = store.state;
 
-    console.log(`filterMatches local states`, {
-        matchStatusList,
-        teamsList,
-        displayFiltersForm,
-        selectedTeams,
-    });
-
     useEffect(() => {
         clearFilters();
         genMatchStatusArray();
@@ -38,8 +32,8 @@ export const FilterMatches = () => {
 
     const clearFilters = () => {
         setSelectedTeams([]);
-        doDispatch('update/matchStatus', 'all');
-        doDispatch('update/sortType', 'date');
+        doDispatch(STORE_ACTIONS.MATCH_STATUS, initialState.matchStatus);
+        doDispatch(STORE_ACTIONS.SORT_TYPE, initialState.sortType);
     };
 
     const doDispatch = (action, payload) => {
@@ -50,22 +44,22 @@ export const FilterMatches = () => {
     };
 
     const checkFixturesStatus = (element) => {
-        if (element.status !== 'FINISHED' && element.status !== 'CANCELLED')
+        if (element.status !== MATCH_TYPES.FINISHED && element.status !== MATCH_TYPES.CANCELLED)
             return element;
     };
 
     const checkResultsStatus = (element) => {
-        if (element.status === 'FINISHED' || element.status === 'CANCELLED')
+        if (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED)
             return element;
     };
 
     const genMatchStatusArray = () => {
         let array = [];
-        if (url === '/results')
+        if (url === URL.RESULTS)
             array = matches.matches.filter((element) =>
                 checkResultsStatus(element)
             );
-        if (url === '/fixtures')
+        if (url === URL.FIXTURES)
             array = matches.matches.filter((element) =>
                 checkFixturesStatus(element)
             );
@@ -86,28 +80,28 @@ export const FilterMatches = () => {
         let filteredArray = matches.matches.filter((element) =>
             filterMatches(element)
         );
-        if (url === '/fixtures') {
+        if (url === URL.FIXTURES) {
             doDispatch(
-                'update/postponedMatches',
+                STORE_ACTIONS.POSTPONED_MATCHES,
                 filteredArray.filter(
-                    (element) => element.status === 'POSTPONED'
+                    (element) => element.status === MATCH_TYPES.POSTPONED
                 )
             );
             sortFilteredArray(
                 filteredArray.filter(
-                    (element) => element.status === 'SCHEDULED'
+                    (element) => element.status === MATCH_TYPES.SCHEDULED
                 )
             );
         }
-        if (url === '/results') {
+        if (url === URL.RESULTS) {
             doDispatch(
-                'update/cancelledMatches',
+                STORE_ACTIONS.CANCELLED_MATCHES,
                 filteredArray.filter(
-                    (element) => element.status === 'CANCELLED'
+                    (element) => element.status === MATCH_TYPES.CANCELLED
                 )
             );
             let finishedMatchesArray = filteredArray.filter(
-                (element) => element.status === 'FINISHED'
+                (element) => element.status === MATCH_TYPES.FINISHED
             );
             sortFilteredArray(finishedMatchesArray.reverse());
         }
@@ -117,15 +111,15 @@ export const FilterMatches = () => {
         const elementStatus = element.status.toLowerCase();
         if (matchStatus.includes(elementStatus)) return true;
         if (
-            url === '/fixtures' &&
-            matchStatus === 'all' &&
-            (element.status !== 'FINISHED' || element.status !== 'CANCELLED')
+            url === URL.FIXTURES &&
+            matchStatus === initialState.matchStatus &&
+            (element.status !== MATCH_TYPES.FINISHED || element.status !== MATCH_TYPES.CANCELLED)
         )
             return true;
         if (
-            url === '/results' &&
-            matchStatus === 'all' &&
-            (element.status === 'FINISHED' || element.status === 'CANCELLED')
+            url === URL.RESULTS &&
+            matchStatus === initialState.matchStatus &&
+            (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED)
         )
             return true;
     };
@@ -146,7 +140,7 @@ export const FilterMatches = () => {
         let unsortedArray = [...inputArray];
         let sortedArray = [];
         generateSortedArray(unsortedArray, sortedArray, sortType);
-        doDispatch('update/filteredMatches', sortedArray);
+        doDispatch(STORE_ACTIONS.FILTERED_MATCHES, sortedArray);
     };
 
     const checkChecked = (element) =>
@@ -156,7 +150,7 @@ export const FilterMatches = () => {
         element.replace(/\b\w/g, (l) => l.toUpperCase());
 
     const handleFixtureTypeChange = (event) =>
-        doDispatch('update/matchStatus', event.target.value);
+        doDispatch(STORE_ACTIONS.MATCH_STATUS, event.target.value);
 
     const handleTeamSelectionChange = (event) =>
         selectedTeams.includes(event.target.id)
@@ -166,7 +160,7 @@ export const FilterMatches = () => {
             : setSelectedTeams([...selectedTeams, event.target.id]);
 
     const handleSortChange = (event) =>
-        doDispatch('update/sortType', event.target.value.toLowerCase());
+        doDispatch(STORE_ACTIONS.SORT_TYPE, event.target.value.toLowerCase());
 
     const HandleShowFIlterClick = () =>
         setDisplayFiltersForm(!displayFiltersForm);

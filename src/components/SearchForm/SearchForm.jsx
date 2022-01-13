@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 import styles from "../../styles/Home.module.css";
 
+import { STORE_ACTIONS, URL } from "../../config";
 import { StoreContext } from "../../store";
 
 export const SearchForm = () => {
@@ -18,8 +19,8 @@ export const SearchForm = () => {
     }
 
     const handleChange = (event) => {
-        doDispatch('update/id', event.target.value);
-        navigate("./standings", { replace: true });
+        doDispatch(STORE_ACTIONS.ID, event.target.value);
+        navigate(URL.STANDINGS, { replace: true });
     };
 
     return (

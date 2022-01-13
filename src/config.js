@@ -49,3 +49,17 @@ export class MATCH_TYPES {
     static FINISHED = 'FINISHED';
     static CANCELLED = 'CANCELLED';
 }
+
+export class STORE_ACTIONS {
+    static CANCELLED_MATCHES = 'update/cancelledMatches'
+    static ID = 'update/id'
+    static FILTERED_MATCHES = 'update/filteredMatches'
+    static MATCHES = 'update/matches'
+    static MATCH_STATUS = 'update/matchStatus'
+    static POSTPONED_MATCHES = 'update/postponedMatches'
+    static SORT_TYPE = 'update/sortType'
+    static STANDINGS = 'update/standings'
+    static TEAMS = 'update/teams'
+    static URL = 'update/url'
+    static UPDATE_DATA = 'update/updateData'
+  }

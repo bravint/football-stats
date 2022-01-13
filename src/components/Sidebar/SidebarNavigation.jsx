@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+import { STORE_ACTIONS, URL } from '../../config';
 import { StoreContext } from '../../store';
 
 import styles from '../../styles/SidebarNavigation.module.css';
@@ -22,7 +23,7 @@ export const SidebarNavigation = () => {
                     <Link
                         className={styles.link}
                         to="/"
-                        onClick={() => doDispatch('update/id', '')}
+                        onClick={() => doDispatch(STORE_ACTIONS.ID, '')}
                     >
                         Home
                     </Link>
@@ -32,7 +33,7 @@ export const SidebarNavigation = () => {
                         className={({ isActive }) =>
                             isActive ? `${styles.activeLink}` : `${styles.link}`
                         }
-                        to="/standings"
+                        to={URL.STANDINGS}
                     >
                         Standings
                     </NavLink>
@@ -42,7 +43,7 @@ export const SidebarNavigation = () => {
                         className={({ isActive }) =>
                             isActive ? `${styles.activeLink}` : `${styles.link}`
                         }
-                        to="/fixtures"
+                        to={URL.FIXTURES}
                     >
                         Fixtures
                     </NavLink>
@@ -52,7 +53,7 @@ export const SidebarNavigation = () => {
                         className={({ isActive }) =>
                             isActive ? `${styles.activeLink}` : `${styles.link}`
                         }
-                        to="/results"
+                        to={URL.RESULTS}
                     >
                         Results
                     </NavLink>

@@ -18,6 +18,7 @@ import {
     API_INT_URL,
     API_ENDPOINT,
     MATCH_TYPES,
+    STORE_ACTIONS,
     URL,
 } from './config';
 
@@ -45,7 +46,7 @@ export const App = () => {
     const location = useLocation();
 
     useEffect(() => {
-        doDispatch('update/url', location.pathname);
+        doDispatch(STORE_ACTIONS.URL, location.pathname);
     }, [location]);
 
     useEffect(() => {
@@ -64,20 +65,20 @@ export const App = () => {
             }
         };
 
-        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, 'update/standings');
-        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, 'update/matches');
-        fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, 'update/teams');
+        fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
+        fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
     }, [id]);
 
     useEffect(() => {
         if (!matches.matches) return;
         if (getTodaysDate() >= matches.date || !matches.date)
-            doDispatch('update/setUpdate', true);
+            doDispatch(STORE_ACTIONS.UPDATE_DATA, true);
     }, [matches]);
 
     useEffect(() => {
         if (!updateData) return;
-        doDispatch('update/setUpdate', false);
+        doDispatch(STORE_ACTIONS.UPDATE_DATA, false);
 
         const fetchExternalData = async (APIurl, endpoint) => {
             try {
@@ -96,7 +97,7 @@ export const App = () => {
 
         const updateLocalstore = async (object, str) => {
             try {
-                await fetch(`http://localhost:4000/${id}/${str}`, {
+                await fetch(`${API_INT_URL}/${id}/${str}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -112,7 +113,7 @@ export const App = () => {
         fetchExternalData(API_EXT_URL, API_ENDPOINT.MATCHES);
         fetchExternalData(API_EXT_URL, API_ENDPOINT.TEAMS);
 
-        doDispatch('update/setUpdate', false);
+        doDispatch(STORE_ACTIONS.UPDATE_DATA, false);
     }, [updateData]);
 
     const fetchConfig = () => {

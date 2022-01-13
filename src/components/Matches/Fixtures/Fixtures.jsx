@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { FixturesListItem } from './FixturesListItem';
 import { PostponedListItem } from './PostponedListItem';
 
-import { StoreContext } from '../../../store';
+import { StoreContext, initialState } from '../../../store';
 
 import styles from '../../../styles/FixturesListItem.module.css';
 
@@ -23,7 +23,7 @@ export const Fixtures = () => {
                     </>
                 )}
                 {filteredMatches &&
-                    (postponedMatches.length < 1 || matchStatus === 'all') && (
+                    (postponedMatches.length < 1 || matchStatus === initialState.matchStatus) && (
                         <>
                             <h1 className={styles.title}>SCHEDULED</h1>
                             {filteredMatches.map((nested) => {
