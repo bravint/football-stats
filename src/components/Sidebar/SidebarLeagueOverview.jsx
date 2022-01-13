@@ -34,7 +34,7 @@ export const SidebarLeagueOverview = () => {
                 <br></br>
                 <li>
                     <p className={styles.competitionOverview}>
-                        Current Round:<br></br>
+                        Playing Matchday:<br></br>
                         {standings.season.currentMatchday} of{' '}
                         {standings.standings[0].table.length * 2 - 2}
                     </p>

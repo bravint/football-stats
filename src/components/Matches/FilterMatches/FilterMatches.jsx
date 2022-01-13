@@ -7,14 +7,14 @@ import { fixTeamName, generateSortedArray } from '../../../utils';
 
 import styles from '../../../styles/FilterMatches.module.css';
 
-import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import CloseIcon from '@mui/icons-material/Close';
+import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 
 export const FilterMatches = () => {
-    const [matchStatusList, setMatchStatusList] = useState([]);
-    const [teamsList, setTeamsList] = useState([]);
     const [displayFiltersForm, setDisplayFiltersForm] = useState(false);
+    const [matchStatusList, setMatchStatusList] = useState([]);
     const [selectedTeams, setSelectedTeams] = useState([]);
+    const [teamsList, setTeamsList] = useState([]);
 
     const store = useContext(StoreContext);
 
@@ -44,25 +44,17 @@ export const FilterMatches = () => {
     };
 
     const checkFixturesStatus = (element) => {
-        if (element.status !== MATCH_TYPES.FINISHED && element.status !== MATCH_TYPES.CANCELLED)
-            return element;
+        if (element.status !== MATCH_TYPES.FINISHED && element.status !== MATCH_TYPES.CANCELLED) return element;
     };
 
     const checkResultsStatus = (element) => {
-        if (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED)
-            return element;
+        if (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED) return element;
     };
 
     const genMatchStatusArray = () => {
         let array = [];
-        if (url === URL.RESULTS)
-            array = matches.matches.filter((element) =>
-                checkResultsStatus(element)
-            );
-        if (url === URL.FIXTURES)
-            array = matches.matches.filter((element) =>
-                checkFixturesStatus(element)
-            );
+        if (url === URL.RESULTS) array = matches.matches.filter((element) => checkResultsStatus(element));
+        if (url === URL.FIXTURES) array = matches.matches.filter((element) => checkFixturesStatus(element));
         const newarray = array.map((element) => element.status);
         let status = Array.from(new Set(newarray));
         status.sort();
@@ -72,37 +64,18 @@ export const FilterMatches = () => {
     const genTeamsArray = () => setTeamsList([...teams.teams]);
 
     const filterMatches = (element) => {
-        if (filterByFixtureType(element) && filterByTeam(element))
-            return element;
+        if (filterByFixtureType(element) && filterByTeam(element)) return element;
     };
 
     const filteredMatchesArray = () => {
-        let filteredArray = matches.matches.filter((element) =>
-            filterMatches(element)
-        );
+        let filteredArray = matches.matches.filter((element) => filterMatches(element));
         if (url === URL.FIXTURES) {
-            doDispatch(
-                STORE_ACTIONS.POSTPONED_MATCHES,
-                filteredArray.filter(
-                    (element) => element.status === MATCH_TYPES.POSTPONED
-                )
-            );
-            sortFilteredArray(
-                filteredArray.filter(
-                    (element) => element.status === MATCH_TYPES.SCHEDULED
-                )
-            );
+            doDispatch(STORE_ACTIONS.POSTPONED_MATCHES, filteredArray.filter((element) => element.status === MATCH_TYPES.POSTPONED));
+            sortFilteredArray(filteredArray.filter((element) => element.status === MATCH_TYPES.SCHEDULED));
         }
         if (url === URL.RESULTS) {
-            doDispatch(
-                STORE_ACTIONS.CANCELLED_MATCHES,
-                filteredArray.filter(
-                    (element) => element.status === MATCH_TYPES.CANCELLED
-                )
-            );
-            let finishedMatchesArray = filteredArray.filter(
-                (element) => element.status === MATCH_TYPES.FINISHED
-            );
+            doDispatch(STORE_ACTIONS.CANCELLED_MATCHES, filteredArray.filter((element) => element.status === MATCH_TYPES.CANCELLED));
+            let finishedMatchesArray = filteredArray.filter((element) => element.status === MATCH_TYPES.FINISHED);
             sortFilteredArray(finishedMatchesArray.reverse());
         }
     };
@@ -110,29 +83,14 @@ export const FilterMatches = () => {
     const filterByFixtureType = (element) => {
         const elementStatus = element.status.toLowerCase();
         if (matchStatus.includes(elementStatus)) return true;
-        if (
-            url === URL.FIXTURES &&
-            matchStatus === initialState.matchStatus &&
-            (element.status !== MATCH_TYPES.FINISHED || element.status !== MATCH_TYPES.CANCELLED)
-        )
-            return true;
-        if (
-            url === URL.RESULTS &&
-            matchStatus === initialState.matchStatus &&
-            (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED)
-        )
-            return true;
+        if (url === URL.FIXTURES && matchStatus === initialState.matchStatus && (element.status !== MATCH_TYPES.FINISHED || element.status !== MATCH_TYPES.CANCELLED)) return true;
+        if (url === URL.RESULTS && matchStatus === initialState.matchStatus && (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED)) return true;
     };
 
     const filterByTeam = (element) => {
         const homeTeam = fixTeamName(id, element.homeTeam.name);
         const awayTeam = fixTeamName(id, element.awayTeam.name);
-        if (
-            selectedTeams.includes(homeTeam) ||
-            selectedTeams.includes(awayTeam) ||
-            selectedTeams.length < 1
-        )
-            return true;
+        if (selectedTeams.includes(homeTeam) || selectedTeams.includes(awayTeam) || selectedTeams.length < 1) return true;
     };
 
     const sortFilteredArray = (inputArray) => {
@@ -143,27 +101,17 @@ export const FilterMatches = () => {
         doDispatch(STORE_ACTIONS.FILTERED_MATCHES, sortedArray);
     };
 
-    const checkChecked = (element) =>
-        selectedTeams.includes(element) ? true : false;
+    const checkChecked = (element) => selectedTeams.includes(element) ? true : false;
 
-    const capitalisedTitle = (element) =>
-        element.replace(/\b\w/g, (l) => l.toUpperCase());
+    const capitalisedTitle = (element) => element.replace(/\b\w/g, (l) => l.toUpperCase());
 
-    const handleFixtureTypeChange = (event) =>
-        doDispatch(STORE_ACTIONS.MATCH_STATUS, event.target.value);
+    const handleFixtureTypeChange = (event) => doDispatch(STORE_ACTIONS.MATCH_STATUS, event.target.value);
 
-    const handleTeamSelectionChange = (event) =>
-        selectedTeams.includes(event.target.id)
-            ? setSelectedTeams(
-                  selectedTeams.filter((element) => element !== event.target.id)
-              )
-            : setSelectedTeams([...selectedTeams, event.target.id]);
+    const handleTeamSelectionChange = (event) => selectedTeams.includes(event.target.id) ? setSelectedTeams(selectedTeams.filter((element) => element !== event.target.id)) : setSelectedTeams([...selectedTeams, event.target.id]);
 
-    const handleSortChange = (event) =>
-        doDispatch(STORE_ACTIONS.SORT_TYPE, event.target.value.toLowerCase());
+    const handleSortChange = (event) => doDispatch(STORE_ACTIONS.SORT_TYPE, event.target.value.toLowerCase());
 
-    const HandleShowFIlterClick = () =>
-        setDisplayFiltersForm(!displayFiltersForm);
+    const HandleShowFIlterClick = () => setDisplayFiltersForm(!displayFiltersForm);
 
     return (
         <div className={styles.filterSection}>
