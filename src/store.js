@@ -16,6 +16,24 @@ export const initialState = {
     url: '',
 };
 
+export const cancelledMatchesReducer = (state, action) => {
+    switch (action.type) {
+        case 'update/cancelledMatches':
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
+export const idReducer = (state, action) => {
+    switch (action.type) {
+        case 'update/id':
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
 export const filteredMatchesReducer = (state, action) => {
     switch (action.type) {
         case 'update/filteredMatches':
@@ -34,9 +52,9 @@ export const postponedMatchesReducer = (state, action) => {
     }
 };
 
-export const cancelledMatchesReducer = (state, action) => {
+export const matchesReducer = (state, action) => {
     switch (action.type) {
-        case 'update/cancelledMatches':
+        case 'update/matches':
             return action.payload;
         default:
             return state;
@@ -70,15 +88,6 @@ export const standingsReducer = (state, action) => {
     }
 };
 
-export const matchesReducer = (state, action) => {
-    switch (action.type) {
-        case 'update/matches':
-            return action.payload;
-        default:
-            return state;
-    }
-};
-
 export const teamsReducer = (state, action) => {
     switch (action.type) {
         case 'update/teams':
@@ -91,15 +100,6 @@ export const teamsReducer = (state, action) => {
 export const urlReducer = (state, action) => {
     switch (action.type) {
         case 'update/url':
-            return action.payload;
-        default:
-            return state;
-    }
-};
-
-export const idReducer = (state, action) => {
-    switch (action.type) {
-        case 'update/id':
             return action.payload;
         default:
             return state;
