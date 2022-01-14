@@ -73,7 +73,7 @@ export const App = () => {
 
     useEffect(() => {
         if (!updateData) return;
-        doDispatch(STORE_ACTIONS.UPDATE_DATA, false);
+        console.log('fetching from ext API')
 
         const fetchExternalData = async (APIurl, endpoint) => {
             try {
@@ -81,7 +81,7 @@ export const App = () => {
                 let data = await response.json();
                 data = { ...data, id: `${endpoint}` };
                 data = { ...data, date: getNextGameDate() };
-                updateLocalstore(data, endpoint);
+                if (response.status === 200) updateLocalstore(data, endpoint);
             } catch (error) {
                 console.log(`error: `, error);
             }

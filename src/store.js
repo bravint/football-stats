@@ -1,5 +1,7 @@
 import { createContext } from 'react';
 
+import { STORE_ACTIONS } from './config';
+
 export const StoreContext = createContext();
 
 export const initialState = {
@@ -18,7 +20,7 @@ export const initialState = {
 
 export const cancelledMatchesReducer = (state, action) => {
     switch (action.type) {
-        case 'update/cancelledMatches':
+        case STORE_ACTIONS.CANCELLED_MATCHES:
             return action.payload;
         default:
             return state;
@@ -27,7 +29,7 @@ export const cancelledMatchesReducer = (state, action) => {
 
 export const idReducer = (state, action) => {
     switch (action.type) {
-        case 'update/id':
+        case STORE_ACTIONS.ID:
             return action.payload;
         default:
             return state;
@@ -36,7 +38,7 @@ export const idReducer = (state, action) => {
 
 export const filteredMatchesReducer = (state, action) => {
     switch (action.type) {
-        case 'update/filteredMatches':
+        case STORE_ACTIONS.FILTERED_MATCHES:
             return action.payload;
         default:
             return state;
@@ -45,8 +47,8 @@ export const filteredMatchesReducer = (state, action) => {
 
 export const postponedMatchesReducer = (state, action) => {
     switch (action.type) {
-        case 'update/postponedMatches':
-            return action.payload;;
+        case STORE_ACTIONS.POSTPONED_MATCHES:
+            return action.payload;
         default:
             return state;
     }
@@ -54,7 +56,7 @@ export const postponedMatchesReducer = (state, action) => {
 
 export const matchesReducer = (state, action) => {
     switch (action.type) {
-        case 'update/matches':
+        case STORE_ACTIONS.MATCHES:
             return action.payload;
         default:
             return state;
@@ -63,7 +65,7 @@ export const matchesReducer = (state, action) => {
 
 export const matchStatusReducer = (state, action) => {
     switch (action.type) {
-        case 'update/matchStatus':
+        case STORE_ACTIONS.MATCH_STATUS:
             return action.payload;
         default:
             return state;
@@ -72,7 +74,7 @@ export const matchStatusReducer = (state, action) => {
 
 export const sortTypeReducer = (state, action) => {
     switch (action.type) {
-        case 'update/sortType':
+        case STORE_ACTIONS.SORT_TYPE:
             return action.payload;
         default:
             return state;
@@ -81,7 +83,7 @@ export const sortTypeReducer = (state, action) => {
 
 export const standingsReducer = (state, action) => {
     switch (action.type) {
-        case 'update/standings':
+        case STORE_ACTIONS.STANDINGS:
             return action.payload;
         default:
             return state;
@@ -90,7 +92,7 @@ export const standingsReducer = (state, action) => {
 
 export const teamsReducer = (state, action) => {
     switch (action.type) {
-        case 'update/teams':
+        case STORE_ACTIONS.TEAMS:
             return action.payload;
         default:
             return state;
@@ -99,7 +101,7 @@ export const teamsReducer = (state, action) => {
 
 export const urlReducer = (state, action) => {
     switch (action.type) {
-        case 'update/url':
+        case STORE_ACTIONS.URL:
             return action.payload;
         default:
             return state;
@@ -108,7 +110,7 @@ export const urlReducer = (state, action) => {
 
 export const updateDataReducer = (state, action) => {
     switch (action.type) {
-        case 'update/updateData':
+        case STORE_ACTIONS.UPDATE_DATA:
             return action.payload;
         default:
             return state;
