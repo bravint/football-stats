@@ -14,6 +14,7 @@
     color: white;
     background-color: #272e3c;
     border-radius: 5px;
+    font-family: roboto;
 }
 
 .sidebarForm {
@@ -22,4 +23,5 @@
     background-color: #272e3c;
     border-radius: 15px;
     display: flex;
+    font-family: roboto;
 }

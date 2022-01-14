@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { MATCH_TYPES } from '../../config';
 import { StoreContext } from '../../store';
-import { fixTeamName, getDate } from '../../utils.js';
+import { fixTeamName } from '../../utils.js';
 
 import styles from '../../styles/Standings.module.css';
 

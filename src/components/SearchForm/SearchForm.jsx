@@ -25,18 +25,20 @@ export const SearchForm = () => {
 
     return (
         <form className={styles.sidebarForm} id="league-select-form">
-            <select
+            <select 
                 id="league"
                 name="league"
                 className={styles.league}
                 onChange={(event) => handleChange(event)}
             >
+
                 <option selected disabled>Choose a league</option>
                 <option value="BL1">Bundesliga, Germany</option>
                 <option value="PD">La Liga, Spain</option>
                 <option value="FL1">Ligue 1, France</option>
                 <option value="PL">Premier League, England</option>
                 <option value="SA">Serie A, Italy</option>
+
             </select>
         </form>
     );
