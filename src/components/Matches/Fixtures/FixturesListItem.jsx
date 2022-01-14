@@ -4,7 +4,7 @@ import { StoreContext } from '../../../store';
 
 import { fixTeamName, getLogo, getTime, renderTitle } from '../../../utils.js';
 
-import styles from '../../../styles/FixturesListItem.module.css';
+import styles from '../../../styles/Matches.module.css';
 
 export const FixturesListItem = (props) => {
     const { nested } = props;
@@ -29,13 +29,13 @@ export const FixturesListItem = (props) => {
                             <img
                                 src={getLogo(element.homeTeam.id, teams)}
                                 alt="Club Logo"
-                                className="club-logo"
+                                className={styles.clubLogo}
                             ></img>
                             <p>{getTime(element.utcDate)}</p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}
                                 alt="Club Logo"
-                                className="club-logo"
+                                className={styles.clubLogo}
                             ></img>
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}

@@ -80,10 +80,33 @@
 }
 
 .footerLogo {
-    height: 1.5rem;
+    height: 1.3rem;
+}
+
+.footerLogo:hover {
+    fill:turquoise
 }
 
 .FooterLinks {
     display: flex;
     gap: 0.5rem;
+}
+
+.link,
+.activeLink {
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.link:hover,
+.activeLink:hover {
+    color: turquoise;
+}
+
+.link {
+    border-left: 5px solid #18162b;
+}
+
+.activeLink {
+    border-left: 5px solid turquoise;
 }

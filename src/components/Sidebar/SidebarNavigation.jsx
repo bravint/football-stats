@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { STORE_ACTIONS, URL } from '../../config';
 import { StoreContext } from '../../store';
 
-import styles from '../../styles/SidebarNavigation.module.css';
+import styles from '../../styles/Sidebar.module.css';
 
 export const SidebarNavigation = () => {
     const store = useContext(StoreContext);

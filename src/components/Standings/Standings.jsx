@@ -3,6 +3,8 @@ import { StoreContext } from '../../store';
 
 import { StandingsListItem } from './StandingsListItem';
 
+import styles from '../../styles/Standings.module.css';
+
 export const Standings = () => {
     const store = useContext(StoreContext);
 
@@ -11,7 +13,7 @@ export const Standings = () => {
     return (
         <>
             {id && standings.standings && (
-                <section className="table">
+                <section className={styles.table}>
                     <StandingsListItem />
                 </section>
             )}

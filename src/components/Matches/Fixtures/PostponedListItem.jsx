@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { StoreContext } from '../../../store';
 import { fixTeamName, getLogo } from '../../../utils.js';
 
-import styles from '../../../styles/FixturesListItem.module.css';
+import styles from '../../../styles/Matches.module.css';
 
 export const PostponedListItem = () => {
     const store = useContext(StoreContext);
@@ -22,13 +22,13 @@ export const PostponedListItem = () => {
                             <img
                                 src={getLogo(element.homeTeam.id, teams)}
                                 alt="club logo"
-                                className="club-logo"
+                                className={styles.clubLogo}
                             ></img>
                             <p>P - P</p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}
                                 alt="club logo"
-                                className="club-logo"
+                                className={styles.clubLogo}
                             ></img>
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}

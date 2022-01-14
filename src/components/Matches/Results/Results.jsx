@@ -6,7 +6,7 @@ import { ResultsListItem } from './ResultsListItem';
 
 import { StoreContext, initialState } from '../../../store';
 
-import styles from '../../../styles/FixturesListItem.module.css';
+import styles from '../../../styles/Matches.module.css';
 
 export const Results = () => {
     const store = useContext(StoreContext);

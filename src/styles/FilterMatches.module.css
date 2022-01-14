@@ -7,9 +7,9 @@
 .filterSummary {
     
     background-color: turquoise;
-    padding: 0.7rem;
+    padding: 1rem;
     display: grid;
-    grid-template-columns: 7rem 1fr;
+    grid-template-columns: auto 1fr;
     gap: 1rem;
     border-radius: 4px;
 
@@ -31,11 +31,12 @@
     justify-content: center;
     gap: 0.5rem;
     text-align: center;
-    margin: 0.5rem 0;
+    margin: auto;
     padding: 0.5rem;
     background-color: #18162b;
     width: 7rem;
-    border-radius: .25rem;
+    height: fit-content;
+    border-radius: 4px;
     color: turquoise
 }
 
@@ -78,6 +79,7 @@
 .formSelectContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, 16rem);
+    justify-content: space-between;
     gap: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid white;

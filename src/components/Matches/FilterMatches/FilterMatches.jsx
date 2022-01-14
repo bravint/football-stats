@@ -113,6 +113,8 @@ export const FilterMatches = () => {
 
     const HandleShowFIlterClick = () => setDisplayFiltersForm(!displayFiltersForm);
 
+    const displayFilteredTeamsList = () => selectedTeams.length > 0 ? selectedTeams.join(', ') : 'all teams'
+
     return (
         <div className={styles.filterSection}>
             <div className={styles.blankSpace}>&nbsp;</div>
@@ -125,8 +127,7 @@ export const FilterMatches = () => {
                     <p>Filters</p>
                 </div>
                 <p className={styles.showActiveFilters}>
-                    <strong>Active Filters:</strong> Show {matchStatus} matches,
-                    matches sorted by {sortType}
+                    <strong>Active Filters:</strong> Show {matchStatus} matches, matches sorted by {sortType} for {displayFilteredTeamsList()}
                 </p>
             </div>
 
@@ -183,6 +184,7 @@ export const FilterMatches = () => {
                                     <option value="Matchday">Matchday</option>
                                 </select>
                             </div>
+                            <div>&nbsp;</div>
                         </div>
                         <h3>Filter by Team</h3>
                         <section className={styles.selectteam}>

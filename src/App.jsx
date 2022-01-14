@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { FilterMatches } from './components/Matches/FilterMatches/FilterMatches';
 import { Fixtures } from './components/Matches/Fixtures/Fixtures';
+import { NotFound } from './components/NotFound/NotFound'
 import { Results } from './components/Matches/Results/Results';
 import { ReturnToTopButton } from './components/ReturnToTopButton/ReturnToTopButton';
 import { Sidebar } from './components/Sidebar/Sidebar';
@@ -142,6 +143,7 @@ export const App = () => {
                     <main className={styles.main}>
                         <Routes>
                             <Route path="/" element={<Home />} />
+                            <Route path='*' element={<NotFound />} />
                         </Routes>
                     </main>
                 )}
@@ -159,6 +161,7 @@ export const App = () => {
                             <Route path={URL.FIXTURES} element={<Fixtures />} />
                             <Route path={URL.RESULTS} element={<Results />} />
                             <Route path={URL.HOME} element={<Home />} />
+                            <Route path='*' element={<NotFound />} />
                         </Routes>
                     </main>
                 )}
