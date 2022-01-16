@@ -14,8 +14,8 @@ export const PostponedListItem = () => {
         <>
             {postponedMatches.map((element) => {
                 return (
-                    <li className={styles.matchList} key={element.id}>
-                        <section className={styles.matchDetails}>
+                    <li className={styles.matchListItemContainer} key={element.id}>
+                        <div className={styles.matchListItem}>
                             <p className={styles.homeTeam}>
                                 {fixTeamName(id, element.homeTeam.name)}
                             </p>
@@ -24,7 +24,7 @@ export const PostponedListItem = () => {
                                 alt="club logo"
                                 className={styles.clubLogo}
                             ></img>
-                            <p>P - P</p>
+                            <p className={styles.score}>P - P</p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}
                                 alt="club logo"
@@ -33,7 +33,7 @@ export const PostponedListItem = () => {
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}
                             </p>
-                        </section>
+                        </div>
                     </li>
                 );
             })}

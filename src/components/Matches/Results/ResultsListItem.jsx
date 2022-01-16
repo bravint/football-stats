@@ -16,13 +16,10 @@ export const ResultsListItem = (props) => {
     return (
         <ul>
             <h3 className={styles.title}>{renderTitle(sortType, nested)}</h3>
-            {nested.map((element, index) => {
+            {nested.map((element) => {
                 return (
-                    <li className={styles.matchList} key={element.id}>
-                        <section
-                            className={styles.matchDetails}
-                            tabIndex={index + 1}
-                        >
+                    <li className={styles.matchListItemContainer} key={element.id}>
+                        <div className={styles.matchListItem}>
                             <p className={styles.homeTeam}>
                                 {fixTeamName(id, element.homeTeam.name)}
                             </p>
@@ -31,7 +28,7 @@ export const ResultsListItem = (props) => {
                                 alt="Club Logo"
                                 className={styles.clubLogo}
                             ></img>
-                            <p>
+                            <p className={styles.score}>
                                 {element.score.fullTime.homeTeam} -{' '}
                                 {element.score.fullTime.awayTeam}
                             </p>
@@ -43,7 +40,7 @@ export const ResultsListItem = (props) => {
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}
                             </p>
-                        </section>
+                        </div>
                     </li>
                 );
             })}

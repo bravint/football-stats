@@ -5,14 +5,12 @@
 }
 
 .filterSummary {
-    
     background-color: turquoise;
     padding: 1rem;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1rem;
     border-radius: 4px;
-
 }
 
 .blankSpace {
@@ -23,7 +21,7 @@
 .filterSummary * {
     background-color: turquoise;
     align-items: center;
-    color: #18162b
+    color: #18162b;
 }
 
 .showFormButton {
@@ -37,12 +35,12 @@
     width: 7rem;
     height: fit-content;
     border-radius: 4px;
-    color: turquoise
+    color: turquoise;
 }
 
 .showFormButton * {
     background-color: #18162b;
-    color: turquoise
+    color: turquoise;
 }
 
 .showFormButton:hover,

@@ -1,76 +1,48 @@
-.matchDetails,
-.matchDetails * {
-    background-color: #272E3C;
-}
-
-.matchList {
-    display: grid;
-    gap: 1rem;
+.table {
+    margin-bottom: 8rem;
 }
 
 .title {
-    margin: 2rem 0 1rem;
+    margin: 1rem 0;
 }
 
-.matchDetails {
-    display: grid;
-    grid-template-columns: 6fr 1fr 1fr 1fr 6fr;
-    align-items: center;
-    gap: 1rem;
-    height: 5rem;
-    padding: 0 2rem;
-    margin: 1rem 0 0;
+.matchListItemContainer,
+.matchListItemContainer * {
+    background-color: #272e3c;
     border-radius: 4px;
 }
 
-.venue {
-    text-align: right;
+.matchListItem {
+    grid-template-columns: 1fr 2rem 4rem 2rem 1fr;
+    gap: 1rem;
+    height: 5rem;
+    margin: 1rem 0;
+    padding: 0 2rem;
+}
+
+.matchListItem,
+.matchListItem * {
+    display: grid;
+    align-items: center;
 }
 
 .awayTeam {
     text-align: left;
 }
 
-.homeTeam {
-    text-align: right;
-}
-
 .score {
     text-align: center;
 }
 
-.extraStats {
-    font-size: 1.5rem;
-    color: white;
+.homeTeam {
     text-align: right;
-    border-style: none;
 }
 
-.extraStats:hover {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.extraStats:active {
-    font-size: 3rem;
-}
-
-.matchDetails:hover,
-.matchDetails:hover > * {
-    background-color: rgba(64, 224, 208);
+.matchListItem:hover,
+.matchListItem:hover > * {
+    background-color: turquoise;
     color: black;
     cursor: pointer;
-}   
-
-.matchDetails:active,
-.matchDetails:active > * {
-    background-color: rgba(64, 224, 208);
-    color: black;
-    cursor: pointer;
-}
-
-.results {
-    margin-bottom: 9rem;
 }
 
 .clubLogo {

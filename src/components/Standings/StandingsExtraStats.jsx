@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { MATCH_TYPES } from '../../config';
+import { MATCH_TYPES, MATCH_VENUE_TYPE } from '../../config';
 import { StoreContext } from '../../store';
 import { fixTeamName } from '../../utils.js';
 
@@ -28,27 +28,23 @@ export const StandingsExtraStats = (props) => {
 
     const selectedTeam = teams.teams.filter((team) => team.id === element.team.id);
 
-    console.log({
-        selectedMatches,
-        selectedTeam
-    })
-
-    const findFixtureLocation = (selectedMatch) => selectedMatch.homeTeam.id === element.team.id ? 'Home' : 'Away';
+    const findFixtureLocation = (selectedMatch) => selectedMatch.homeTeam.id === element.team.id ? MATCH_VENUE_TYPE.HOME : MATCH_VENUE_TYPE.AWAY;
 
     const findOppostionTeamName = (selectedMatch) => selectedMatch.homeTeam.id === element.team.id ? selectedMatch.awayTeam.name : selectedMatch.homeTeam.name;
 
     const renderMatchStatus = (selectedMatch) => {
-        if (selectedMatch.score.winner === 'AWAY_TEAM' && findFixtureLocation(selectedMatch) === 'Away') return styles.green;
-        if (selectedMatch.score.winner === 'HOME_TEAM' && findFixtureLocation(selectedMatch) === 'Home') return styles.green;
-        if (selectedMatch.score.winner === 'AWAY_TEAM' && findFixtureLocation(selectedMatch) === 'Home') return styles.red;
-        if (selectedMatch.score.winner === 'HOME_TEAM' && findFixtureLocation(selectedMatch) === 'Away') return styles.red;
+        if (selectedMatch.score.winner === 'AWAY_TEAM' && findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.AWAY) return styles.green;
+        if (selectedMatch.score.winner === 'HOME_TEAM' && findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.HOME) return styles.green;
+        if (selectedMatch.score.winner === 'AWAY_TEAM' && findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.HOME) return styles.red;
+        if (selectedMatch.score.winner === 'HOME_TEAM' && findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.AWAY) return styles.red;
         if (selectedMatch.score.winner === 'DRAW') return '';
     }
 
     const renderMatchStatusDrawn = (selectedMatch) => selectedMatch.score.winner === 'DRAW' ? styles.orange : '';
 
     return (
-        <section className={styles.extraStats}>
+        <>
+        <ul className={styles.extraStats}>
             {selectedMatches.map((selectedMatch) => {
                 return (
                     <li key={selectedMatch.id} className={styles.extraStatsContainer}>
@@ -67,8 +63,10 @@ export const StandingsExtraStats = (props) => {
                             </p>
                         </section>
                     </li>
+                    
                 );
             })}
-        </section>
+        </ul>
+        </>
     );
 };

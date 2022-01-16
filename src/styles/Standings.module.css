@@ -2,49 +2,55 @@
     margin-bottom: 8rem;
 }
 
-.standings {
+.listTitle {
+    color: grey;
+}
+
+.teamListItemHeading,
+.teamListItemHeading *,
+.teamListItem,
+.teamListItem * {
     display: grid;
-    grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
+    border-radius: 4px;
+}
+
+.teamListItem,
+.teamListItem * {
+    background-color: #272e3c;
+}
+
+.teamListItemHeading,
+.teamListItem {
+    grid-template-columns: auto 1fr auto auto auto;
     gap: 1rem;
     height: 5rem;
+    margin: 1rem 0;
+    padding: 0 2rem;
 }
 
-.standings * {
-    display: grid;
-    grid-template-rows: auto;
-    align-items: center;
-}
-
-.standings > .postionStats {
+.postionStats {
     grid-template-columns: 2rem;
 }
 
-.standings > .teamStats {
+.teamStats {
     grid-template-columns: 4rem 1fr;
 }
 
-.standings > .gamesStats {
+.gamesStats {
     grid-template-columns: repeat(4, 2rem);
 }
 
-.standings > .goalsStats {
+.goalsStats {
     grid-template-columns: repeat(3, 2rem);
 }
 
-.standings > .pointsStats {
+.pointsStats {
     grid-template-columns: 2rem;
 }
 
 .clubLogo {
     width: 2rem;
-}
-
-.standings,
-.extraStats {
-    margin: 1rem 0;
-    padding: 0 2rem;
-    border-radius: 4px;
 }
 
 .extraStats {
@@ -53,26 +59,25 @@
     grid-template-columns: repeat(auto-fit, 20rem);
 }
 
-.teamList,
-.teamList *,
 .extraStats,
 .extraStats * {
-    color: white;
+    margin: 1rem 0;
     background-color: #272e3c;
     border-radius: 4px;
 }
 
-.listTitle {
-    color: grey;
-}
-
-.teamList:hover,
-.teamList:hover *,
+.teamListItem:hover,
+.teamListItem:hover *,
 .teamListSelected,
-.teamListSelected *  {
+.teamListSelected * {
     background-color: rgba(64, 224, 208);
     color: black;
     cursor: pointer;
+}
+
+.teamListSelected,
+.teamListSelected * {
+    margin: 0;
 }
 
 .red,
@@ -89,17 +94,21 @@
 
 .green {
     background-color: green;
-} 
+}
 
 .orange {
     background-color: orange;
 }
 
 .extraStatsContainer {
-    display:grid;
+    display: grid;
     grid-template-columns: auto 1fr;
     gap: 1rem;
     align-items: center;
     margin: 1rem 0;
 }
 
+.blankSpace {
+    background-color: #18162b;
+    height: 1rem;
+}

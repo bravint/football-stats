@@ -24,7 +24,7 @@ export const StandingsListItem = () => {
 
     return (
         <ul>
-            <li className={styles.standings}>
+            <li className={`${styles.teamListItemHeading} ${styles.listTitle}`}>
             <section className={styles.postionStats}>
                     <p></p>
                 </section>
@@ -49,14 +49,12 @@ export const StandingsListItem = () => {
             </li>
             {standings.standings[0].table.map((element) => {
                 return (
-                    <li>
-                        <section
-                        className={`${styles.teamList} ${renderSelectedClass(element)}`}
+                    <li
+                        className={styles.teamListItemContainer}
                         key={element.team.id}
-                        id={element.team.id}
                         onClick={() => onClickHandler(element.team.id)}
                     >
-                        <div className={styles.standings}>
+                        <div className={`${styles.teamListItem} ${renderSelectedClass(element)}`}>
                             <section className={styles.postionStats}>
                                 <p>{element.position}</p>
                             </section>
@@ -83,7 +81,6 @@ export const StandingsListItem = () => {
                                 <p>{element.points}</p>
                             </section>
                         </div>
-                        </section>
                         {renderExtraStats(element) && (
                             <StandingsExtraStats element={element} />
                         )}

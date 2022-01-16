@@ -13,9 +13,9 @@ export const Standings = () => {
     return (
         <>
             {id && standings.standings && (
-                <section className={styles.table}>
+                <ul className={styles.table}>
                     <StandingsListItem />
-                </section>
+                </ul>
             )}
         </>
     );

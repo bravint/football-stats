@@ -25,12 +25,12 @@ import {
 
 import styles from './styles/App.module.css';
 
-import { StoreContext, rootReducer, initialState } from './store';
+import { StoreContext, reducer, initialState } from './store';
 
 export const App = () => {
-    const [state, dispatch] = useReducer(rootReducer, initialState);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    const { id, matches, url, updateData } = state;
+    const { id, matches, url, updateData, refreshPage } = state;
 
     console.log(`states`, state);
 
@@ -48,7 +48,7 @@ export const App = () => {
     }, [location]);
 
     useEffect(() => {
-        if (!id) return;
+        if (!id || (matches.matches && id && !refreshPage)) return;
 
         const fetchLocalData = async (APIurl, endpoint, action) => {
             try {
@@ -63,10 +63,10 @@ export const App = () => {
         fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
         fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
         fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
-    }, [id]);
+    }, [id, refreshPage]);
 
     useEffect(() => {
-        if (!matches.matches) return;
+        if (!matches.matches || updateData || refreshPage) return;
         if (getTodaysDate() >= matches.date || !matches.date)
             doDispatch(STORE_ACTIONS.UPDATE_DATA, true);
     }, [matches]);
@@ -87,9 +87,9 @@ export const App = () => {
             }
         };
 
-        const updateLocalstore = async (object, str) => {
+        const updateLocalstore = async (object, endpoint) => {
             try {
-                await fetch(`${API_INT_URL}/${id}/${str}`, {
+                await fetch(`${API_INT_URL}/${id}/${endpoint}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export const App = () => {
                     body: JSON.stringify(object),
                 });
             } catch (error) {
-                console.log(`${str} post error`, error);
+                console.log(`${endpoint} post error`, error);
             }
         };
 
@@ -106,6 +106,7 @@ export const App = () => {
         fetchExternalData(API_EXT_URL, API_ENDPOINT.TEAMS);
 
         doDispatch(STORE_ACTIONS.UPDATE_DATA, false);
+        doDispatch(STORE_ACTIONS.REFRESH_PAGE, true);
     }, [updateData]);
 
     const fetchConfig = () => {

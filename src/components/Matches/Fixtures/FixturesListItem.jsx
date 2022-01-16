@@ -16,13 +16,10 @@ export const FixturesListItem = (props) => {
     return (
         <ul>
             <h3 className={styles.title}>{renderTitle(sortType, nested)}</h3>
-            {nested.map((element, index) => {
+            {nested.map((element) => {
                 return (
-                    <li className={styles.matchList} key={element.id}>
-                        <section
-                            className={styles.matchDetails}
-                            tabIndex={index + 1}
-                        >
+                    <li className={styles.matchListItemContainer} key={element.id}>
+                        <div className={styles.matchListItem}>
                             <p className={styles.homeTeam}>
                                 {fixTeamName(id, element.homeTeam.name)}
                             </p>
@@ -31,7 +28,7 @@ export const FixturesListItem = (props) => {
                                 alt="Club Logo"
                                 className={styles.clubLogo}
                             ></img>
-                            <p>{getTime(element.utcDate)}</p>
+                            <p className={styles.score}>{getTime(element.utcDate)}</p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}
                                 alt="Club Logo"
@@ -40,7 +37,7 @@ export const FixturesListItem = (props) => {
                             <p className={styles.awayTeam}>
                                 {fixTeamName(id, element.awayTeam.name)}
                             </p>
-                        </section>
+                        </div>
                     </li>
                 );
             })}

@@ -11,23 +11,28 @@ import styles from '../../../styles/Matches.module.css';
 export const Results = () => {
     const store = useContext(StoreContext);
 
-    const { matchStatus, filteredMatches, cancelledMatches } = store.state;
+    const { matchStatus, filteredResults, cancelledMatches } = store.state;
 
     return (
-        <section className={styles.results}>
+        <section className={styles.table}>
             {cancelledMatches.length > 1 && (
                 <>
                     <h1 className={styles.title}>CANCELLED</h1>
-                    <CancelledListItem />
+                    <ul>
+                        <CancelledListItem />
+                    </ul>
                 </>
             )}
-            {filteredMatches &&
-                (cancelledMatches.length < 1 || matchStatus === initialState.matchStatus) && (
+            {filteredResults &&
+                (cancelledMatches.length < 1 ||
+                    matchStatus === initialState.matchStatus) && (
                     <>
                         <h1 className={styles.title}>RESULTS</h1>
-                        {filteredMatches.map((nested) => {
-                            return <ResultsListItem nested={nested} />;
-                        })}
+                        <ul>
+                            {filteredResults.map((nested) => {
+                                return <ResultsListItem nested={nested} />;
+                            })}
+                        </ul>
                     </>
                 )}
         </section>

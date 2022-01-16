@@ -46,20 +46,32 @@ export class MATCH_TYPES {
 export class STORE_ACTIONS {
     static CANCELLED_MATCHES = 'update/cancelledMatches'
     static ID = 'update/id'
-    static FILTERED_MATCHES = 'update/filteredMatches'
+    static FILTERED_FIXTURES = 'update/filteredFixtures'
+    static FILTERED_RESULTS = 'update/filteredResults'
     static MATCHES = 'update/matches'
     static MATCH_STATUS = 'update/matchStatus'
     static POSTPONED_MATCHES = 'update/postponedMatches'
+    static REFRESH_PAGE = 'update/refreshPage'
     static SORT_TYPE = 'update/sortType'
-    static STANDINGS = 'update/standings'
+    static STANDINGS = 'standings'
     static TEAMS = 'update/teams'
     static URL = 'update/url'
     static UPDATE_DATA = 'update/updateData'
   }
 
-  export class URL {
+export class URL {
     static STANDINGS = '/standings';
     static FIXTURES = '/fixtures';
     static RESULTS = '/results';
     static HOME = '/';
+}
+
+export class INITIAL_STATE {
+    static MATCH_STATUS = 'all'
+    static SORT_TYPE = 'date'
+}
+
+export class MATCH_VENUE_TYPE {
+    static HOME = 'Home'
+    static AWAY = 'Away'
 }
