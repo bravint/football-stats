@@ -6,13 +6,13 @@
 
 <br />
 
+## Website Preview
 ![Football Stats example](./public/assets/footballStats.gif)
 
 ## Table of Contents
 - [Objectives](#Objectives)
 - [API](#api)
 - [Installation](#installation)
-- [To-Do](#To-Do)
 
 ## Objectives
 - __make API requests:__ requests from a local JSON server with updates from an external source
@@ -41,6 +41,3 @@ Render fetched data
 npm install\
 json-server --watch src/db/db.json -p 4000\
 npm start
-
-## To-Do
-- __Local/external API integration__
