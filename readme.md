@@ -38,6 +38,6 @@ Render fetched data
     - Previous Results
 ```
 ## Installation
-npm install\
-json-server --watch src/db/db.json -p 4000\
-npm start
+``npm install``\
+``json-server --watch src/db/db.json -p 4000``\
+``npm start``
