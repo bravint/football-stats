@@ -1,7 +1,7 @@
 <h1 align="center">Football Stats</h1>
 
 <div align="center">
-  <strong>A simple website that renders eurpoean football league information from an API</strong>
+  <strong>A simple website that renders European football league information from an API</strong>
 </div>
 
 <br />
