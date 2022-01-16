@@ -106758,6 +106758,23 @@
             {
               "position": 8,
               "team": {
+                "id": 19,
+                "name": "Eintracht Frankfurt",
+                "crestUrl": "https://crests.football-data.org/19.svg"
+              },
+              "playedGames": 19,
+              "form": null,
+              "won": 7,
+              "draw": 7,
+              "lost": 5,
+              "points": 28,
+              "goalsFor": 30,
+              "goalsAgainst": 28,
+              "goalDifference": 2
+            },
+            {
+              "position": 9,
+              "team": {
                 "id": 1,
                 "name": "1. FC Köln",
                 "crestUrl": "https://crests.football-data.org/1.svg"
@@ -106773,7 +106790,7 @@
               "goalDifference": -2
             },
             {
-              "position": 9,
+              "position": 10,
               "team": {
                 "id": 15,
                 "name": "1. FSV Mainz 05",
@@ -106788,23 +106805,6 @@
               "goalsFor": 27,
               "goalsAgainst": 21,
               "goalDifference": 6
-            },
-            {
-              "position": 10,
-              "team": {
-                "id": 19,
-                "name": "Eintracht Frankfurt",
-                "crestUrl": "https://crests.football-data.org/19.svg"
-              },
-              "playedGames": 18,
-              "form": null,
-              "won": 7,
-              "draw": 6,
-              "lost": 5,
-              "points": 27,
-              "goalsFor": 29,
-              "goalsAgainst": 27,
-              "goalDifference": 2
             },
             {
               "position": 11,
@@ -106877,6 +106877,23 @@
             {
               "position": 15,
               "team": {
+                "id": 16,
+                "name": "FC Augsburg",
+                "crestUrl": "https://crests.football-data.org/16.svg"
+              },
+              "playedGames": 19,
+              "form": null,
+              "won": 4,
+              "draw": 7,
+              "lost": 8,
+              "points": 19,
+              "goalsFor": 19,
+              "goalsAgainst": 30,
+              "goalDifference": -11
+            },
+            {
+              "position": 16,
+              "team": {
                 "id": 10,
                 "name": "VfB Stuttgart",
                 "crestUrl": "https://crests.football-data.org/10.svg"
@@ -106889,23 +106906,6 @@
               "points": 18,
               "goalsFor": 22,
               "goalsAgainst": 33,
-              "goalDifference": -11
-            },
-            {
-              "position": 16,
-              "team": {
-                "id": 16,
-                "name": "FC Augsburg",
-                "crestUrl": "https://crests.football-data.org/16.svg"
-              },
-              "playedGames": 18,
-              "form": null,
-              "won": 4,
-              "draw": 6,
-              "lost": 8,
-              "points": 18,
-              "goalsFor": 18,
-              "goalsAgainst": 29,
               "goalDifference": -11
             },
             {
@@ -121252,24 +121252,24 @@
             "currentMatchday": 19
           },
           "utcDate": "2022-01-16T14:30:00Z",
-          "status": "SCHEDULED",
+          "status": "IN_PLAY",
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-16T14:36:29Z",
+          "lastUpdated": "2022-01-16T16:46:00Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "homeTeam": null,
-              "awayTeam": null
+              "homeTeam": 1,
+              "awayTeam": 1
             },
             "halfTime": {
-              "homeTeam": null,
-              "awayTeam": null
+              "homeTeam": 1,
+              "awayTeam": 1
             },
             "extraTime": {
               "homeTeam": null,
@@ -121340,7 +121340,7 @@
           "matchday": 19,
           "stage": "REGULAR_SEASON",
           "group": null,
-          "lastUpdated": "2022-01-16T14:30:10Z",
+          "lastUpdated": "2022-01-16T16:41:29Z",
           "odds": {
             "msg": "Activate Odds-Package in User-Panel to retrieve odds."
           },
