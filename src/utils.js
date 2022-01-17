@@ -1,22 +1,3 @@
-export const generateSortedArray = (unsortedArray, sortedArray, sortType) => {
-    if (unsortedArray.length < 1 && sortType === 'date') return;
-    if (unsortedArray.length < 1 && sortType === 'matchday') return sortByMatchday(sortedArray)
-    if (sortType === 'date' ) {    
-        let date = getDate(unsortedArray[0].utcDate);
-        let nestedArray = unsortedArray.filter((element) => getDate(element.utcDate) === date);
-        sortedArray.push(nestedArray);
-        unsortedArray = unsortedArray.filter((element) => getDate(element.utcDate) !== date);
-        generateSortedArray(unsortedArray, sortedArray, sortType);
-    }
-    if (sortType === 'matchday' ) {    
-        let matchday = getMatchday(unsortedArray[0]);
-        let nestedArray = unsortedArray.filter((element) => getMatchday(element) === matchday);
-        sortedArray.push(nestedArray);
-        unsortedArray = unsortedArray.filter((element) => getMatchday(element) !== matchday);
-        generateSortedArray(unsortedArray, sortedArray, sortType);
-    }
-}
-
 export const getDate = (date) => {
     date = date.slice(0, -10);
     date = date.slice(5, 7).toString() + '/' +date.slice(8, 10).toString() + '/' + date.slice(0, 4).toString();
@@ -39,11 +20,6 @@ export const getLogo = (id, teams) => {
 };
 
 export const getMatchday = (element) => element.matchday;
-
-const sortByMatchday = (sortedArray) => {
-    sortedArray.sort(function (a, b) {
-        return a[0].matchday - b[0].matchday;
-})};
 
 export const doDispatch  = (store, action, payload) => {
     store.dispatch({

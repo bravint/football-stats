@@ -75,3 +75,8 @@ export class MATCH_VENUE_TYPE {
     static HOME = 'Home'
     static AWAY = 'Away'
 }
+
+export class SORT_TYPE {
+    static DATE = 'date'
+    static MATCHDAY = 'matchday'
+}
