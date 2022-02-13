@@ -72,7 +72,7 @@ export const App = () => {
                     <main className={styles.main}>
                         <Routes>
                             <Route 
-                                exact path="/" 
+                                path="/" 
                                 element={<Home />} 
                             />
                             <Route 
@@ -99,7 +99,7 @@ export const App = () => {
                                 element={<Results />} 
                             />
                             <Route 
-                                exact path={URL.HOME} 
+                                path={URL.HOME} 
                                 element={<Home />} 
                             />
                             <Route 
