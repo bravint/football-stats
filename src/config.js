@@ -1,4 +1,4 @@
-export const API_URL = `https://football-stats-server.herokuapp.com/`
+export const API_URL = `https://football-stats-server.herokuapp.com`
 
 export class API_ENDPOINT {
     static STANDINGS = 'standings';
