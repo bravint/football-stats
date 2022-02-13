@@ -99,7 +99,7 @@ export const App = () => {
                                 element={<Results />} 
                             />
                             <Route 
-                                path={URL.HOME} 
+                                exact path={URL.HOME} 
                                 element={<Home />} 
                             />
                             <Route 
