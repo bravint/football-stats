@@ -26,7 +26,7 @@ export const StandingsExtraStats = (props) => {
 
     const selectedMatches = getLastFiveMatches();
 
-    const selectedTeam = teams.teams.filter((team) => team.id === element.team.id);
+    //const selectedTeam = teams.teams.filter((team) => team.id === element.team.id);
 
     const findFixtureLocation = (selectedMatch) => selectedMatch.homeTeam.id === element.team.id ? MATCH_VENUE_TYPE.HOME : MATCH_VENUE_TYPE.AWAY;
 

@@ -26,7 +26,6 @@ Site hosted at https://football-stats-react.herokuapp.com/
 
 -   **make API requests:** requests from an external API
 -   **component based:** react SPA with multiple components sharing state via props, useReducer and useContext where necessary
--   **local CSS scoping:** keeps CSS code manageable/ readable
 -   **SPA with navigation:** handled by react-router v6
 
 ## API
