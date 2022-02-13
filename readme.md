@@ -4,6 +4,10 @@
   <strong>A website that renders European football league information from an API</strong>
 </div>
 
+## Live Site
+
+Site hosted at https://football-stats-react.herokuapp.com/
+
 <br />
 
 ![Football Stats example](./public/assets/footballStats.gif)
