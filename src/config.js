@@ -1,8 +1,4 @@
-export const API_EXT_TOKEN = process.env.REACT_APP_API_EXT_TOKEN;
-
-export const API_EXT_URL = process.env.REACT_APP_API_EXT_URL;
-
-export const API_INT_URL = process.env.REACT_APP_API_INT_URL;
+export const API_URL = `https://football-stats-server.herokuapp.com/`
 
 export class API_ENDPOINT {
     static STANDINGS = 'standings';

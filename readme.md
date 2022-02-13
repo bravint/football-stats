@@ -18,7 +18,7 @@
 
 ## Objectives
 
--   **make API requests:** requests from a local JSON server with updates from an external source
+-   **make API requests:** requests from an external API
 -   **component based:** react SPA with multiple components sharing state via props, useReducer and useContext where necessary
 -   **local CSS scoping:** keeps CSS code manageable/ readable
 -   **SPA with navigation:** handled by react-router v6
@@ -27,21 +27,7 @@
 
 Data sourced from https://www.football-data.org/
 
-```js
-GET data from local JSON server
-If current system date < date of next fixture set data to state
-If data is old, fetch data from external API
-TImestamp fetched data with date of next fixture to be played
-PUT new data to JSON sever
-
-Render fetched data
-    - League Table
-    - Upcoming Fixtures
-    - Previous Results
-```
-
 ## Installation
 
-`npm install`\
-`json-server --watch src/db/db.json -p 4000`\
+`npm install`
 `npm start`

@@ -9,7 +9,7 @@ import styles from '../../styles/Sidebar.module.css';
 export const SidebarNavigation = () => {
     const store = useContext(StoreContext);
 
-    const doDispatch = (action, payload) => {
+    const handleDispatch = (action, payload) => {
         store.dispatch({
             type: action,
             payload: payload,
@@ -23,7 +23,7 @@ export const SidebarNavigation = () => {
                     <Link
                         className={styles.link}
                         to="/"
-                        onClick={() => doDispatch(STORE_ACTIONS.ID, '')}
+                        onClick={() => handleDispatch(STORE_ACTIONS.ID, '')}
                     >
                         Home
                     </Link>

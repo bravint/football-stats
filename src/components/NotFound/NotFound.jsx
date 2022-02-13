@@ -9,27 +9,25 @@ import styles from '../../styles/NotFound.module.css';
 export const NotFound = () => {
     const store = useContext(StoreContext);
 
-    const doDispatch = (action, payload) => {
+    const handleDispatch = (action, payload) => {
         store.dispatch({
             type: action,
             payload: payload,
         });
     };
 
-
     return (
         <div className={styles.container}>
             <p>ERROR 404 : PAGE NOT FOUND</p>
             <li className={styles.navListItem}>
-                    <Link
-                        className={styles.link}
-                        to="/"
-                        onClick={() => doDispatch(STORE_ACTIONS.ID, '')}
-                    >
-                        Return to Home Page
-                    </Link>
-                </li>
+                <Link
+                    className={styles.link}
+                    to="/"
+                    onClick={() => handleDispatch(STORE_ACTIONS.ID, '')}
+                >
+                    Return to Home Page
+                </Link>
+            </li>
         </div>
-    )
-}
-
+    );
+};
