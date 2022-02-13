@@ -72,7 +72,7 @@ export const App = () => {
                     <main className={styles.main}>
                         <Routes>
                             <Route 
-                                path="/" 
+                                exact path="/" 
                                 element={<Home />} 
                             />
                             <Route 
