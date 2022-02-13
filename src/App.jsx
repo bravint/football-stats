@@ -30,7 +30,7 @@ import { StoreContext, reducer, initialState } from './store';
 export const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    const { id, matches, url, updateData, refreshPage } = state;
+    const { id, matches, url, updateData } = state;
 
     console.log(`states`, state);
 
@@ -48,7 +48,7 @@ export const App = () => {
     }, [location]);
 
     useEffect(() => {
-        if (!id || (matches.matches && id && !refreshPage)) return;
+        if (!id) return;
 
         const fetchLocalData = async (APIurl, endpoint, action) => {
             try {
@@ -63,10 +63,10 @@ export const App = () => {
         fetchLocalData(API_INT_URL, API_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
         fetchLocalData(API_INT_URL, API_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
         fetchLocalData(API_INT_URL, API_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
-    }, [id, refreshPage]);
+    }, [id]);
 
     useEffect(() => {
-        if (!matches.matches || updateData || refreshPage) return;
+        if (!matches.matches) return;
         if (getTodaysDate() >= matches.date || !matches.date)
             doDispatch(STORE_ACTIONS.UPDATE_DATA, true);
     }, [matches]);
@@ -105,8 +105,7 @@ export const App = () => {
         fetchExternalData(API_EXT_URL, API_ENDPOINT.MATCHES);
         fetchExternalData(API_EXT_URL, API_ENDPOINT.TEAMS);
 
-        doDispatch(STORE_ACTIONS.UPDATE_DATA, false);
-        doDispatch(STORE_ACTIONS.REFRESH_PAGE, true);
+        return doDispatch(STORE_ACTIONS.UPDATE_DATA, false);
     }, [updateData]);
 
     const fetchConfig = () => {
