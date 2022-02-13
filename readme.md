@@ -8,6 +8,8 @@
 
 Site hosted at https://football-stats-react.herokuapp.com/
 
+## Preview
+
 <br />
 
 ![Football Stats example](./public/assets/footballStats.gif)
@@ -33,5 +35,5 @@ Data sourced from https://www.football-data.org/
 
 ## Installation
 
-`npm install`
+`npm install`\
 `npm start`
