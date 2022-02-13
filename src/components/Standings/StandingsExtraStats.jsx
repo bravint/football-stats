@@ -11,7 +11,7 @@ export const StandingsExtraStats = (props) => {
 
     const store = useContext(StoreContext);
 
-    const { matches, teams, id } = store.state;
+    const { matches, id } = store.state;
 
     const getTeamId = (match) => {
         if (element.team.id === match.awayTeam.id || element.team.id === match.homeTeam.id) return element.team.id;
@@ -25,8 +25,6 @@ export const StandingsExtraStats = (props) => {
     };
 
     const selectedMatches = getLastFiveMatches();
-
-    //const selectedTeam = teams.teams.filter((team) => team.id === element.team.id);
 
     const findFixtureLocation = (selectedMatch) => selectedMatch.homeTeam.id === element.team.id ? MATCH_VENUE_TYPE.HOME : MATCH_VENUE_TYPE.AWAY;
 
