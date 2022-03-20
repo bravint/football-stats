@@ -23,18 +23,16 @@ export const Fixtures = () => {
                     </ul>
                 </>
             )}
-            {filteredFixtures &&
-                (postponedMatches.length < 1 ||
-                    matchStatus === initialState.matchStatus) && (
-                    <>
-                        <h1 className={styles.title}>SCHEDULED</h1>
-                        <ul>
-                            {filteredFixtures.map((nested) => {
-                                return <FixturesListItem nested={nested} />;
-                            })}
-                        </ul>
-                    </>
-                )}
+            {filteredFixtures && (postponedMatches.length < 1 || matchStatus === initialState.matchStatus) && (
+                <>
+                    <h1 className={styles.title}>SCHEDULED</h1>
+                    <ul>
+                        {filteredFixtures.map((nested) => {
+                            return <FixturesListItem nested={nested} />;
+                        })}
+                    </ul>
+                </>
+            )}
         </section>
     );
 };

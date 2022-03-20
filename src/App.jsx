@@ -12,20 +12,11 @@ import { Sidebar } from './components/Sidebar/Sidebar';
 import { SkipToContentButton } from './components/SkipToContentButton/SkipToContentButton';
 import { Standings } from './components/Standings/Standings';
 
-import { 
-    API_ENDPOINT, 
-    API_URL, 
-    STORE_ACTIONS, 
-    URL 
-} from './config';
+import { API_ENDPOINT, API_URL, STORE_ACTIONS, URL } from './config';
 
 import styles from './styles/App.module.css';
 
-import { 
-    StoreContext, 
-    reducer, 
-    initialState 
-} from './store';
+import { StoreContext, reducer, initialState } from './store';
 
 export const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -71,14 +62,8 @@ export const App = () => {
                 {!id && (
                     <main className={styles.main}>
                         <Routes>
-                            <Route 
-                                path="/" 
-                                element={<Home />} 
-                            />
-                            <Route 
-                                path="*" 
-                                element={<NotFound />} 
-                            />
+                            <Route path="/" element={<Home />} />
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
                     </main>
                 )}
@@ -87,25 +72,11 @@ export const App = () => {
                         <ReturnToTopButton />
                         {(url === URL.FIXTURES || url === URL.RESULTS) && <FilterMatches />}
                         <Routes>
-                            <Route 
-                                path={URL.STANDINGS} 
-                                element={<Standings />} 
-                            />
-                            <Route 
-                                path={URL.FIXTURES} 
-                                element={<Fixtures />} 
-                            />
-                                <Route path={URL.RESULTS} 
-                                element={<Results />} 
-                            />
-                            <Route 
-                                path={URL.HOME} 
-                                element={<Home />} 
-                            />
-                            <Route 
-                                path="*" 
-                                element={<NotFound />} 
-                            />
+                            <Route path={URL.STANDINGS} element={<Standings />} />
+                            <Route path={URL.FIXTURES} element={<Fixtures />} />
+                            <Route path={URL.RESULTS} element={<Results />} />
+                            <Route path={URL.HOME} element={<Home />} />
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
                     </main>
                 )}

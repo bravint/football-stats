@@ -20,11 +20,7 @@ export const NotFound = () => {
         <div className={styles.container}>
             <p>ERROR 404 : PAGE NOT FOUND</p>
             <li className={styles.navListItem}>
-                <Link
-                    className={styles.link}
-                    to="/"
-                    onClick={() => handleDispatch(STORE_ACTIONS.ID, '')}
-                >
+                <Link className={styles.link} to="/" onClick={() => handleDispatch(STORE_ACTIONS.ID, '')}>
                     Return to Home Page
                 </Link>
             </li>

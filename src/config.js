@@ -1,78 +1,77 @@
-export const API_URL = `https://football-stats-server.herokuapp.com`
+export const API_URL = 'https://football-stats-server.herokuapp.com';
 
-export class API_ENDPOINT {
-    static STANDINGS = 'standings';
-    static MATCHES = 'matches';
-    static TEAMS = 'teams';
-}
+export const API_ENDPOINT = {
+    STANDINGS: 'standings',
+    MATCHES: 'matches',
+    TEAMS: 'teams',
+};
 
-export class CALENDAR {
-    static DAYS = [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday',
-    ];
-    static MONTHS = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ];
-}
+export const CALENDAR_DAYS = {
+    MONDAY: 'Monday',
+    TUESDAY: 'Tuesday',
+    WEDNESDAY: 'Wednesday',
+    THURSDAY: 'Thursday',
+    FRIDAY: 'Friday',
+    Saturday: 'Saturday',
+    SUNDAY: 'Sunday',
+};
 
-export class MATCH_TYPES {
-    static SCHEDULED = 'SCHEDULED';
-    static POSTPONED = 'POSTPONED';
-    static FINISHED = 'FINISHED';
-    static CANCELLED = 'CANCELLED';
-}
+export const CALENDAR_MONTHS = {
+    JANUARY: 'January',
+    FEBRUARY: 'February',
+    MARCH: 'March',
+    APRIL: 'April',
+    MAY: 'May',
+    JUNE: 'June',
+    JULY: 'July',
+    AUGUST: 'August',
+    SEPTEMBER: 'September',
+    OCTOBER: 'October',
+    NOVEMBER: 'November',
+    DECEMBER: 'December',
+};
 
-export class STORE_ACTIONS {
-    static CANCELLED_MATCHES = 'update/cancelledMatches'
-    static ID = 'update/id'
-    static FILTERED_FIXTURES = 'update/filteredFixtures'
-    static FILTERED_RESULTS = 'update/filteredResults'
-    static MATCHES = 'update/matches'
-    static MATCH_STATUS = 'update/matchStatus'
-    static POSTPONED_MATCHES = 'update/postponedMatches'
-    static REFRESH_PAGE = 'update/refreshPage'
-    static SORT_TYPE = 'update/sortType'
-    static STANDINGS = 'standings'
-    static TEAMS = 'update/teams'
-    static URL = 'update/url'
-    static UPDATE_DATA = 'update/updateData'
-  }
+export const MATCH_TYPES = {
+    SCHEDULED: 'SCHEDULED',
+    POSTPONED: 'POSTPONED',
+    FINISHED: 'FINISHED',
+    CANCELLED: 'CANCELLED',
+};
 
-export class URL {
-    static STANDINGS = '/standings';
-    static FIXTURES = '/fixtures';
-    static RESULTS = '/results';
-    static HOME = '/';
-}
+export const STORE_ACTIONS = {
+    CANCELLED_MATCHES: 'update/cancelledMatches',
+    ID: 'update/id',
+    FILTERED_FIXTURES: 'update/filteredFixtures',
+    FILTERED_RESULTS: 'update/filteredResults',
+    MATCHES: 'update/matches',
+    MATCH_STATUS: 'update/matchStatus',
+    POSTPONED_MATCHES: 'update/postponedMatches',
+    REFRESH_PAGE: 'update/refreshPage',
+    SORT_TYPE: 'update/sortType',
+    STANDINGS: 'standings',
+    TEAMS: 'update/teams',
+    URL: 'update/url',
+    UPDATE_DATA: 'update/updateData',
+};
 
-export class INITIAL_STATE {
-    static MATCH_STATUS = 'all'
-    static SORT_TYPE = 'date'
-}
+export const URL = {
+    STANDINGS: '/standings',
+    FIXTURES: '/fixtures',
+    RESULTS: '/results',
+    HOME: '/',
+};
 
-export class MATCH_VENUE_TYPE {
-    static HOME = 'Home'
-    static AWAY = 'Away'
-}
+export const INITIAL_STATE = {
+    MATCH_STATUS: 'all',
+    SORT_TYPE: 'date',
+};
 
-export class SORT_TYPE {
-    static DATE = 'date'
-    static MATCHDAY = 'matchday'
-}
+export const MATCH_VENUE_TYPE = {
+    HOME: 'Home',
+    AWAY: 'Away',
+};
+
+export const SORT_TYPE = {
+    DATE: 'date',
+    MATCHDAY: 'matchday',
+};

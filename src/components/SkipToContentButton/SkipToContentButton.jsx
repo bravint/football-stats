@@ -6,11 +6,10 @@ export const SkipToContentButton = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const toggleVisibility = () =>
-            window.event.keyCode === 9
-                ? setIsVisible(true)
-                : setIsVisible(false);
+        const toggleVisibility = () => (window.event.keyCode === 9 ? setIsVisible(true) : setIsVisible(false));
+
         window.addEventListener('keydown', toggleVisibility);
+        
         return () => window.removeEventListener('keydown', toggleVisibility);
     }, []);
 
