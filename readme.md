@@ -6,7 +6,7 @@
 
 ## Live Site
 
-Site hosted at https://football-stats-react.herokuapp.com/
+Site hosted at http://football-stats-bravint.vercel.app/
 
 ## Preview
 
