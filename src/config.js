@@ -1,6 +1,6 @@
-export const API_URL = 'https://football-stats-server.herokuapp.com';
+export const SERVER_ADDRESS = process.env.REACT_APP_SERVER_ADDRESS;
 
-export const API_ENDPOINT = {
+export const SERVER_ENDPOINT = {
     STANDINGS: 'standings',
     MATCHES: 'matches',
     TEAMS: 'teams',

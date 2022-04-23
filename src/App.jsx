@@ -12,7 +12,7 @@ import { Sidebar } from './components/Sidebar/Sidebar';
 import { SkipToContentButton } from './components/SkipToContentButton/SkipToContentButton';
 import { Standings } from './components/Standings/Standings';
 
-import { API_ENDPOINT, API_URL, STORE_ACTIONS, URL } from './config';
+import { SERVER_ENDPOINT, SERVER_ADDRESS, STORE_ACTIONS, URL } from './config';
 
 import styles from './styles/App.module.css';
 
@@ -39,6 +39,8 @@ export const App = () => {
     useEffect(() => {
         if (!id) return;
 
+        console.log(`${SERVER_ADDRESS}/${id}/${SERVER_ENDPOINT.STANDINGS}`)
+
         const fetchData = async (APIurl, endpoint, action) => {
             try {
                 const response = await fetch(`${APIurl}/${id}/${endpoint}`);
@@ -49,9 +51,9 @@ export const App = () => {
             }
         };
 
-        fetchData(API_URL, API_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
-        fetchData(API_URL, API_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
-        fetchData(API_URL, API_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
+        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
+        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
+        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
     }, [id]);
 
     return (
