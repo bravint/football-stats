@@ -39,8 +39,6 @@ export const App = () => {
     useEffect(() => {
         if (!id) return;
 
-        console.log(`${SERVER_ADDRESS}/${id}/${SERVER_ENDPOINT.STANDINGS}`)
-
         const fetchData = async (APIurl, endpoint, action) => {
             try {
                 const response = await fetch(`${APIurl}/${id}/${endpoint}`);
