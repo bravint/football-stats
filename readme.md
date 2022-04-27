@@ -1,38 +1,44 @@
-<h1 align="center">Football Stats</h1>
+# Football Stats
 
-<div align="center">
-  <strong>A website that renders European football league information from an API</strong>
-</div>
+## Introduction
+
+A website that renders European football league information from an API
+
+Backend for project can be found at https://github.com/bravint/football-stats-server
+
+Uses: **React | React Router**,
+Backend uses: **Node | Express | Axios**
 
 ## Live Site
 
-Site hosted at http://football-stats-bravint.vercel.app/
+Site hosted at https://football-stats-bravint.vercel.app/
 
 ## Preview
 
-<br />
-
 ![Football Stats example](./public/assets/footballStats.gif)
-
-<br />
 
 ## Table of Contents
 
--   [Objectives](#Objectives)
--   [API](#api)
--   [Installation](#installation)
+ - [Current Project Status](#Current-Project-Status)
+ - [Technologies-Used](#Technologies-Used)
+ - [API Used](#API-Used)
+ - [Install](#Install)
 
-## Objectives
+## Current Project Status
 
--   **make API requests:** requests from an external API
--   **component based:** react SPA with multiple components sharing state via props, useReducer and useContext where necessary
--   **SPA with navigation:** handled by react-router v6
+**MVP Completed** : 2 week project with 3 day sprints
 
-## API
+## Technologies Used
+
+ - **React.js** : Hooks used are useState, useEffect, useReducer, useContext
+ - **React Router** : Provide internal links within the app
+
+## API Used
 
 Data sourced from https://www.football-data.org/
+API applies rate limiting - 10 request per minute are allowed on the free tier.
 
-## Installation
+## Install
 
-`npm install`\
-`npm start`
+Install dependencies: <code>npm install</code>\
+Start development server: <code>npm run start</code>
