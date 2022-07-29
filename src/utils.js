@@ -1,6 +1,6 @@
 export const getDate = (date) => {
     date = date.slice(0, -10);
-    
+
     date = date.slice(5, 7).toString() + '/' + date.slice(8, 10).toString() + '/' + date.slice(0, 4).toString();
 
     date = new Date(date).toString().slice(0, 15);
@@ -10,7 +10,7 @@ export const getDate = (date) => {
 
 export const getTime = (date) => date.slice(11, -4);
 
-export const fixTeamName = (id, team) => (id === 'PL' ? team.slice(0, -3) : team);
+export const fixTeamName = (id, team) => (id !== 'PL' || team === 'AFC Bournemouth' ? team : team.slice(0, -3));
 
 export const getVenue = (id, teams) => {
     const selectedTeam = teams.teams.filter((element) => element.id === id);
