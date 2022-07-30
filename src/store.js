@@ -30,7 +30,7 @@ export const reducer = (state, action) => {
         case STORE_ACTIONS.ID:
             return {
                 ...state,
-                id: action.payload,
+                id: localStorage.getItem('league_id'),
             };
         case STORE_ACTIONS.FILTERED_FIXTURES:
             return {

@@ -1,16 +1,28 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 
 import styles from '../../styles/Home.module.css';
 
-import { URL } from '../../config';
+import { STORE_ACTIONS, URL } from '../../config';
+import { StoreContext } from '../../store';
 
 export const SearchForm = () => {
     const navigate = useNavigate();
 
+    const store = useContext(StoreContext);
+
+    const handleDispatch = (action) => {
+        store.dispatch({
+            type: action,
+        });
+    };
+
     const handleChange = (event) => {
         localStorage.setItem('league_id', event.target.value);
-
-        navigate(URL.STANDINGS, { replace: true });
+        handleDispatch(STORE_ACTIONS.ID);
+        navigate(URL.STANDINGS, {
+            replace: true
+        });
     };
 
     return (
