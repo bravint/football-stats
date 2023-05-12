@@ -11,17 +11,18 @@ export const SearchForm = () => {
 
     const store = useContext(StoreContext);
 
-    const handleDispatch = (action, payload) => {
+    const handleDispatch = (action) => {
         store.dispatch({
             type: action,
-            payload: payload,
         });
     };
 
     const handleChange = (event) => {
-        handleDispatch(STORE_ACTIONS.ID, event.target.value);
-        
-        navigate(URL.STANDINGS, { replace: true });
+        localStorage.setItem('league_id', event.target.value);
+        handleDispatch(STORE_ACTIONS.ID);
+        navigate(URL.STANDINGS, {
+            replace: true
+        });
     };
 
     return (
