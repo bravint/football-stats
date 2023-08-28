@@ -36,6 +36,7 @@ export const MATCH_TYPES = {
     POSTPONED: 'POSTPONED',
     FINISHED: 'FINISHED',
     CANCELLED: 'CANCELLED',
+    TIMED: 'TIMED',
 };
 
 export const STORE_ACTIONS = {
