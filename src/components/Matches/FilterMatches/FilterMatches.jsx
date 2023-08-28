@@ -1,14 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useContext } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 
 import { MATCH_TYPES, URL, SORT_TYPE, STORE_ACTIONS } from '../../../config';
 import { StoreContext, initialState } from '../../../store';
 import { fixTeamName, formatDate } from '../../../utils';
-
 import styles from '../../../styles/FilterMatches.module.css';
-
-import CloseIcon from '@mui/icons-material/Close';
-import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 
 const completedMatchStatuses = [MATCH_TYPES.FINISHED, MATCH_TYPES.CANCELLED];
 
