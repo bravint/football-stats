@@ -111,7 +111,7 @@ export const FilterMatches = () => {
 
             handleDispatch(STORE_ACTIONS.POSTPONED_MATCHES, postponedMatches);
 
-            const scheduledMatches = filteredArray.filter((element) => element.status === MATCH_TYPES.SCHEDULED);
+            const scheduledMatches = filteredArray.filter((element) => [MATCH_TYPES.SCHEDULED, MATCH_TYPES.TIMED].includes(element.status));
 
             sortFilteredArray(scheduledMatches);
         }
