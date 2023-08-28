@@ -47,8 +47,6 @@ export const FilterMatches = () => {
         });
     };
 
-    console.log({ matchStatusList })
-
     const generateListOfTeams = () => setTeamsList([...teams.teams]);
 
     const checkFixturesStatus = (status) => {
