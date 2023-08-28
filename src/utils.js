@@ -26,7 +26,7 @@ export const handleDispatch = (store, action, payload) => {
     });
 };
 
-const formatDate = (date) => {
+export const formatDate = (date) => {
     date = date.slice(5, 7).toString() + '/' + date.slice(8, 10).toString() + '/' + date.slice(0, 4).toString();
     return new Date(date).toString().slice(0, 15);
 };
