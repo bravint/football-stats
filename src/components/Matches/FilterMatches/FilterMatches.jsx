@@ -3,12 +3,14 @@ import { useEffect, useState, useContext } from 'react';
 
 import { MATCH_TYPES, URL, SORT_TYPE, STORE_ACTIONS } from '../../../config';
 import { StoreContext, initialState } from '../../../store';
-import { fixTeamName, getDate, getMatchday } from '../../../utils';
+import { fixTeamName, formatDate } from '../../../utils';
 
 import styles from '../../../styles/FilterMatches.module.css';
 
 import CloseIcon from '@mui/icons-material/Close';
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
+
+const completedMatchStatuses = [MATCH_TYPES.FINISHED, MATCH_TYPES.CANCELLED];
 
 export const FilterMatches = () => {
     const [displayFiltersForm, setDisplayFiltersForm] = useState(false);
@@ -22,12 +24,12 @@ export const FilterMatches = () => {
 
     useEffect(() => {
         clearFilters();
-        genMatchStatusArray();
-        genTeamsArray();
+        generateListOfMatchStatuses();
+        generateListOfTeams();
     }, [url, id]);
 
     useEffect(() => {
-        filteredMatchesArray();
+        filterMatches();
     }, [selectedTeams, matchStatus, sortType, matchStatusList, teamsList]);
 
     const clearFilters = () => {
@@ -45,137 +47,150 @@ export const FilterMatches = () => {
         });
     };
 
-    const checkFixturesStatus = (element) => {
-        if (element.status !== MATCH_TYPES.FINISHED && element.status !== MATCH_TYPES.CANCELLED) return element;
+    const generateListOfTeams = () => setTeamsList([...teams.teams]);
+
+    const checkFixturesStatus = (status) => {
+        if (!completedMatchStatuses.includes(status)) {
+            return status;
+        }
     };
 
-    const checkResultsStatus = (element) => {
-        if (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED) return element;
+    const generateListOfMatchStatuses = () => {
+        if (url === URL.RESULTS) {
+            const statuses = completedMatchStatuses.map((status) => status.toLowerCase());
+            statuses.sort();
+
+            return setMatchStatusList(statuses);
+        }
+
+        if (url === URL.FIXTURES) {
+            const statuses = matches.matches
+                .filter(({ status }) => checkFixturesStatus(status))
+                .map(({ status }) => status.toLowerCase());
+            
+            const uniqueStatuses = Array.from(new Set(statuses)); 
+            uniqueStatuses.sort();
+
+            setMatchStatusList(uniqueStatuses);
+        };
     };
 
-    const genMatchStatusArray = () => {
-        let array = [];
-
-        if (url === URL.RESULTS) array = matches.matches.filter((element) => checkResultsStatus(element));
-
-        if (url === URL.FIXTURES) array = matches.matches.filter((element) => checkFixturesStatus(element));
-
-        const newarray = array.map((element) => element.status);
-
-        let status = Array.from(new Set(newarray));
-
-        status.sort();
-
-        setMatchStatusList(status);
-    };
-
-    const genTeamsArray = () => setTeamsList([...teams.teams]);
-
-    const filterMatches = (element) => {
-        if (filterByFixtureType(element) && filterByTeam(element)) return element;
-    };
-
-    const filterByFixtureType = (element) => {
-        const elementStatus = element.status.toLowerCase();
-
-        if (matchStatus.includes(elementStatus)) return true;
+    const filterByMatchStatus = (match) => {
+        if (matchStatus.includes(match.status.toLowerCase())) {
+            return true;
+        }
 
         if (
             url === URL.FIXTURES &&
             matchStatus === initialState.matchStatus &&
-            (element.status !== MATCH_TYPES.FINISHED || element.status !== MATCH_TYPES.CANCELLED)
-        )
+            !completedMatchStatuses.includes(match.status)
+        ) {
             return true;
-
+        }
+            
         if (
             url === URL.RESULTS &&
             matchStatus === initialState.matchStatus &&
-            (element.status === MATCH_TYPES.FINISHED || element.status === MATCH_TYPES.CANCELLED)
-        )
+            completedMatchStatuses.includes(match.status)
+        ) {
             return true;
+        }
     };
 
-    const filterByTeam = (element) => {
-        const homeTeam = fixTeamName(id, element.homeTeam.name);
+    const filterByTeams = (match) => {
+        const homeTeam = fixTeamName(id, match.homeTeam.name);
+        const awayTeam = fixTeamName(id, match.awayTeam.name);
 
-        const awayTeam = fixTeamName(id, element.awayTeam.name);
-
-        if (selectedTeams.includes(homeTeam) || selectedTeams.includes(awayTeam) || selectedTeams.length < 1) return true;
+        if (selectedTeams.includes(homeTeam) || selectedTeams.includes(awayTeam) || !selectedTeams.length) {
+            return true
+        };
     };
 
-    const filteredMatchesArray = () => {
-        let filteredArray = matches.matches.filter((element) => filterMatches(element));
+    const filterMatchesByStatusAndTeams = (match) => {
+        if (filterByMatchStatus(match) && filterByTeams(match)) {
+            return match
+        };
+    };
+
+    const filterMatches = () => {
+        let filteredMatches = matches.matches.filter((match) => filterMatchesByStatusAndTeams(match));
 
         if (url === URL.FIXTURES) {
-            const postponedMatches = filteredArray.filter((element) => element.status === MATCH_TYPES.POSTPONED);
+            const postponedMatches = filteredMatches.filter(({ status }) => status === MATCH_TYPES.POSTPONED);
 
             handleDispatch(STORE_ACTIONS.POSTPONED_MATCHES, postponedMatches);
 
-            const scheduledMatches = filteredArray.filter((element) => [MATCH_TYPES.SCHEDULED, MATCH_TYPES.TIMED].includes(element.status));
+            const scheduledMatches = filteredMatches.filter(({ status }) => [MATCH_TYPES.SCHEDULED, MATCH_TYPES.TIMED].includes(status));
 
-            sortFilteredArray(scheduledMatches);
+            sortMatches(scheduledMatches);
         }
 
         if (url === URL.RESULTS) {
-            const cancelledMatches = filteredArray.filter((element) => element.status === MATCH_TYPES.CANCELLED);
+            const cancelledMatches = filteredMatches.filter(({ status }) => status === MATCH_TYPES.CANCELLED);
 
             handleDispatch(STORE_ACTIONS.CANCELLED_MATCHES, cancelledMatches);
 
-            let finishedMatches = filteredArray.filter((element) => element.status === MATCH_TYPES.FINISHED);
+            const completedMatches = filteredMatches.filter(({ status }) => status === MATCH_TYPES.FINISHED);
 
-            sortFilteredArray(finishedMatches.reverse());
+            sortMatches(completedMatches.reverse());
         }
     };
 
-    const sortFilteredArray = (inputArray) => {
-        if (inputArray.length < 1) return;
+    const sortByMatchday = (matches) => matches.sort((a, b) => a[0].matchday - b[0].matchday);
 
-        let unsortedArray = [...inputArray];
+    const sortMatchesByDate = (unsortedMatches, sortedMatches) => {
+        if (!unsortedMatches.length) {
+            return
+        };
 
-        let sortedArray = [];
+        const dateForFirstMatchInList = formatDate(unsortedMatches[0].utcDate);
+        const matchesForDate = unsortedMatches.filter(({ utcDate }) => formatDate(utcDate) === dateForFirstMatchInList);
+        sortedMatches.push(matchesForDate);
+        const remainingUnsortedMatches = unsortedMatches.filter(({ utcDate }) => formatDate(utcDate) !== dateForFirstMatchInList);
 
-        if (sortType === SORT_TYPE.DATE) generateDateSortedArray(unsortedArray, sortedArray);
-
-        if (sortType === SORT_TYPE.MATCHDAY) generateMatchdaySortedArray(unsortedArray, sortedArray);
-
-        if (url === URL.FIXTURES) handleDispatch(STORE_ACTIONS.FILTERED_FIXTURES, sortedArray);
-
-        if (url === URL.RESULTS) handleDispatch(STORE_ACTIONS.FILTERED_RESULTS, sortedArray);
+        sortMatchesByDate(remainingUnsortedMatches, sortedMatches);
     };
 
-    const generateDateSortedArray = (unsortedArray, sortedArray, sortType) => {
-        if (unsortedArray.length < 1) return;
+    const sortMatchesByMatchday = (unsortedMatches, sortedMatches) => {
+        if (!unsortedMatches.length) {
+            return sortByMatchday(sortedMatches);
+        };
 
-        let date = getDate(unsortedArray[0].utcDate);
+        const firstMatchdayInList = unsortedMatches[0].matchday;
+        const matchesForMatchday = unsortedMatches.filter(({ matchday }) => matchday === firstMatchdayInList);
+        sortedMatches.push(matchesForMatchday);
+        const remainingUnsortedMatches = unsortedMatches.filter(({ matchday }) => matchday !== firstMatchdayInList);
 
-        let nestedArray = unsortedArray.filter((element) => getDate(element.utcDate) === date);
-
-        sortedArray.push(nestedArray);
-
-        unsortedArray = unsortedArray.filter((element) => getDate(element.utcDate) !== date);
-
-        generateDateSortedArray(unsortedArray, sortedArray);
+        sortMatchesByMatchday(remainingUnsortedMatches, sortedMatches);
     };
 
-    const generateMatchdaySortedArray = (unsortedArray, sortedArray) => {
-        if (unsortedArray.length < 1) return sortByMatchday(sortedArray);
+    const sortMatches = (matches) => {
+        if (!matches.length) {
+            return
+        };
 
-        let matchday = getMatchday(unsortedArray[0]);
+        const sortedMatches = [];
 
-        let nestedArray = unsortedArray.filter((element) => getMatchday(element) === matchday);
+        if (sortType === SORT_TYPE.DATE) {
+            sortMatchesByDate(matches, sortedMatches)
+        };
 
-        sortedArray.push(nestedArray);
+        if (sortType === SORT_TYPE.MATCHDAY) {
+            sortMatchesByMatchday(matches, sortedMatches)
+        };
 
-        unsortedArray = unsortedArray.filter((element) => getMatchday(element) !== matchday);
+        if (url === URL.FIXTURES) {
+            handleDispatch(STORE_ACTIONS.FILTERED_FIXTURES, sortedMatches)
+        };
 
-        generateMatchdaySortedArray(unsortedArray, sortedArray);
+        if (url === URL.RESULTS) {
+            handleDispatch(STORE_ACTIONS.FILTERED_RESULTS, sortedMatches)
+        };
     };
 
-    const sortByMatchday = (sortedArray) => sortedArray.sort((a, b) => a[0].matchday - b[0].matchday);
+    const checkSelectedTeam = (team) => (selectedTeams.includes(team) ? true : false);
 
-    const checkChecked = (element) => (selectedTeams.includes(element) ? true : false);
-
-    const capitalisedTitle = (element) => element.replace(/\b\w/g, (l) => l.toUpperCase());
+    const capitaliseTitle = (title) => title.replace(/\b\w/g, (l) => l.toUpperCase());
 
     const handleFixtureTypeChange = (event) => handleDispatch(STORE_ACTIONS.MATCH_STATUS, event.target.value);
 
@@ -186,15 +201,15 @@ export const FilterMatches = () => {
 
     const handleSortChange = (event) => handleDispatch(STORE_ACTIONS.SORT_TYPE, event.target.value.toLowerCase());
 
-    const HandleShowFIlterClick = () => setDisplayFiltersForm(!displayFiltersForm);
+    const HandleShowFilterClick = () => setDisplayFiltersForm(!displayFiltersForm);
 
-    const displayFilteredTeamsList = () => (selectedTeams.length > 0 ? selectedTeams.join(', ') : 'all teams');
+    const displayFilteredTeamsList = () => (selectedTeams.length ? selectedTeams.join(', ') : 'all teams');
 
     return (
         <div className={styles.filterSection}>
             <div className={styles.blankSpace}>&nbsp;</div>
             <div className={styles.filterSummary}>
-                <div className={styles.showFormButton} onClick={() => HandleShowFIlterClick()}>
+                <div className={styles.showFormButton} onClick={() => HandleShowFilterClick()}>
                     <TuneRoundedIcon className={styles.TuneRoundedIcon} />
                     <p>Filters</p>
                 </div>
@@ -207,22 +222,22 @@ export const FilterMatches = () => {
                 <>
                     <div className={styles.blankSpace}>&nbsp;</div>
                     <form className={styles.form}>
-                        <div className={styles.close} onClick={() => HandleShowFIlterClick()}>
+                        <div className={styles.close} onClick={() => HandleShowFilterClick()}>
                             <CloseIcon className={styles.closeIcon} />
                         </div>
                         <div className={styles.formSelectContainer}>
                             <div>
                                 <h3>Show Matches</h3>
                                 <select id="type" name="type" className="" value={matchStatus} onChange={(event) => handleFixtureTypeChange(event)}>
-                                    {matchStatusList.length > 1 && <option value="all">Show All</option>}
-                                    {matchStatusList.map((element) => {
-                                        return <option value={element.toLowerCase()}>{capitalisedTitle(element.toLowerCase())}</option>;
+                                    {matchStatusList.length && <option value="all">Show All</option>}
+                                    {matchStatusList.map((status) => {
+                                        return <option value={status.toLowerCase()}>{capitaliseTitle(status.toLowerCase())}</option>;
                                     })}
                                 </select>
                             </div>
                             <div>
                                 <h3>Sort Match List by</h3>
-                                <select id="league" name="league" className="" value={capitalisedTitle(sortType)} onChange={(event) => handleSortChange(event)}>
+                                <select id="league" name="league" className="" value={capitaliseTitle(sortType)} onChange={(event) => handleSortChange(event)}>
                                     <option value="Date">Date</option>
                                     <option value="Matchday">Matchday</option>
                                 </select>
@@ -231,17 +246,17 @@ export const FilterMatches = () => {
                         </div>
                         <h3>Filter by Team</h3>
                         <section className={styles.selectteam}>
-                            {teamsList.map((element) => {
+                            {teamsList.map((team) => {
                                 return (
                                     <div className={styles.teamSelect}>
                                         <input
                                             type="checkbox"
-                                            id={fixTeamName(id, element.name)}
-                                            checked={checkChecked(fixTeamName(id, element.name))}
-                                            name={fixTeamName(id, element.name)}
+                                            id={fixTeamName(id, team.name)}
+                                            checked={checkSelectedTeam(fixTeamName(id, team.name))}
+                                            name={fixTeamName(id, team.name)}
                                             onChange={(event) => handleTeamSelectionChange(event)}
                                         />
-                                        <label htmlFor={element.id}>{fixTeamName(id, element.name)}</label>
+                                        <label htmlFor={team.id}>{fixTeamName(id, team.name)}</label>
                                     </div>
                                 );
                             })}
