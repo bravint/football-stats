@@ -19,7 +19,7 @@ export const SidebarLeagueOverview = () => {
                     <p className={styles.competitionOverview}>{standings.competition.name}</p>
                 </li>
                 <li>
-                    <p className={styles.competitionOverview}>{standings.competition.area.name}</p>
+                    <p className={styles.competitionOverview}>{standings.area.name}</p>
                 </li>
                 <br></br>
                 <li>
