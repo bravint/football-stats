@@ -19,10 +19,10 @@ Site hosted at https://football-stats-bravint.vercel.app/
 
 ## Table of Contents
 
- - [Current Project Status](#Current-Project-Status)
- - [Technologies-Used](#Technologies-Used)
- - [API Used](#API-Used)
- - [Install](#Install)
+-   [Current Project Status](#Current-Project-Status)
+-   [Technologies-Used](#Technologies-Used)
+-   [API Used](#API-Used)
+-   [Install](#Install)
 
 ## Current Project Status
 
@@ -30,8 +30,8 @@ Site hosted at https://football-stats-bravint.vercel.app/
 
 ## Technologies Used
 
- - **React.js** : Hooks used are useState, useEffect, useReducer, useContext
- - **React Router** : Provide internal links within the app
+-   **React.js** : Hooks used are useState, useEffect, useReducer, useContext
+-   **React Router** : Provide internal links within the app
 
 ## API Used
 

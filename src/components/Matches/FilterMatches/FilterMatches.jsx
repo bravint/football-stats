@@ -57,7 +57,9 @@ export const FilterMatches = () => {
 
     const generateListOfMatchStatuses = () => {
         if (url === URL.RESULTS) {
-            const statuses = completedMatchStatuses.map((status) => status.toLowerCase());
+            const statuses = completedMatchStatuses.map((status) =>
+                status.toLowerCase()
+            );
             statuses.sort();
 
             return setMatchStatusList(statuses);
@@ -67,12 +69,12 @@ export const FilterMatches = () => {
             const statuses = matches.matches
                 .filter(({ status }) => checkFixturesStatus(status))
                 .map(({ status }) => status.toLowerCase());
-            
-            const uniqueStatuses = Array.from(new Set(statuses)); 
+
+            const uniqueStatuses = Array.from(new Set(statuses));
             uniqueStatuses.sort();
 
             setMatchStatusList(uniqueStatuses);
-        };
+        }
     };
 
     const filterByMatchStatus = (match) => {
@@ -87,7 +89,7 @@ export const FilterMatches = () => {
         ) {
             return true;
         }
-            
+
         if (
             url === URL.RESULTS &&
             matchStatus === initialState.matchStatus &&
@@ -101,52 +103,71 @@ export const FilterMatches = () => {
         const homeTeam = fixTeamName(id, match.homeTeam.name);
         const awayTeam = fixTeamName(id, match.awayTeam.name);
 
-        if (selectedTeams.includes(homeTeam) || selectedTeams.includes(awayTeam) || !selectedTeams.length) {
-            return true
-        };
+        if (
+            selectedTeams.includes(homeTeam) ||
+            selectedTeams.includes(awayTeam) ||
+            !selectedTeams.length
+        ) {
+            return true;
+        }
     };
 
     const filterMatchesByStatusAndTeams = (match) => {
         if (filterByMatchStatus(match) && filterByTeams(match)) {
-            return match
-        };
+            return match;
+        }
     };
 
     const filterMatches = () => {
-        let filteredMatches = matches.matches.filter((match) => filterMatchesByStatusAndTeams(match));
+        let filteredMatches = matches.matches.filter((match) =>
+            filterMatchesByStatusAndTeams(match)
+        );
 
         if (url === URL.FIXTURES) {
-            const postponedMatches = filteredMatches.filter(({ status }) => status === MATCH_TYPES.POSTPONED);
+            const postponedMatches = filteredMatches.filter(
+                ({ status }) => status === MATCH_TYPES.POSTPONED
+            );
 
             handleDispatch(STORE_ACTIONS.POSTPONED_MATCHES, postponedMatches);
 
-            const scheduledMatches = filteredMatches.filter(({ status }) => [MATCH_TYPES.SCHEDULED, MATCH_TYPES.TIMED].includes(status));
+            const scheduledMatches = filteredMatches.filter(({ status }) =>
+                [MATCH_TYPES.SCHEDULED, MATCH_TYPES.TIMED].includes(status)
+            );
 
             sortMatches(scheduledMatches);
         }
 
         if (url === URL.RESULTS) {
-            const cancelledMatches = filteredMatches.filter(({ status }) => status === MATCH_TYPES.CANCELLED);
+            const cancelledMatches = filteredMatches.filter(
+                ({ status }) => status === MATCH_TYPES.CANCELLED
+            );
 
             handleDispatch(STORE_ACTIONS.CANCELLED_MATCHES, cancelledMatches);
 
-            const completedMatches = filteredMatches.filter(({ status }) => status === MATCH_TYPES.FINISHED);
+            const completedMatches = filteredMatches.filter(
+                ({ status }) => status === MATCH_TYPES.FINISHED
+            );
 
             sortMatches(completedMatches.reverse());
         }
     };
 
-    const sortByMatchday = (matches) => matches.sort((a, b) => a[0].matchday - b[0].matchday);
+    const sortByMatchday = (matches) =>
+        matches.sort((a, b) => a[0].matchday - b[0].matchday);
 
     const sortMatchesByDate = (unsortedMatches, sortedMatches) => {
         if (!unsortedMatches.length) {
-            return
-        };
+            return;
+        }
 
         const dateForFirstMatchInList = formatDate(unsortedMatches[0].utcDate);
-        const matchesForDate = unsortedMatches.filter(({ utcDate }) => formatDate(utcDate) === dateForFirstMatchInList);
+        const matchesForDate = unsortedMatches.filter(
+            ({ utcDate }) => formatDate(utcDate) === dateForFirstMatchInList
+        );
         sortedMatches.push(matchesForDate);
-        const remainingUnsortedMatches = unsortedMatches.filter(({ utcDate }) => formatDate(utcDate) !== dateForFirstMatchInList);
+        const remainingUnsortedMatches = unsortedMatches.filter(
+            ({ utcDate }) => formatDate(utcDate) !== dateForFirstMatchInList
+        );
 
         sortMatchesByDate(remainingUnsortedMatches, sortedMatches);
     };
@@ -154,67 +175,87 @@ export const FilterMatches = () => {
     const sortMatchesByMatchday = (unsortedMatches, sortedMatches) => {
         if (!unsortedMatches.length) {
             return sortByMatchday(sortedMatches);
-        };
+        }
 
         const firstMatchdayInList = unsortedMatches[0].matchday;
-        const matchesForMatchday = unsortedMatches.filter(({ matchday }) => matchday === firstMatchdayInList);
+        const matchesForMatchday = unsortedMatches.filter(
+            ({ matchday }) => matchday === firstMatchdayInList
+        );
         sortedMatches.push(matchesForMatchday);
-        const remainingUnsortedMatches = unsortedMatches.filter(({ matchday }) => matchday !== firstMatchdayInList);
+        const remainingUnsortedMatches = unsortedMatches.filter(
+            ({ matchday }) => matchday !== firstMatchdayInList
+        );
 
         sortMatchesByMatchday(remainingUnsortedMatches, sortedMatches);
     };
 
     const sortMatches = (matches) => {
         if (!matches.length) {
-            return
-        };
+            return;
+        }
 
         const sortedMatches = [];
 
         if (sortType === SORT_TYPE.DATE) {
-            sortMatchesByDate(matches, sortedMatches)
-        };
+            sortMatchesByDate(matches, sortedMatches);
+        }
 
         if (sortType === SORT_TYPE.MATCHDAY) {
-            sortMatchesByMatchday(matches, sortedMatches)
-        };
+            sortMatchesByMatchday(matches, sortedMatches);
+        }
 
         if (url === URL.FIXTURES) {
-            handleDispatch(STORE_ACTIONS.FILTERED_FIXTURES, sortedMatches)
-        };
+            handleDispatch(STORE_ACTIONS.FILTERED_FIXTURES, sortedMatches);
+        }
 
         if (url === URL.RESULTS) {
-            handleDispatch(STORE_ACTIONS.FILTERED_RESULTS, sortedMatches)
-        };
+            handleDispatch(STORE_ACTIONS.FILTERED_RESULTS, sortedMatches);
+        }
     };
 
-    const checkSelectedTeam = (team) => (selectedTeams.includes(team) ? true : false);
+    const checkSelectedTeam = (team) =>
+        selectedTeams.includes(team) ? true : false;
 
-    const capitaliseTitle = (title) => title.replace(/\b\w/g, (l) => l.toUpperCase());
+    const capitaliseTitle = (title) =>
+        title.replace(/\b\w/g, (l) => l.toUpperCase());
 
-    const handleFixtureTypeChange = (event) => handleDispatch(STORE_ACTIONS.MATCH_STATUS, event.target.value);
+    const handleFixtureTypeChange = (event) =>
+        handleDispatch(STORE_ACTIONS.MATCH_STATUS, event.target.value);
 
     const handleTeamSelectionChange = (event) =>
         selectedTeams.includes(event.target.id)
-            ? setSelectedTeams(selectedTeams.filter((element) => element !== event.target.id))
+            ? setSelectedTeams(
+                  selectedTeams.filter((element) => element !== event.target.id)
+              )
             : setSelectedTeams([...selectedTeams, event.target.id]);
 
-    const handleSortChange = (event) => handleDispatch(STORE_ACTIONS.SORT_TYPE, event.target.value.toLowerCase());
+    const handleSortChange = (event) =>
+        handleDispatch(
+            STORE_ACTIONS.SORT_TYPE,
+            event.target.value.toLowerCase()
+        );
 
-    const HandleShowFilterClick = () => setDisplayFiltersForm(!displayFiltersForm);
+    const HandleShowFilterClick = () =>
+        setDisplayFiltersForm(!displayFiltersForm);
 
-    const displayFilteredTeamsList = () => (selectedTeams.length ? selectedTeams.join(', ') : 'all teams');
+    const displayFilteredTeamsList = () =>
+        selectedTeams.length ? selectedTeams.join(', ') : 'all teams';
 
     return (
         <div className={styles.filterSection}>
             <div className={styles.blankSpace}>&nbsp;</div>
             <div className={styles.filterSummary}>
-                <div className={styles.showFormButton} onClick={() => HandleShowFilterClick()}>
+                <div
+                    className={styles.showFormButton}
+                    onClick={() => HandleShowFilterClick()}
+                >
                     <TuneRoundedIcon className={styles.TuneRoundedIcon} />
                     <p>Filters</p>
                 </div>
                 <p className={styles.showActiveFilters}>
-                    <strong>Active Filters:</strong> Show {matchStatus} matches, matches sorted by {sortType} for {displayFilteredTeamsList()}
+                    <strong>Active Filters:</strong> Show {matchStatus} matches,
+                    matches sorted by {sortType} for{' '}
+                    {displayFilteredTeamsList()}
                 </p>
             </div>
 
@@ -222,22 +263,51 @@ export const FilterMatches = () => {
                 <>
                     <div className={styles.blankSpace}>&nbsp;</div>
                     <form className={styles.form}>
-                        <div className={styles.close} onClick={() => HandleShowFilterClick()}>
+                        <div
+                            className={styles.close}
+                            onClick={() => HandleShowFilterClick()}
+                        >
                             <CloseIcon className={styles.closeIcon} />
                         </div>
                         <div className={styles.formSelectContainer}>
                             <div>
                                 <h3>Show Matches</h3>
-                                <select id="type" name="type" className="" value={matchStatus} onChange={(event) => handleFixtureTypeChange(event)}>
-                                    {matchStatusList.length && <option value="all">Show All</option>}
+                                <select
+                                    id="type"
+                                    name="type"
+                                    className=""
+                                    value={matchStatus}
+                                    onChange={(event) =>
+                                        handleFixtureTypeChange(event)
+                                    }
+                                >
+                                    {matchStatusList.length && (
+                                        <option value="all">Show All</option>
+                                    )}
                                     {matchStatusList.map((status) => {
-                                        return <option value={status.toLowerCase()}>{capitaliseTitle(status.toLowerCase())}</option>;
+                                        return (
+                                            <option
+                                                value={status.toLowerCase()}
+                                            >
+                                                {capitaliseTitle(
+                                                    status.toLowerCase()
+                                                )}
+                                            </option>
+                                        );
                                     })}
                                 </select>
                             </div>
                             <div>
                                 <h3>Sort Match List by</h3>
-                                <select id="league" name="league" className="" value={capitaliseTitle(sortType)} onChange={(event) => handleSortChange(event)}>
+                                <select
+                                    id="league"
+                                    name="league"
+                                    className=""
+                                    value={capitaliseTitle(sortType)}
+                                    onChange={(event) =>
+                                        handleSortChange(event)
+                                    }
+                                >
                                     <option value="Date">Date</option>
                                     <option value="Matchday">Matchday</option>
                                 </select>
@@ -252,11 +322,17 @@ export const FilterMatches = () => {
                                         <input
                                             type="checkbox"
                                             id={fixTeamName(id, team.name)}
-                                            checked={checkSelectedTeam(fixTeamName(id, team.name))}
+                                            checked={checkSelectedTeam(
+                                                fixTeamName(id, team.name)
+                                            )}
                                             name={fixTeamName(id, team.name)}
-                                            onChange={(event) => handleTeamSelectionChange(event)}
+                                            onChange={(event) =>
+                                                handleTeamSelectionChange(event)
+                                            }
                                         />
-                                        <label htmlFor={team.id}>{fixTeamName(id, team.name)}</label>
+                                        <label htmlFor={team.id}>
+                                            {fixTeamName(id, team.name)}
+                                        </label>
                                     </div>
                                 );
                             })}

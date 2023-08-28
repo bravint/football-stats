@@ -18,7 +18,10 @@ export const ResultsListItem = (props) => {
             <h3 className={styles.title}>{renderTitle(sortType, nested)}</h3>
             {nested.map((element) => {
                 return (
-                    <li className={styles.matchListItemContainer} key={element.id}>
+                    <li
+                        className={styles.matchListItemContainer}
+                        key={element.id}
+                    >
                         <div className={styles.matchListItem}>
                             <p className={styles.homeTeam}>
                                 {fixTeamName(id, element.homeTeam.name)}
