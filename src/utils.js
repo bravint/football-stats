@@ -1,30 +1,23 @@
-export const getDate = (date) => {
-    date = date.slice(0, -10);
-
-    date = date.slice(5, 7).toString() + '/' + date.slice(8, 10).toString() + '/' + date.slice(0, 4).toString();
-
-    date = new Date(date).toString().slice(0, 15);
-
-    return date;
-};
-
 export const getTime = (date) => date.slice(11, -4);
 
 export const fixTeamName = (id, team) => (id !== 'PL' || team === 'AFC Bournemouth' ? team : team.slice(0, -3));
 
-export const getVenue = (id, teams) => {
-    const selectedTeam = teams.teams.filter((element) => element.id === id);
+export const getVenue = (teamId, teams) => {
+    // Shorten Brighton & Hove Albion stadium's name
+    const BRIGHTON_TEAM_ID = 397;
 
-    return id === 397 ? 'The AMEX Stadium' : selectedTeam[0].venue;
+    if (teamId === BRIGHTON_TEAM_ID) {
+        return 'The AMEX Stadium';
+    };
+    
+    const teamById = teams.teams.find(({ id }) => teamId === id);
+    return teamById ? teamById.venue : null;
 };
 
-export const getLogo = (id, teams) => {
-    const selectedTeam = teams.teams.filter((element) => element.id === id);
-
-    return selectedTeam[0] ? selectedTeam[0].crest : null;
+export const getLogo = (teamId, teams) => {
+    const teamById = teams.teams.find(({ id }) => teamId === id);
+    return teamById ? teamById.crest : null;
 };
-
-export const getMatchday = (element) => element.matchday;
 
 export const handleDispatch = (store, action, payload) => {
     store.dispatch({
@@ -33,8 +26,13 @@ export const handleDispatch = (store, action, payload) => {
     });
 };
 
-export const renderTitle = (sortType, nested) => {
-    if (sortType === 'date') return getDate(nested[0].utcDate);
+const formatDate = (date) => {
+    date = date.slice(5, 7).toString() + '/' + date.slice(8, 10).toString() + '/' + date.slice(0, 4).toString();
+    return new Date(date).toString().slice(0, 15);
+};
 
-    if (sortType === 'matchday') return 'Matchday ' + getMatchday(nested[0]);
+export const renderTitle = (sortType, nested) => {
+    if (sortType === 'date') return formatDate(nested[0].utcDate);
+
+    if (sortType === 'matchday') return 'Matchday ' + nested[0].matchday;
 };
