@@ -13,19 +13,30 @@ export const SidebarLeagueOverview = () => {
         <>
             <ul>
                 <li>
-                    <img src={process.env.PUBLIC_URL + `/assets/images/${id}.svg`} alt="league logo" className={styles.navLogo} />
+                    <img
+                        src={
+                            process.env.PUBLIC_URL + `/assets/images/${id}.svg`
+                        }
+                        alt="league logo"
+                        className={styles.navLogo}
+                    />
                 </li>
                 <li>
-                    <p className={styles.competitionOverview}>{standings.competition.name}</p>
+                    <p className={styles.competitionOverview}>
+                        {standings.competition.name}
+                    </p>
                 </li>
                 <li>
-                    <p className={styles.competitionOverview}>{standings.area.name}</p>
+                    <p className={styles.competitionOverview}>
+                        {standings.area.name}
+                    </p>
                 </li>
                 <br></br>
                 <li>
                     <p className={styles.competitionOverview}>
                         Playing Matchday:<br></br>
-                        {standings.season.currentMatchday} of {standings.standings[0].table.length * 2 - 2}
+                        {standings.season.currentMatchday} of{' '}
+                        {standings.standings[0].table.length * 2 - 2}
                     </p>
                 </li>
             </ul>

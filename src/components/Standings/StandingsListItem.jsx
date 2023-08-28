@@ -15,11 +15,14 @@ export const StandingsListItem = () => {
 
     const [teamId, setTeamId] = useState(null);
 
-    const onClickHandler = (id) => (teamId !== id ? setTeamId(id) : setTeamId(null));
+    const onClickHandler = (id) =>
+        teamId !== id ? setTeamId(id) : setTeamId(null);
 
-    const renderExtraStats = (element) => (teamId === element.team.id ? true : false);
+    const renderExtraStats = (element) =>
+        teamId === element.team.id ? true : false;
 
-    const renderSelectedClass = (element) => (teamId === element.team.id ? styles.teamListSelected : '');
+    const renderSelectedClass = (element) =>
+        teamId === element.team.id ? styles.teamListSelected : '';
 
     return (
         <ul>
@@ -48,13 +51,25 @@ export const StandingsListItem = () => {
             </li>
             {standings.standings[0].table.map((element) => {
                 return (
-                    <li className={styles.teamListItemContainer} key={element.team.id} onClick={() => onClickHandler(element.team.id)}>
-                        <div className={`${styles.teamListItem} ${renderSelectedClass(element)}`}>
+                    <li
+                        className={styles.teamListItemContainer}
+                        key={element.team.id}
+                        onClick={() => onClickHandler(element.team.id)}
+                    >
+                        <div
+                            className={`${
+                                styles.teamListItem
+                            } ${renderSelectedClass(element)}`}
+                        >
                             <section className={styles.postionStats}>
                                 <p>{element.position}</p>
                             </section>
                             <section className={styles.teamStats}>
-                                <img src={element.team.crest} alt="Club Logo" className={styles.clubLogo}></img>
+                                <img
+                                    src={element.team.crest}
+                                    alt="Club Logo"
+                                    className={styles.clubLogo}
+                                ></img>
                                 <p>{fixTeamName(id, element.team.name)}</p>
                             </section>
                             <section className={styles.gamesStats}>
@@ -72,7 +87,9 @@ export const StandingsListItem = () => {
                                 <p>{element.points}</p>
                             </section>
                         </div>
-                        {renderExtraStats(element) && <StandingsExtraStats element={element} />}
+                        {renderExtraStats(element) && (
+                            <StandingsExtraStats element={element} />
+                        )}
                     </li>
                 );
             })}

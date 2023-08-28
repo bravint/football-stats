@@ -49,8 +49,16 @@ export const App = () => {
             }
         };
 
-        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.STANDINGS, STORE_ACTIONS.STANDINGS);
-        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.MATCHES, STORE_ACTIONS.MATCHES);
+        fetchData(
+            SERVER_ADDRESS,
+            SERVER_ENDPOINT.STANDINGS,
+            STORE_ACTIONS.STANDINGS
+        );
+        fetchData(
+            SERVER_ADDRESS,
+            SERVER_ENDPOINT.MATCHES,
+            STORE_ACTIONS.MATCHES
+        );
         fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
     }, [id]);
 
@@ -70,9 +78,14 @@ export const App = () => {
                 {id && (
                     <main className={styles.main}>
                         <ReturnToTopButton />
-                        {(url === URL.FIXTURES || url === URL.RESULTS) && <FilterMatches />}
+                        {(url === URL.FIXTURES || url === URL.RESULTS) && (
+                            <FilterMatches />
+                        )}
                         <Routes>
-                            <Route path={URL.STANDINGS} element={<Standings />} />
+                            <Route
+                                path={URL.STANDINGS}
+                                element={<Standings />}
+                            />
                             <Route path={URL.FIXTURES} element={<Fixtures />} />
                             <Route path={URL.RESULTS} element={<Results />} />
                             <Route path={URL.HOME} element={<Home />} />

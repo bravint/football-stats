@@ -20,13 +20,18 @@ export const SearchForm = () => {
 
     const handleChange = (event) => {
         handleDispatch(STORE_ACTIONS.ID, event.target.value);
-        
+
         navigate(URL.STANDINGS, { replace: true });
     };
 
     return (
         <form className={styles.sidebarForm} id="league-select-form">
-            <select id="league" name="league" className={styles.league} onChange={handleChange}>
+            <select
+                id="league"
+                name="league"
+                className={styles.league}
+                onChange={handleChange}
+            >
                 <option selected disabled>
                     Choose a league
                 </option>
