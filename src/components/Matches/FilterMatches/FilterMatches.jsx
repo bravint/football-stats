@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from 'react';
 
 import { MATCH_TYPES, URL, SORT_TYPE, STORE_ACTIONS } from '../../../config';
 import { StoreContext, initialState } from '../../../store';
-import { fixTeamName, getDate, getMatchday } from '../../../utils';
+import { fixTeamName } from '../../../utils';
 
 import styles from '../../../styles/FilterMatches.module.css';
 
@@ -100,7 +100,7 @@ export const FilterMatches = () => {
 
         const awayTeam = fixTeamName(id, element.awayTeam.name);
 
-        if (selectedTeams.includes(homeTeam) || selectedTeams.includes(awayTeam) || selectedTeams.length < 1) return true;
+        if (selectedTeams.includes(homeTeam) || selectedTeams.includes(awayTeam) || !selectedTeams.length) return true;
     };
 
     const filteredMatchesArray = () => {
@@ -143,30 +143,34 @@ export const FilterMatches = () => {
         if (url === URL.RESULTS) handleDispatch(STORE_ACTIONS.FILTERED_RESULTS, sortedArray);
     };
 
-    const generateDateSortedArray = (unsortedArray, sortedArray, sortType) => {
-        if (unsortedArray.length < 1) return;
+    const generateDateSortedArray = (unsortedArray, sortedArray) => {
+        if (!unsortedArray.length) {
+            return
+        };
 
-        let date = getDate(unsortedArray[0].utcDate);
+        const date = unsortedArray[0].utcDate;
 
-        let nestedArray = unsortedArray.filter((element) => getDate(element.utcDate) === date);
+        const nestedArray = unsortedArray.filter((element) => element.utcDate === date);
 
         sortedArray.push(nestedArray);
 
-        unsortedArray = unsortedArray.filter((element) => getDate(element.utcDate) !== date);
+        unsortedArray = unsortedArray.filter((element) => element.utcDate !== date);
 
         generateDateSortedArray(unsortedArray, sortedArray);
     };
 
     const generateMatchdaySortedArray = (unsortedArray, sortedArray) => {
-        if (unsortedArray.length < 1) return sortByMatchday(sortedArray);
+        if (!unsortedArray.length) {
+            return sortByMatchday(sortedArray);
+        };
 
-        let matchday = getMatchday(unsortedArray[0]);
+        const matchday = unsortedArray[0].matchday;
 
-        let nestedArray = unsortedArray.filter((element) => getMatchday(element) === matchday);
+        const nestedArray = unsortedArray.filter((element) => element.matchday === matchday);
 
         sortedArray.push(nestedArray);
 
-        unsortedArray = unsortedArray.filter((element) => getMatchday(element) !== matchday);
+        unsortedArray = unsortedArray.filter((element) => element.matchday !== matchday);
 
         generateMatchdaySortedArray(unsortedArray, sortedArray);
     };
