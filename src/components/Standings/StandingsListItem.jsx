@@ -54,7 +54,7 @@ export const StandingsListItem = () => {
                                 <p>{element.position}</p>
                             </section>
                             <section className={styles.teamStats}>
-                                <img src={element.team.crestUrl} alt="Club Logo" className={styles.clubLogo}></img>
+                                <img src={element.team.crest} alt="Club Logo" className={styles.clubLogo}></img>
                                 <p>{fixTeamName(id, element.team.name)}</p>
                             </section>
                             <section className={styles.gamesStats}>

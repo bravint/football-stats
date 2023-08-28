@@ -29,8 +29,8 @@ export const ResultsListItem = (props) => {
                                 className={styles.clubLogo}
                             ></img>
                             <p className={styles.score}>
-                                {element.score.fullTime.homeTeam} -{' '}
-                                {element.score.fullTime.awayTeam}
+                                {element.score.fullTime.home} -{' '}
+                                {element.score.fullTime.away}
                             </p>
                             <img
                                 src={getLogo(element.awayTeam.id, teams)}

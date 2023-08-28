@@ -20,7 +20,7 @@ export const StandingsExtraStats = (props) => {
     const getLastFiveMatches = () => {
         let selectedMatches = matches.matches.filter((match) => element.team.id === getTeamId(match));
 
-        selectedMatches = selectedMatches.filter((selectedMatch) => selectedMatch.status === MATCH_TYPES.FINISHED);
+        selectedMatches = selectedMatches.filter(({ status }) => status === MATCH_TYPES.FINISHED);
 
         selectedMatches = selectedMatches.slice(-5);
         
@@ -54,7 +54,7 @@ export const StandingsExtraStats = (props) => {
                             <section>
                                 <p>
                                     <strong>
-                                        {selectedMatch.score.fullTime.homeTeam} - {selectedMatch.score.fullTime.awayTeam}
+                                        {selectedMatch.score.fullTime.home} - {selectedMatch.score.fullTime.away}
                                     </strong>
                                 </p>
                                 <p>

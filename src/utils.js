@@ -21,7 +21,7 @@ export const getVenue = (id, teams) => {
 export const getLogo = (id, teams) => {
     const selectedTeam = teams.teams.filter((element) => element.id === id);
 
-    return selectedTeam[0] ? selectedTeam[0].crestUrl : null;
+    return selectedTeam[0] ? selectedTeam[0].crest : null;
 };
 
 export const getMatchday = (element) => element.matchday;
