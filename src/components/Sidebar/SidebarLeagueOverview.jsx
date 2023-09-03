@@ -7,7 +7,7 @@ import styles from '../../styles/Sidebar.module.css';
 export const SidebarLeagueOverview = () => {
     const store = useContext(StoreContext);
 
-    const { id, standings } = store.state;
+    const { id, league: { competition, area, season, standings } } = store.state;
 
     return (
         <>
@@ -23,20 +23,20 @@ export const SidebarLeagueOverview = () => {
                 </li>
                 <li>
                     <p className={styles.competitionOverview}>
-                        {standings.competition.name}
+                        {competition.name}
                     </p>
                 </li>
                 <li>
                     <p className={styles.competitionOverview}>
-                        {standings.area.name}
+                        {area.name}
                     </p>
                 </li>
                 <br></br>
                 <li>
                     <p className={styles.competitionOverview}>
                         Playing Matchday:<br></br>
-                        {standings.season.currentMatchday} of{' '}
-                        {standings.standings[0].table.length * 2 - 2}
+                        {season.currentMatchday} of{' '}
+                        {standings.length * 2 - 2}
                     </p>
                 </li>
             </ul>
