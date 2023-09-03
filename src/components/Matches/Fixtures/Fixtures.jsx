@@ -15,7 +15,7 @@ export const Fixtures = () => {
 
     return (
         <section className={styles.table}>
-            {postponedMatches.length > 1 && (
+            {!!postponedMatches.length && (
                 <>
                     <h1 className={styles.title}>POSTPONED</h1>
                     <ul>
@@ -24,14 +24,11 @@ export const Fixtures = () => {
                 </>
             )}
             {filteredFixtures &&
-                (postponedMatches.length < 1 ||
-                    matchStatus === initialState.matchStatus) && (
+                (!postponedMatches.length || matchStatus === initialState.matchStatus) && (
                     <>
                         <h1 className={styles.title}>SCHEDULED</h1>
                         <ul>
-                            {filteredFixtures.map((nested) => {
-                                return <FixturesListItem nested={nested} />;
-                            })}
+                            {filteredFixtures.map((fixtures) => <FixturesListItem fixtures={fixtures} />)}
                         </ul>
                     </>
                 )}
