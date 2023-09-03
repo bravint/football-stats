@@ -11,7 +11,7 @@ export const ResultsListItem = (props) => {
 
     const store = useContext(StoreContext);
 
-    const { id, sortType, teams } = store.state;
+    const { id, sortType, league: { teams } } = store.state;
 
     return (
         <ul>
