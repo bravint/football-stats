@@ -12,7 +12,7 @@ import { Sidebar } from './components/Sidebar/Sidebar';
 import { SkipToContentButton } from './components/SkipToContentButton/SkipToContentButton';
 import { Standings } from './components/Standings/Standings';
 
-import { SERVER_ENDPOINT, SERVER_ADDRESS, STORE_ACTIONS, URL } from './config';
+import { SERVER_ADDRESS, STORE_ACTIONS, URL } from './config';
 
 import styles from './styles/App.module.css';
 
@@ -23,12 +23,7 @@ export const App = () => {
 
     const { id, url } = state;
 
-    const handleDispatch = (type, payload) => {
-        dispatch({
-            type,
-            payload,
-        });
-    };
+    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
 
     const location = useLocation();
 
@@ -37,29 +32,21 @@ export const App = () => {
     }, [location]);
 
     useEffect(() => {
-        if (!id) return;
+        if (!id) {
+            return;
+        };
 
-        const fetchData = async (APIurl, endpoint, action) => {
+        const fetchData = async () => {
             try {
-                const response = await fetch(`${APIurl}/${id}/${endpoint}`);
+                const response = await fetch(`${SERVER_ADDRESS}/${id}`);
                 const data = await response.json();
-                handleDispatch(action, data);
+                handleDispatch(STORE_ACTIONS.LEAGUE, data);
             } catch (error) {
-                console.log(`error: `, error);
+                console.log('error: ', error);
             }
         };
 
-        fetchData(
-            SERVER_ADDRESS,
-            SERVER_ENDPOINT.STANDINGS,
-            STORE_ACTIONS.STANDINGS
-        );
-        fetchData(
-            SERVER_ADDRESS,
-            SERVER_ENDPOINT.MATCHES,
-            STORE_ACTIONS.MATCHES
-        );
-        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
+        fetchData();
     }, [id]);
 
     return (
