@@ -42,7 +42,7 @@ export const App = () => {
                 const data = await response.json();
                 handleDispatch(STORE_ACTIONS.LEAGUE, data);
             } catch (error) {
-                console.log('error: ', error);
+                console.log('Error fetching league data', error);
             }
         };
 
@@ -50,7 +50,7 @@ export const App = () => {
     }, [id]);
 
     return (
-        <StoreContext.Provider value={{ state: state, dispatch: dispatch }}>
+        <StoreContext.Provider value={{ state, dispatch }}>
             <div className={styles.container}>
                 <SkipToContentButton />
                 <Sidebar />
