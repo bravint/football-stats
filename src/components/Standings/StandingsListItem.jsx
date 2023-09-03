@@ -11,18 +11,18 @@ import styles from '../../styles/Standings.module.css';
 export const StandingsListItem = () => {
     const store = useContext(StoreContext);
 
-    const { id, standings } = store.state;
+    const { id, league: { standings } } = store.state;
 
     const [teamId, setTeamId] = useState(null);
 
     const onClickHandler = (id) =>
         teamId !== id ? setTeamId(id) : setTeamId(null);
 
-    const renderExtraStats = (element) =>
-        teamId === element.team.id ? true : false;
+    const renderExtraStats = (position) =>
+        teamId === position.team.id ? true : false;
 
-    const renderSelectedClass = (element) =>
-        teamId === element.team.id ? styles.teamListSelected : '';
+    const renderSelectedClass = (position) =>
+        teamId === position.team.id ? styles.teamListSelected : '';
 
     return (
         <ul>
@@ -49,46 +49,46 @@ export const StandingsListItem = () => {
                     <p>Pts</p>
                 </section>
             </li>
-            {standings.standings[0].table.map((element) => {
+            {standings.map((position) => {
                 return (
                     <li
                         className={styles.teamListItemContainer}
-                        key={element.team.id}
-                        onClick={() => onClickHandler(element.team.id)}
+                        key={position.team.id}
+                        onClick={() => onClickHandler(position.team.id)}
                     >
                         <div
                             className={`${
                                 styles.teamListItem
-                            } ${renderSelectedClass(element)}`}
+                            } ${renderSelectedClass(position)}`}
                         >
                             <section className={styles.postionStats}>
-                                <p>{element.position}</p>
+                                <p>{position.position}</p>
                             </section>
                             <section className={styles.teamStats}>
                                 <img
-                                    src={element.team.crest}
+                                    src={position.team.crest}
                                     alt="Club Logo"
                                     className={styles.clubLogo}
                                 ></img>
-                                <p>{fixTeamName(id, element.team.name)}</p>
+                                <p>{fixTeamName(id, position.team.name)}</p>
                             </section>
                             <section className={styles.gamesStats}>
-                                <p>{element.playedGames}</p>
-                                <p>{element.won}</p>
-                                <p>{element.draw}</p>
-                                <p>{element.lost}</p>
+                                <p>{position.playedGames}</p>
+                                <p>{position.won}</p>
+                                <p>{position.draw}</p>
+                                <p>{position.lost}</p>
                             </section>
                             <section className={styles.goalsStats}>
-                                <p>{element.goalsFor}</p>
-                                <p>{element.goalsAgainst}</p>
-                                <p>{element.goalDifference}</p>
+                                <p>{position.goalsFor}</p>
+                                <p>{position.goalsAgainst}</p>
+                                <p>{position.goalDifference}</p>
                             </section>
                             <section className={styles.pointsStats}>
-                                <p>{element.points}</p>
+                                <p>{position.points}</p>
                             </section>
                         </div>
-                        {renderExtraStats(element) && (
-                            <StandingsExtraStats element={element} />
+                        {renderExtraStats(position) && (
+                            <StandingsExtraStats position={position} />
                         )}
                     </li>
                 );

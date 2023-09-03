@@ -7,23 +7,23 @@ import { fixTeamName } from '../../utils.js';
 import styles from '../../styles/Standings.module.css';
 
 export const StandingsExtraStats = (props) => {
-    const { element } = props;
+    const { position } = props;
 
     const store = useContext(StoreContext);
 
-    const { matches, id } = store.state;
+    const { league: { matches }, id } = store.state;
 
     const getTeamId = (match) => {
         if (
-            element.team.id === match.awayTeam.id ||
-            element.team.id === match.homeTeam.id
+            position.team.id === match.awayTeam.id ||
+            position.team.id === match.homeTeam.id
         )
-            return element.team.id;
+            return position.team.id;
     };
 
     const getLastFiveMatches = () => {
-        let selectedMatches = matches.matches.filter(
-            (match) => element.team.id === getTeamId(match)
+        let selectedMatches = matches.filter(
+            (match) => position.team.id === getTeamId(match)
         );
 
         selectedMatches = selectedMatches.filter(
@@ -38,12 +38,12 @@ export const StandingsExtraStats = (props) => {
     const selectedMatches = getLastFiveMatches();
 
     const findFixtureLocation = (selectedMatch) =>
-        selectedMatch.homeTeam.id === element.team.id
+        selectedMatch.homeTeam.id === position.team.id
             ? MATCH_VENUE_TYPE.HOME
             : MATCH_VENUE_TYPE.AWAY;
 
     const findOppostionTeamName = (selectedMatch) =>
-        selectedMatch.homeTeam.id === element.team.id
+        selectedMatch.homeTeam.id === position.team.id
             ? selectedMatch.awayTeam.name
             : selectedMatch.homeTeam.name;
 
