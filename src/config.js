@@ -1,11 +1,5 @@
 export const SERVER_ADDRESS = process.env.REACT_APP_SERVER_ADDRESS;
 
-export const SERVER_ENDPOINT = {
-    STANDINGS: 'standings',
-    MATCHES: 'matches',
-    TEAMS: 'teams',
-};
-
 export const CALENDAR_DAYS = {
     MONDAY: 'Monday',
     TUESDAY: 'Tuesday',
@@ -40,19 +34,17 @@ export const MATCH_TYPES = {
 };
 
 export const STORE_ACTIONS = {
-    CANCELLED_MATCHES: 'update/cancelledMatches',
-    ID: 'update/id',
-    FILTERED_FIXTURES: 'update/filteredFixtures',
-    FILTERED_RESULTS: 'update/filteredResults',
-    MATCHES: 'update/matches',
-    MATCH_STATUS: 'update/matchStatus',
-    POSTPONED_MATCHES: 'update/postponedMatches',
-    REFRESH_PAGE: 'update/refreshPage',
-    SORT_TYPE: 'update/sortType',
-    STANDINGS: 'standings',
-    TEAMS: 'update/teams',
-    URL: 'update/url',
-    UPDATE_DATA: 'update/updateData',
+    CANCELLED_MATCHES: 'cancelledMatches',
+    ID: 'id',
+    LEAGUE: 'league',
+    FILTERED_FIXTURES: 'filteredFixtures',
+    FILTERED_RESULTS: 'filteredResults',
+    MATCH_STATUS: 'matchStatus',
+    POSTPONED_MATCHES: 'postponedMatches',
+    REFRESH_PAGE: 'refreshPage',
+    SORT_TYPE: 'sortType',
+    URL: 'url',
+    UPDATE_DATA: 'updateData',
 };
 
 export const URL = {
