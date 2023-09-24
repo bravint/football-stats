@@ -12,15 +12,14 @@ import styles from '../../styles/Sidebar.module.css';
 
 export const Sidebar = () => {
     const store = useContext(StoreContext);
-
-    const { id, standings, url } = store.state;
+    const { id, league: { standings }, url } = store.state;
 
     return (
         <aside className={styles.aside}>
             <header className={styles.header}>
                 <Header />
             </header>
-            {id && standings.standings && url !== '/' && (
+            {id && !!standings.length && url !== '/' && (
                 <section className={styles.section}>
                     <SidebarNavigation />
                     <SearchForm />

@@ -7,14 +7,9 @@ import { StoreContext } from '../../store';
 import styles from '../../styles/Sidebar.module.css';
 
 export const SidebarNavigation = () => {
-    const store = useContext(StoreContext);
+    const { dispatch } = useContext(StoreContext);
 
-    const handleDispatch = (action, payload) => {
-        store.dispatch({
-            type: action,
-            payload: payload,
-        });
-    };
+    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
 
     return (
         <nav className={styles.navSection}>

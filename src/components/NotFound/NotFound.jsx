@@ -7,14 +7,9 @@ import { StoreContext } from '../../store';
 import styles from '../../styles/NotFound.module.css';
 
 export const NotFound = () => {
-    const store = useContext(StoreContext);
+    const { dispatch } = useContext(StoreContext);
 
-    const handleDispatch = (action, payload) => {
-        store.dispatch({
-            type: action,
-            payload: payload,
-        });
-    };
+    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
 
     return (
         <div className={styles.container}>

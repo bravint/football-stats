@@ -7,108 +7,83 @@ import { fixTeamName } from '../../utils.js';
 import styles from '../../styles/Standings.module.css';
 
 export const StandingsExtraStats = (props) => {
-    const { element } = props;
+    const { position } = props;
 
     const store = useContext(StoreContext);
 
-    const { matches, id } = store.state;
+    const { id, league: { matches } } = store.state;
 
     const getTeamId = (match) => {
-        if (
-            element.team.id === match.awayTeam.id ||
-            element.team.id === match.homeTeam.id
-        )
-            return element.team.id;
+        if (position.team.id === match.awayTeam.id || position.team.id === match.homeTeam.id) {
+            return position.team.id;
+        }
     };
 
-    const getLastFiveMatches = () => {
-        let selectedMatches = matches.matches.filter(
-            (match) => element.team.id === getTeamId(match)
-        );
-
-        selectedMatches = selectedMatches.filter(
-            ({ status }) => status === MATCH_TYPES.FINISHED
-        );
-
-        selectedMatches = selectedMatches.slice(-5);
-
-        return selectedMatches.reverse();
+    const getLastSixMatches = () => {
+        const selectedMatches = matches.filter((match) => position.team.id === getTeamId(match));
+        const finishedMatches = selectedMatches.filter(({ status }) => status === MATCH_TYPES.FINISHED);
+        const lastSixMatches = finishedMatches.slice(-6);
+        return lastSixMatches.reverse();
     };
 
-    const selectedMatches = getLastFiveMatches();
+    const selectedMatches = getLastSixMatches();
 
-    const findFixtureLocation = (selectedMatch) =>
-        selectedMatch.homeTeam.id === element.team.id
-            ? MATCH_VENUE_TYPE.HOME
-            : MATCH_VENUE_TYPE.AWAY;
+    const isHomeFixture = (match) => match.homeTeam.id === position.team.id;
 
-    const findOppostionTeamName = (selectedMatch) =>
-        selectedMatch.homeTeam.id === element.team.id
-            ? selectedMatch.awayTeam.name
-            : selectedMatch.homeTeam.name;
+    const getFixtureLocation = (match) => isHomeFixture(match) ? MATCH_VENUE_TYPE.HOME : MATCH_VENUE_TYPE.AWAY;
 
-    const renderMatchStatus = (selectedMatch) => {
-        if (
-            selectedMatch.score.winner === 'AWAY_TEAM' &&
-            findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.AWAY
-        )
+    const findOppostionTeamName = (selectedMatch) => {
+        if (selectedMatch.homeTeam.id === position.team.id) {
+            return selectedMatch.awayTeam.name;
+        } else {
+            return selectedMatch.homeTeam.name;
+        }
+    };
+
+    const renderMatchStatus = (match) => {
+        const winner = match.score.winner;
+
+        if ((winner === 'AWAY_TEAM' && !isHomeFixture(match)) || (winner === 'HOME_TEAM' && isHomeFixture(match))) {
             return styles.green;
-        if (
-            selectedMatch.score.winner === 'HOME_TEAM' &&
-            findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.HOME
-        )
-            return styles.green;
-        if (
-            selectedMatch.score.winner === 'AWAY_TEAM' &&
-            findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.HOME
-        )
-            return styles.red;
-        if (
-            selectedMatch.score.winner === 'HOME_TEAM' &&
-            findFixtureLocation(selectedMatch) === MATCH_VENUE_TYPE.AWAY
-        )
-            return styles.red;
-        if (selectedMatch.score.winner === 'DRAW') return '';
-    };
+        }
 
-    const renderMatchStatusDrawn = (selectedMatch) =>
-        selectedMatch.score.winner === 'DRAW' ? styles.orange : '';
+        if ((winner === 'AWAY_TEAM' && isHomeFixture(match)) || (winner === 'HOME_TEAM' && !isHomeFixture(match))) {
+            return styles.red;
+        }
+
+        if (winner === 'DRAW') {
+            return styles.orange;
+        }
+    };
 
     return (
-        <>
-            <ul className={styles.extraStats}>
-                {selectedMatches.map((selectedMatch) => {
-                    return (
-                        <li
-                            key={selectedMatch.id}
-                            className={styles.extraStatsContainer}
+        <ul className={styles.extraStats}>
+            {selectedMatches.map((selectedMatch) => {
+                return (
+                    <li
+                        key={selectedMatch.id}
+                        className={styles.extraStatsContainer}
+                    >
+                        <div
+                            className={`${renderMatchStatus(selectedMatch)}`}
                         >
-                            <div
-                                className={`${renderMatchStatus(
-                                    selectedMatch
-                                )} ${renderMatchStatusDrawn(selectedMatch)}`}
-                            >
-                                &nbsp;
-                            </div>
-                            <section>
-                                <p>
-                                    <strong>
-                                        {selectedMatch.score.fullTime.home} -{' '}
-                                        {selectedMatch.score.fullTime.away}
-                                    </strong>
-                                </p>
-                                <p>
-                                    {findFixtureLocation(selectedMatch)} vs{' '}
-                                    {fixTeamName(
-                                        id,
-                                        findOppostionTeamName(selectedMatch)
-                                    )}
-                                </p>
-                            </section>
-                        </li>
-                    );
-                })}
-            </ul>
-        </>
+                            &nbsp;
+                        </div>
+                        <section>
+                            <p>
+                                <strong>
+                                    {selectedMatch.score.fullTime.home} -{' '}
+                                    {selectedMatch.score.fullTime.away}
+                                </strong>
+                            </p>
+                            <p>
+                                {getFixtureLocation(selectedMatch)} vs{' '}
+                                {fixTeamName(id, findOppostionTeamName(selectedMatch))}
+                            </p>
+                        </section>
+                    </li>
+                );
+            })}
+        </ul>
     );
 };

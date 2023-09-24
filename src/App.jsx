@@ -12,7 +12,7 @@ import { Sidebar } from './components/Sidebar/Sidebar';
 import { SkipToContentButton } from './components/SkipToContentButton/SkipToContentButton';
 import { Standings } from './components/Standings/Standings';
 
-import { SERVER_ENDPOINT, SERVER_ADDRESS, STORE_ACTIONS, URL } from './config';
+import { SERVER_ADDRESS, STORE_ACTIONS, URL } from './config';
 
 import styles from './styles/App.module.css';
 
@@ -23,12 +23,7 @@ export const App = () => {
 
     const { id, url } = state;
 
-    const handleDispatch = (type, payload) => {
-        dispatch({
-            type,
-            payload,
-        });
-    };
+    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
 
     const location = useLocation();
 
@@ -39,31 +34,53 @@ export const App = () => {
     useEffect(() => {
         if (!id) return;
 
-        const fetchData = async (APIurl, endpoint, action) => {
+        let league;
+
+        const fetchStandingsData = async () => {
             try {
-                const response = await fetch(`${APIurl}/${id}/${endpoint}`);
-                const data = await response.json();
-                handleDispatch(action, data);
+                const response = await fetch(`${SERVER_ADDRESS}/${id}/standings`);
+                const standings = await response.json();
+
+                league = {
+                    area: standings.area,
+                    competition: standings.competition,
+                    season: standings.season,
+                    standings: standings.standings[0].table,
+                };
+
+                handleDispatch(STORE_ACTIONS.LEAGUE, league);
             } catch (error) {
-                console.log(`error: `, error);
+                console.log({ error });
             }
         };
 
-        fetchData(
-            SERVER_ADDRESS,
-            SERVER_ENDPOINT.STANDINGS,
-            STORE_ACTIONS.STANDINGS
-        );
-        fetchData(
-            SERVER_ADDRESS,
-            SERVER_ENDPOINT.MATCHES,
-            STORE_ACTIONS.MATCHES
-        );
-        fetchData(SERVER_ADDRESS, SERVER_ENDPOINT.TEAMS, STORE_ACTIONS.TEAMS);
+        const fetchMatchAndTeamData = async () => {
+            try {
+                const endpoints = [
+                    'matches',
+                    'teams'
+                ];
+                const requests = endpoints.map((endpoint) => fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`));
+                const responses = await Promise.all(requests);
+                const [
+                    { matches },
+                    { teams },
+                ] = await Promise.all(responses.map((response) => response.json()));
+            
+                handleDispatch(STORE_ACTIONS.LEAGUE, { ...league, matches, teams });
+            } catch (error) {
+                console.log({ error });
+            }
+        };
+
+        // fetch standings first to render page quickly
+        // and slower match and team data afterwards
+        fetchStandingsData();
+        fetchMatchAndTeamData();
     }, [id]);
 
     return (
-        <StoreContext.Provider value={{ state: state, dispatch: dispatch }}>
+        <StoreContext.Provider value={{ state, dispatch }}>
             <div className={styles.container}>
                 <SkipToContentButton />
                 <Sidebar />

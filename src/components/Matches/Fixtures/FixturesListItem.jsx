@@ -7,40 +7,40 @@ import { fixTeamName, getLogo, getTime, renderTitle } from '../../../utils.js';
 import styles from '../../../styles/Matches.module.css';
 
 export const FixturesListItem = (props) => {
-    const { nested } = props;
+    const { fixtures } = props;
 
     const store = useContext(StoreContext);
 
-    const { id, sortType, teams } = store.state;
+    const { id, sortType, league: { teams } } = store.state;
 
     return (
         <ul>
-            <h3 className={styles.title}>{renderTitle(sortType, nested)}</h3>
-            {nested.map((element) => {
+            <h3 className={styles.title}>{renderTitle(sortType, fixtures)}</h3>
+            {fixtures.map((fixture) => {
                 return (
                     <li
                         className={styles.matchListItemContainer}
-                        key={element.id}
+                        key={fixture.id}
                     >
                         <div className={styles.matchListItem}>
                             <p className={styles.homeTeam}>
-                                {fixTeamName(id, element.homeTeam.name)}
+                                {fixTeamName(id, fixture.homeTeam.name)}
                             </p>
                             <img
-                                src={getLogo(element.homeTeam.id, teams)}
+                                src={getLogo(fixture.homeTeam.id, teams)}
                                 alt="Club Logo"
                                 className={styles.clubLogo}
                             ></img>
                             <p className={styles.score}>
-                                {getTime(element.utcDate)}
+                                {getTime(fixture.utcDate)}
                             </p>
                             <img
-                                src={getLogo(element.awayTeam.id, teams)}
+                                src={getLogo(fixture.awayTeam.id, teams)}
                                 alt="Club Logo"
                                 className={styles.clubLogo}
                             ></img>
                             <p className={styles.awayTeam}>
-                                {fixTeamName(id, element.awayTeam.name)}
+                                {fixTeamName(id, fixture.awayTeam.name)}
                             </p>
                         </div>
                     </li>

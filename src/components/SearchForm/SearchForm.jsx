@@ -4,23 +4,19 @@ import { useNavigate } from 'react-router';
 import styles from '../../styles/Home.module.css';
 
 import { STORE_ACTIONS, URL } from '../../config';
-import { StoreContext } from '../../store';
+import { StoreContext, initialState } from '../../store';
 
 export const SearchForm = () => {
     const navigate = useNavigate();
 
-    const store = useContext(StoreContext);
+    const { dispatch } = useContext(StoreContext);
 
-    const handleDispatch = (action, payload) => {
-        store.dispatch({
-            type: action,
-            payload: payload,
-        });
-    };
-
+    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
+    
     const handleChange = (event) => {
+        handleDispatch(STORE_ACTIONS.LEAGUE, initialState.league );
         handleDispatch(STORE_ACTIONS.ID, event.target.value);
-
+        
         navigate(URL.STANDINGS, { replace: true });
     };
 

@@ -12,23 +12,21 @@ const completedMatchStatuses = [MATCH_TYPES.FINISHED, MATCH_TYPES.CANCELLED];
 
 export const FilterMatches = () => {
     const [displayFiltersForm, setDisplayFiltersForm] = useState(false);
-    const [matchStatusList, setMatchStatusList] = useState([]);
+    const [matchStatuses, setmatchStatuses] = useState([]);
     const [selectedTeams, setSelectedTeams] = useState([]);
-    const [teamsList, setTeamsList] = useState([]);
 
     const store = useContext(StoreContext);
 
-    const { id, matches, matchStatus, sortType, teams, url } = store.state;
+    const { id, matchStatus, sortType, url, league: { teams, matches } } = store.state;
 
     useEffect(() => {
         clearFilters();
         generateListOfMatchStatuses();
-        generateListOfTeams();
-    }, [url, id]);
+    }, [id, url]);
 
     useEffect(() => {
         filterMatches();
-    }, [selectedTeams, matchStatus, sortType, matchStatusList, teamsList]);
+    }, [selectedTeams, matchStatus, sortType, matchStatuses]);
 
     const clearFilters = () => {
         setSelectedTeams([]);
@@ -39,13 +37,8 @@ export const FilterMatches = () => {
     };
 
     const handleDispatch = (action, payload) => {
-        store.dispatch({
-            type: action,
-            payload: payload,
-        });
+        store.dispatch({ type: action, payload });
     };
-
-    const generateListOfTeams = () => setTeamsList([...teams.teams]);
 
     const checkFixturesStatus = (status) => {
         if (!completedMatchStatuses.includes(status)) {
@@ -60,18 +53,18 @@ export const FilterMatches = () => {
             );
             statuses.sort();
 
-            return setMatchStatusList(statuses);
+            return setmatchStatuses(statuses);
         }
 
         if (url === URL.FIXTURES) {
-            const statuses = matches.matches
+            const statuses = matches
                 .filter(({ status }) => checkFixturesStatus(status))
                 .map(({ status }) => status.toLowerCase());
 
             const uniqueStatuses = Array.from(new Set(statuses));
             uniqueStatuses.sort();
 
-            setMatchStatusList(uniqueStatuses);
+            setmatchStatuses(uniqueStatuses);
         }
     };
 
@@ -117,7 +110,7 @@ export const FilterMatches = () => {
     };
 
     const filterMatches = () => {
-        let filteredMatches = matches.matches.filter((match) =>
+        let filteredMatches = matches.filter((match) =>
             filterMatchesByStatusAndTeams(match)
         );
 
@@ -275,17 +268,16 @@ export const FilterMatches = () => {
                                     name="type"
                                     className=""
                                     value={matchStatus}
-                                    onChange={(event) =>
-                                        handleFixtureTypeChange(event)
-                                    }
+                                    onChange={(event) => handleFixtureTypeChange(event)}
                                 >
-                                    {matchStatusList.length && (
+                                    {matchStatuses.length && (
                                         <option value="all">Show All</option>
                                     )}
-                                    {matchStatusList.map((status) => {
+                                    {matchStatuses.map((status) => {
                                         return (
                                             <option
                                                 value={status.toLowerCase()}
+                                                key={status.id}
                                             >
                                                 {capitaliseTitle(
                                                     status.toLowerCase()
@@ -302,9 +294,7 @@ export const FilterMatches = () => {
                                     name="league"
                                     className=""
                                     value={capitaliseTitle(sortType)}
-                                    onChange={(event) =>
-                                        handleSortChange(event)
-                                    }
+                                    onChange={(event) =>handleSortChange(event)}
                                 >
                                     <option value="Date">Date</option>
                                     <option value="Matchday">Matchday</option>
@@ -314,9 +304,9 @@ export const FilterMatches = () => {
                         </div>
                         <h3>Filter by Team</h3>
                         <section className={styles.selectteam}>
-                            {teamsList.map((team) => {
+                            {teams.map((team) => {
                                 return (
-                                    <div className={styles.teamSelect}>
+                                    <div className={styles.teamSelect} key={team.id}>
                                         <input
                                             type="checkbox"
                                             id={fixTeamName(id, team.name)}

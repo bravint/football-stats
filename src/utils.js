@@ -11,21 +11,16 @@ export const getVenue = (teamId, teams) => {
         return 'The AMEX Stadium';
     }
 
-    const teamById = teams.teams.find(({ id }) => teamId === id);
+    const teamById = teams.find(({ id }) => teamId === id);
     return teamById ? teamById.venue : null;
 };
 
 export const getLogo = (teamId, teams) => {
-    const teamById = teams.teams.find(({ id }) => teamId === id);
+    const teamById = teams.find(({ id }) => teamId === id);
     return teamById ? teamById.crest : null;
 };
 
-export const handleDispatch = (store, action, payload) => {
-    store.dispatch({
-        type: action,
-        payload: payload,
-    });
-};
+export const handleDispatch = (store, action, payload) => store.dispatch({ type: action, payload });
 
 export const formatDate = (date) => {
     date =
@@ -37,8 +32,12 @@ export const formatDate = (date) => {
     return new Date(date).toString().slice(0, 15);
 };
 
-export const renderTitle = (sortType, nested) => {
-    if (sortType === 'date') return formatDate(nested[0].utcDate);
+export const renderTitle = (sortType, matches) => {
+    if (sortType === 'date') {
+        return formatDate(matches[0].utcDate)
+    };
 
-    if (sortType === 'matchday') return 'Matchday ' + nested[0].matchday;
+    if (sortType === 'matchday') {
+        return 'Matchday ' + matches[0].matchday
+    };
 };
