@@ -40,12 +40,14 @@ export const App = () => {
             try {
                 const response = await fetch(`${SERVER_ADDRESS}/${id}/standings`);
                 const standings = await response.json();
+
                 league = {
                     area: standings.area,
                     competition: standings.competition,
                     season: standings.season,
                     standings: standings.standings[0].table,
-                }
+                };
+
                 handleDispatch(STORE_ACTIONS.LEAGUE, league);
             } catch (error) {
                 console.log({ error });
@@ -61,16 +63,11 @@ export const App = () => {
                 const requests = endpoints.map((endpoint) => fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`));
                 const responses = await Promise.all(requests);
                 const [
-                    matches,
-                    teams,
+                    { matches },
+                    { teams },
                 ] = await Promise.all(responses.map((response) => response.json()));
-
-                const data = {
-                    matches: matches.matches,
-                    teams: teams.teams,
-                };
             
-                handleDispatch(STORE_ACTIONS.LEAGUE, { ...league, ...data });
+                handleDispatch(STORE_ACTIONS.LEAGUE, { ...league, matches, teams });
             } catch (error) {
                 console.log({ error });
             }
