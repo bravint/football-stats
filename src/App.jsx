@@ -32,17 +32,35 @@ export const App = () => {
     }, [location]);
 
     useEffect(() => {
-        if (!id) {
-            return;
-        };
+        if (!id) return;
 
         const fetchData = async () => {
             try {
-                const response = await fetch(`${SERVER_ADDRESS}/${id}`);
-                const data = await response.json();
-                handleDispatch(STORE_ACTIONS.LEAGUE, data);
+                const endpoints = [
+                    'standings',
+                    'matches',
+                    'teams'
+                ];
+                const requests = endpoints.map((endpoint) => fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`));
+                const responses = await Promise.all(requests);
+                const [
+                    standings,
+                    matches,
+                    teams,
+                ] = await Promise.all(responses.map((response) => response.json()));
+
+                const league = {
+                    area: standings.area,
+                    competition: standings.competition,
+                    season: standings.season,
+                    standings: standings.standings[0].table,
+                    matches: matches.matches,
+                    teams: teams.teams,
+                };
+            
+                handleDispatch(STORE_ACTIONS.LEAGUE, league);
             } catch (error) {
-                console.log('Error fetching league data', error);
+                console.log({ error });
             }
         };
 
