@@ -15,7 +15,7 @@ export const Results = () => {
 
     return (
         <section className={styles.table}>
-            {cancelledMatches.length > 1 && (
+            {!!cancelledMatches.length && (
                 <>
                     <h1 className={styles.title}>CANCELLED</h1>
                     <ul>
@@ -24,8 +24,7 @@ export const Results = () => {
                 </>
             )}
             {filteredResults &&
-                (cancelledMatches.length < 1 ||
-                    matchStatus === initialState.matchStatus) && (
+                (!!cancelledMatches.length || matchStatus === initialState.matchStatus) && (
                     <>
                         <h1 className={styles.title}>RESULTS</h1>
                         <ul>

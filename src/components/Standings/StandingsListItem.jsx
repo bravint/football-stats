@@ -15,17 +15,14 @@ export const StandingsListItem = () => {
 
     const [teamId, setTeamId] = useState(null);
 
-    const onClickHandler = (id) =>
-        teamId !== id ? setTeamId(id) : setTeamId(null);
+    const onClickHandler = (id) => teamId !== id ? setTeamId(id) : setTeamId(null);
 
-    const renderExtraStats = (position) =>
-        teamId === position.team.id ? true : false;
+    const renderExtraStats = (position) => teamId === position.team.id;
 
-    const renderSelectedClass = (position) =>
-        teamId === position.team.id ? styles.teamListSelected : '';
+    const renderSelectedClass = (position) => teamId === position.team.id ? styles.teamListSelected : '';
 
     return (
-        <ul>
+        <ul className={styles.table}>
             <li className={`${styles.teamListItemHeading} ${styles.listTitle}`}>
                 <section className={styles.postionStats}>
                     <p></p>
@@ -57,9 +54,7 @@ export const StandingsListItem = () => {
                         onClick={() => onClickHandler(position.team.id)}
                     >
                         <div
-                            className={`${
-                                styles.teamListItem
-                            } ${renderSelectedClass(position)}`}
+                            className={`${styles.teamListItem} ${renderSelectedClass(position)}`}
                         >
                             <section className={styles.postionStats}>
                                 <p>{position.position}</p>
