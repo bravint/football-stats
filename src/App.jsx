@@ -34,37 +34,52 @@ export const App = () => {
     useEffect(() => {
         if (!id) return;
 
-        const fetchData = async () => {
-            try {
-                const endpoints = [
-                    'standings',
-                    'matches',
-                    'teams'
-                ];
-                const requests = endpoints.map((endpoint) => fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`));
-                const responses = await Promise.all(requests);
-                const [
-                    standings,
-                    matches,
-                    teams,
-                ] = await Promise.all(responses.map((response) => response.json()));
+        let league;
 
-                const league = {
+        const fetchStandingsData = async () => {
+            try {
+                const response = await fetch(`${SERVER_ADDRESS}/${id}/standings`);
+                const standings = await response.json();
+                league = {
                     area: standings.area,
                     competition: standings.competition,
                     season: standings.season,
                     standings: standings.standings[0].table,
-                    matches: matches.matches,
-                    teams: teams.teams,
-                };
-            
+                }
                 handleDispatch(STORE_ACTIONS.LEAGUE, league);
             } catch (error) {
                 console.log({ error });
             }
         };
 
-        fetchData();
+        const fetchMatchAndTeamData = async () => {
+            try {
+                const endpoints = [
+                    'matches',
+                    'teams'
+                ];
+                const requests = endpoints.map((endpoint) => fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`));
+                const responses = await Promise.all(requests);
+                const [
+                    matches,
+                    teams,
+                ] = await Promise.all(responses.map((response) => response.json()));
+
+                const data = {
+                    matches: matches.matches,
+                    teams: teams.teams,
+                };
+            
+                handleDispatch(STORE_ACTIONS.LEAGUE, { ...league, ...data });
+            } catch (error) {
+                console.log({ error });
+            }
+        };
+
+        // fetch standings first to render page quickly
+        // and slower match and team data afterwards
+        fetchStandingsData();
+        fetchMatchAndTeamData();
     }, [id]);
 
     return (
