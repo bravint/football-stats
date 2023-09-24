@@ -9,9 +9,9 @@ import { StoreContext, initialState } from '../../store';
 export const SearchForm = () => {
     const navigate = useNavigate();
 
-    const store = useContext(StoreContext);
+    const { dispatch } = useContext(StoreContext);
 
-    const handleDispatch = (action, payload) => store.dispatch({ type: action, payload });
+    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
     
     const handleChange = (event) => {
         handleDispatch(STORE_ACTIONS.LEAGUE, initialState.league );
