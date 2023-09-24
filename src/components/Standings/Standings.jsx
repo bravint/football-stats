@@ -8,5 +8,5 @@ export const Standings = () => {
 
     const { id, league: { standings } } = store.state;
 
-    return id && standings && <StandingsListItem />;
+    return id && !!standings.length && <StandingsListItem />;
 };
