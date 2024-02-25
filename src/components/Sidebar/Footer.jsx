@@ -10,10 +10,7 @@ export const Footer = () => {
                     rel="noreferrer"
                 >
                     <img
-                        src={
-                            process.env.PUBLIC_URL +
-                            `/assets/images/github-icon.svg`
-                        }
+                        src="/assets/images/github-icon.svg"
                         alt="gitHub logo"
                         className={styles.footerLogo}
                     />
@@ -24,10 +21,9 @@ export const Footer = () => {
                     rel="noreferrer"
                 >
                     <img
-                        src={
-                            process.env.PUBLIC_URL +
-                            `/assets/images/linkedin-icon.svg`
-                        }
+                        src=
+                            "/assets/images/linkedin-icon.svg"
+                        
                         alt="LinkedIn Logo"
                         className={styles.footerLogo}
                     />

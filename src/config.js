@@ -1,4 +1,4 @@
-export const SERVER_ADDRESS = process.env.REACT_APP_SERVER_ADDRESS;
+export const SERVER_ADDRESS = import.meta.env.VITE_APP_SERVER_ADDRESS;
 
 export const CALENDAR_DAYS = {
     MONDAY: 'Monday',

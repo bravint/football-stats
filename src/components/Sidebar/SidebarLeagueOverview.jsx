@@ -14,9 +14,7 @@ export const SidebarLeagueOverview = () => {
             <ul>
                 <li>
                     <img
-                        src={
-                            process.env.PUBLIC_URL + `/assets/images/${id}.svg`
-                        }
+                        src={`/assets/images/${id}.svg`}
                         alt="league logo"
                         className={styles.navLogo}
                     />
@@ -36,7 +34,7 @@ export const SidebarLeagueOverview = () => {
                     <p className={styles.competitionOverview}>
                         Playing Matchday:<br></br>
                         {season.currentMatchday} of{' '}
-                        {standings.length * 2 - 2}
+                        {(standings.length - 1) * 2}
                     </p>
                 </li>
             </ul>

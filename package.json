@@ -1,7 +1,7 @@
 {
     "name": "football-stats",
     "version": "0.1.0",
-    "homepage": "https://football-stats-react.herokuapp.com/",
+    "homepage": "https://football-stats-bravint.vercel.app",
     "private": true,
     "dependencies": {
         "@fontsource/roboto": "^4.5.1",
@@ -10,23 +10,22 @@
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",
-        "husky": "^8.0.3",
-        "lint-staged": "^14.0.1",
-        "prettier": "^3.0.2",
+        "@vitejs/plugin-react": "^4.2.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router": "^6.2.1",
         "react-router-dom": "^6.2.1",
+        "vite": "^5.1.4",
         "web-vitals": "^2.1.2"
     },
-    "devDependencies": {
-        "react-scripts": "5.0.1"
-    },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "start": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*": "prettier --ignore-unknown --write"
     },
     "eslintConfig": {
         "extends": [
@@ -45,5 +44,10 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5"
     }
 }

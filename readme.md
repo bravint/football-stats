@@ -40,5 +40,6 @@ API applies rate limiting - 10 request per minute are allowed on the free tier.
 
 ## Install
 
-Install dependencies: <code>npm install</code>\
-Start development server: <code>npm run start</code>
+Install dependencies: `npm install`\
+Add environment variable `VITE_APP_SERVER_ADDRESS` to `.env` file\
+Start development server: `npm run start`
