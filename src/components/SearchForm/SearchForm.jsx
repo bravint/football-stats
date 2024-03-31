@@ -9,14 +9,20 @@ import { StoreContext, initialState } from '../../store';
 export const SearchForm = () => {
     const navigate = useNavigate();
 
-    const { dispatch } = useContext(StoreContext);
+    const {
+        dispatch,
+        state: { id },
+    } = useContext(StoreContext);
 
-    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
-    
+    const handleDispatch = (action, payload) =>
+        dispatch({ type: action, payload });
+
     const handleChange = (event) => {
-        handleDispatch(STORE_ACTIONS.LEAGUE, initialState.league );
-        handleDispatch(STORE_ACTIONS.ID, event.target.value);
-        
+        if (id !== event.target.value) {
+            handleDispatch(STORE_ACTIONS.LEAGUE, initialState.league);
+            handleDispatch(STORE_ACTIONS.ID, event.target.value);
+        }
+
         navigate(URL.STANDINGS, { replace: true });
     };
 
@@ -25,10 +31,11 @@ export const SearchForm = () => {
             <select
                 id="league"
                 name="league"
+                value={id}
                 className={styles.league}
                 onChange={handleChange}
             >
-                <option selected disabled>
+                <option value="" disabled defaultChecked>
                     Choose a league
                 </option>
                 <option value="BL1">Bundesliga, Germany</option>
