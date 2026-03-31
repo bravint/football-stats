@@ -7,7 +7,7 @@ import './styles/reset.css';
 import { App } from './App';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.VITE_BASE_PATH || '/'}>
         <React.StrictMode>
             <App />
         </React.StrictMode>
