@@ -4,6 +4,8 @@
     "homepage": "https://football-stats-bravint.vercel.app",
     "private": true,
     "dependencies": {
+        "@emotion/cache": "^11.14.0",
+        "@emotion/react": "^11.14.0",
         "@fontsource/roboto": "^4.5.1",
         "@mui/icons-material": "^5.2.5",
         "@mui/material": "^5.2.6",
