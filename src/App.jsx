@@ -23,7 +23,8 @@ export const App = () => {
 
     const { id, url } = state;
 
-    const handleDispatch = (action, payload) => dispatch({ type: action, payload });
+    const handleDispatch = (action, payload) =>
+        dispatch({ type: action, payload });
 
     const location = useLocation();
 
@@ -32,13 +33,23 @@ export const App = () => {
     }, [location]);
 
     useEffect(() => {
+        if (id) {
+            localStorage.setItem('leagueId', id);
+        } else {
+            localStorage.removeItem('leagueId');
+        }
+    }, [id]);
+
+    useEffect(() => {
         if (!id) return;
 
         let league;
 
         const fetchStandingsData = async () => {
             try {
-                const response = await fetch(`${SERVER_ADDRESS}/${id}/standings`);
+                const response = await fetch(
+                    `${SERVER_ADDRESS}/${id}/standings`
+                );
                 const standings = await response.json();
 
                 league = {
@@ -56,18 +67,20 @@ export const App = () => {
 
         const fetchMatchAndTeamData = async () => {
             try {
-                const endpoints = [
-                    'matches',
-                    'teams'
-                ];
-                const requests = endpoints.map((endpoint) => fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`));
+                const endpoints = ['matches', 'teams'];
+                const requests = endpoints.map((endpoint) =>
+                    fetch(`${SERVER_ADDRESS}/${id}/${endpoint}`)
+                );
                 const responses = await Promise.all(requests);
-                const [
-                    { matches },
-                    { teams },
-                ] = await Promise.all(responses.map((response) => response.json()));
-            
-                handleDispatch(STORE_ACTIONS.LEAGUE, { ...league, matches, teams });
+                const [{ matches }, { teams }] = await Promise.all(
+                    responses.map((response) => response.json())
+                );
+
+                handleDispatch(STORE_ACTIONS.LEAGUE, {
+                    ...league,
+                    matches,
+                    teams,
+                });
             } catch (error) {
                 console.log({ error });
             }

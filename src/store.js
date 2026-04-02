@@ -6,7 +6,7 @@ export const StoreContext = createContext();
 
 export const initialState = {
     cancelledMatches: [],
-    id: '',
+    id: localStorage.getItem('leagueId') ?? '',
     filteredFixtures: [],
     filteredResults: [],
     postponedMatches: [],
@@ -15,7 +15,7 @@ export const initialState = {
         matches: [],
         teams: [],
         area: {},
-        season : {},
+        season: {},
         competition: {},
     },
     matchStatus: INITIAL_STATE.MATCH_STATUS,
